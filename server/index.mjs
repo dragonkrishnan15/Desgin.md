@@ -8,6 +8,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import fs from "fs";
 import path from "path";
+import { exec } from "child_process";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -38,6 +39,15 @@ const server = new Server(
 server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
     tools: [
+      {
+        name: "open_design_studio",
+        description:
+          "Open the interactive visual UI Design Studio & Theme Customizer in the user's browser to visually browse all 28 styles, bucket candidates, compare side-by-side, and customize theme tokens live.",
+        inputSchema: {
+          type: "object",
+          properties: {},
+        },
+      },
       {
         name: "list_styles",
         description:
@@ -149,6 +159,26 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 // Execute tools
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request.params;
+
+  if (name === "open_design_studio") {
+    const studioPath = path.resolve(__dirname, "../studio.html");
+    const cmd = process.platform === "win32"
+      ? `start "" "${studioPath}"`
+      : process.platform === "darwin"
+      ? `open "${studioPath}"`
+      : `xdg-open "${studioPath}"`;
+
+    exec(cmd);
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `UI Design Studio opened in browser: ${studioPath}\nYou can now browse all 28 styles, bucket candidates, compare side-by-side, and customize theme tokens visually.`,
+        },
+      ],
+    };
+  }
 
   if (name === "list_styles") {
     let results = catalog;

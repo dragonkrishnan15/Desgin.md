@@ -6,6 +6,7 @@ and 4 senior Figma audit rubrics with zero context bloat.
 """
 
 import json
+import webbrowser
 from pathlib import Path
 from typing import Optional, List, Dict, Any
 
@@ -28,6 +29,13 @@ CATALOG = load_json("catalog.json") or []
 
 if FastMCP:
     mcp = FastMCP("ui-design-engine")
+
+    @mcp.tool()
+    def open_design_studio() -> str:
+        """Open the interactive visual UI Design Studio & Theme Customizer in the user's browser."""
+        studio_path = Path(__file__).resolve().parent.parent / "studio.html"
+        webbrowser.open(studio_path.as_uri())
+        return f"UI Design Studio opened: {studio_path}"
 
     @mcp.tool()
     def list_styles(family: Optional[str] = None) -> List[Dict[str, Any]]:
