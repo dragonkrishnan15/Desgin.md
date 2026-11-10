@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusAI — Bento Board UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            canvas: '#0B0B0F',
+            tile: '#17171D',
+            tileHover: '#1E1E26',
+            violetAccent: '#7C5CFF',
+            mintAccent: '#3DDC97',
+            softWhite: '#F5F5F7',
+            mutedGray: '#9A9AA5',
+          },
+          borderRadius: {
+            '3xl': '24px',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0B0B0F;
+      color: #F5F5F7;
+      font-family: 'Geist', 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .bento-card {
+      background-color: #17171D;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(124, 92, 255, 0.35);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.6), 0 0 20px -2px rgba(124, 92, 255, 0.15);
+    }
+    .tap-target {
+      min-height: 44px;
+      min-width: 44px;
+      transition: transform 120ms cubic-bezier(0.2, 0, 0, 1);
+    }
+    .tap-target:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 flex flex-col justify-between">
+
+  <!-- Header Section -->
+  <header class="max-w-6xl mx-auto w-full mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1A24] border border-white/10 text-xs text-mintAccent mb-2 font-medium">
+        <span class="w-2 h-2 rounded-full bg-mintAccent animate-pulse" aria-hidden="true"></span>
+        NexusAI Fleet Active &middot; Progressive Context Enabled
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-softWhite">
+        Autonomous Agent Runtime
+      </h1>
+      <p class="text-mutedGray text-sm md:text-base mt-1 max-w-xl">
+        High-throughput micro-agent orchestration with zero context bloat and isolated toolchains.
+      </p>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="tap-target px-5 py-2.5 rounded-xl bg-violetAccent text-white font-medium text-sm shadow-lg shadow-violetAccent/20 hover:bg-[#6D4AEF] focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none" aria-label="Deploy new autonomous subagent">
+        + Launch Agent
+      </button>
+      <button class="tap-target px-4 py-2.5 rounded-xl bg-[#1E1E26] border border-white/10 text-softWhite font-medium text-sm hover:border-white/20 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none" aria-label="Open settings and configuration">
+        Settings
+      </button>
+    </div>
+  </header>
+
+  <!-- Bento Grid 4-Column Responsive Layout -->
+  <main class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[180px]">
+
+    <!-- Tile 1: Hero Showcase Card (2x2) -->
+    <section class="bento-card md:col-span-2 md:row-span-2 p-6 flex flex-col justify-between relative overflow-hidden" aria-labelledby="hero-tile-title">
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-violetAccent">Live Orchestrator</span>
+          <h2 id="hero-tile-title" class="text-2xl font-bold text-softWhite mt-1">Autonomous Cluster</h2>
+          <p class="text-mutedGray text-sm mt-1">12 active subagents executing in parallel sandboxes.</p>
+        </div>
+        <span class="px-3 py-1 bg-mintAccent/10 text-mintAccent border border-mintAccent/20 rounded-full text-xs font-medium">
+          Healthy
+        </span>
+      </div>
+
+      <!-- Real-time Terminal Log Simulation -->
+      <div class="bg-[#0B0B0F]/80 border border-white/5 rounded-2xl p-4 font-mono text-xs text-mutedGray space-y-2 my-4">
+        <div class="flex items-center gap-2">
+          <span class="text-mintAccent">&check;</span>
+          <span class="text-softWhite">agent-codebase-researcher</span>
+          <span class="text-white/40 ml-auto">18ms</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-violetAccent">&bull;</span>
+          <span class="text-softWhite">agent-a11y-auditor</span>
+          <span class="text-white/40 ml-auto">evaluating tokens...</span>
+        </div>
+        <div class="flex items-center gap-2 text-white/50">
+          <span>&gt;</span>
+          <span>Context memory: 14.2 MB / 800 MB budget</span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between pt-2 border-t border-white/5 text-xs text-mutedGray">
+        <span>Uptime: 99.98%</span>
+        <a href="#cluster" class="text-violetAccent hover:underline focus-visible:ring-2 focus-visible:ring-violetAccent rounded">View topology &rarr;</a>
+      </div>
+    </section>
+
+    <!-- Tile 2: Wide Metric Card (2x1) -->
+    <section class="bento-card md:col-span-2 md:row-span-1 p-6 flex flex-col justify-between" aria-labelledby="latency-title">
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-mutedGray">Inference Speed</span>
+          <h2 id="latency-title" class="text-xl font-bold text-softWhite mt-0.5">Global P99 Latency</h2>
+        </div>
+        <span class="text-2xl font-bold font-mono text-mintAccent">42ms</span>
+      </div>
+      <div class="flex items-center gap-2 mt-2">
+        <div class="h-2 flex-1 bg-white/5 rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-mintAccent to-violetAccent rounded-full" style="width: 82%;"></div>
+        </div>
+        <span class="text-xs text-mutedGray font-mono">1.8k req/sec</span>
+      </div>
+      <p class="text-xs text-mutedGray">Edge routing via 24 locations with sub-50ms roundtrip.</p>
+    </section>
+
+    <!-- Tile 3: Tall Vertical Preview (1x2) -->
+    <section class="bento-card md:col-span-1 md:row-span-2 p-6 flex flex-col justify-between" aria-labelledby="tools-title">
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-wider text-violetAccent">MCP Protocol</span>
+        <h2 id="tools-title" class="text-lg font-bold text-softWhite mt-1">Tools Active</h2>
+        <p class="text-mutedGray text-xs mt-1">Progressive Stdio channels.</p>
+
+        <div class="mt-4 space-y-2.5">
+          <div class="p-2.5 rounded-xl bg-[#0B0B0F]/60 border border-white/5 text-xs flex items-center justify-between">
+            <span class="text-softWhite font-medium">list_styles</span>
+            <span class="text-mintAccent text-[10px] font-mono">0.2k tok</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-[#0B0B0F]/60 border border-white/5 text-xs flex items-center justify-between">
+            <span class="text-softWhite font-medium">get_style</span>
+            <span class="text-mintAccent text-[10px] font-mono">0.08k tok</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-[#0B0B0F]/60 border border-white/5 text-xs flex items-center justify-between">
+            <span class="text-softWhite font-medium">audit_a11y</span>
+            <span class="text-mintAccent text-[10px] font-mono">WCAG 2.1</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-3 border-t border-white/5 text-[11px] text-mutedGray">
+        Zero token waste on unused tools.
+      </div>
+    </section>
+
+    <!-- Tile 4: Compact Badge (1x1) -->
+    <section class="bento-card md:col-span-1 md:row-span-1 p-6 flex flex-col justify-between" aria-labelledby="sandbox-title">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-semibold uppercase tracking-wider text-mutedGray">Security</span>
+        <span class="w-2.5 h-2.5 rounded-full bg-mintAccent" aria-hidden="true"></span>
+      </div>
+      <div>
+        <div class="text-2xl font-bold font-mono text-softWhite">100%</div>
+        <h2 id="sandbox-title" class="text-xs font-medium text-mutedGray mt-0.5">Sandbox Isolation</h2>
+      </div>
+    </section>
+
+    <!-- Tile 5: Compact Badge (1x1) -->
+    <section class="bento-card md:col-span-1 md:row-span-1 p-6 flex flex-col justify-between" aria-labelledby="memory-title">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-semibold uppercase tracking-wider text-mutedGray">RAM Budget</span>
+        <span class="text-xs text-mintAccent font-mono">&darr; 94%</span>
+      </div>
+      <div>
+        <div class="text-2xl font-bold font-mono text-violetAccent">14 MB</div>
+        <h2 id="memory-title" class="text-xs font-medium text-mutedGray mt-0.5">Laptop Memory</h2>
+      </div>
+    </section>
+
+    <!-- Tile 6: Wide Metric Card (2x1) -->
+    <section class="bento-card md:col-span-2 md:row-span-1 p-6 flex flex-col justify-between" aria-labelledby="cache-title">
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-mintAccent">Efficiency</span>
+          <h2 id="cache-title" class="text-xl font-bold text-softWhite mt-0.5">Prompt Cache Hit Rate</h2>
+        </div>
+        <span class="text-2xl font-bold font-mono text-softWhite">94.8%</span>
+      </div>
+      <div class="flex items-center justify-between text-xs text-mutedGray mt-2">
+        <span>Catalog indexed locally</span>
+        <span class="text-mintAccent font-medium">Saved 1.4M tokens/day</span>
+      </div>
+      <p class="text-xs text-mutedGray">Styles loaded via on-demand filesystem resolution.</p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-6xl mx-auto w-full mt-8 pt-4 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-mutedGray gap-2">
+    <span>Built with UI Design Engine &middot; Style #03 Bento Grid</span>
+    <div class="flex items-center gap-4">
+      <a href="#" class="hover:text-softWhite focus-visible:ring-2 focus-visible:ring-violetAccent rounded">Documentation</a>
+      <a href="#" class="hover:text-softWhite focus-visible:ring-2 focus-visible:ring-violetAccent rounded">GitHub Repository</a>
+    </div>
+  </footer>
+
+</body>
+</html>
