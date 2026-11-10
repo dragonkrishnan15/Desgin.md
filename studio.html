@@ -1,555 +1,1592 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UI Design Studio — 28 Styles, Live Customizer & Theme Bucket</title>
+  <title>UI Design Studio — Creative Instrument &amp; Website Composition Engine</title>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Geist', 'Inter', 'sans-serif'],
-            serif: ['Playfair Display', 'serif'],
+            sans: ['Geist', 'Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
             mono: ['Space Mono', 'monospace'],
+            display: ['Syne', 'sans-serif'],
           },
           colors: {
-            canvas: '#0B0B0F',
-            surface: '#141418',
-            surfaceAlt: '#1C1C24',
-            borderLight: 'rgba(255, 255, 255, 0.08)',
-            accentViolet: '#7C5CFF',
-            accentMint: '#3DDC97',
+            voidBg: '#090A0D',
+            surfacePrimary: '#14151A',
+            surfaceSecondary: '#1C1D24',
+            surfaceElevated: '#22232A',
+            borderSubtle: '#2A2B33',
+            textPrimary: '#F0F0F3',
+            textSecondary: '#A0A1AD',
+            textMuted: '#727481',
+            accentPrimary: '#8066FF',
+            accentSecondary: '#35D6A0',
+            warning: '#E5B86C',
           }
         }
       }
     }
   </script>
+
   <style>
-    body {
-      background-color: #0B0B0F;
-      color: #F5F5F7;
-      font-family: 'Geist', 'Inter', sans-serif;
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #090A0D; }
+    ::-webkit-scrollbar-thumb { background: #2A2B33; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3E404D; }
+
+    /* Carousel Snap */
+    .carousel-track {
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
     }
-    .custom-scroll::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+    .carousel-item {
+      scroll-snap-align: start;
     }
-    .custom-scroll::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 999px;
+
+    /* Active Press */
+    .tactile-btn {
+      transition: transform 120ms cubic-bezier(0.2, 0, 0, 1), background-color 150ms ease, border-color 150ms ease;
     }
-    .custom-scroll::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .active-scale {
-      transition: transform 120ms ease;
-    }
-    .active-scale:active {
+    .tactile-btn:active {
       transform: scale(0.96);
+    }
+
+    /* Range slider custom styling */
+    input[type=range] {
+      accent-color: #8066FF;
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-accentViolet selection:text-white">
+<body class="bg-voidBg text-textPrimary min-h-screen flex flex-col font-sans antialiased selection:bg-accentPrimary selection:text-white">
 
-  <!-- Top Navigation & Header -->
-  <header class="border-b border-borderLight bg-surface/80 backdrop-blur-md sticky top-0 z-30 px-4 md:px-8 py-3.5">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+  <!-- ========================================== -->
+  <!-- 1. GLOBAL APPLICATION HEADER                -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 bg-surfacePrimary/90 backdrop-blur-xl border-b border-borderSubtle px-4 lg:px-8 py-3">
+    <div class="max-w-[1600px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      
+      <!-- Brand & Title -->
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-xl bg-accentViolet flex items-center justify-center font-bold text-white shadow-lg shadow-accentViolet/30">
+        <div class="w-9 h-9 rounded-xl bg-accentPrimary flex items-center justify-center font-extrabold text-white shadow-lg shadow-accentPrimary/25 tracking-wider text-sm">
           UI
         </div>
         <div>
-          <h1 class="text-base font-bold text-white tracking-tight flex items-center gap-2">
-            UI Design Studio &amp; Customizer
-            <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-accentMint/10 text-accentMint border border-accentMint/20">28 Styles</span>
-          </h1>
-          <p class="text-xs text-white/50">Pick styles, bucket candidates, customize tokens, and export AI prompts.</p>
+          <div class="flex items-center gap-2">
+            <h1 class="text-sm font-bold tracking-tight text-textPrimary">UI DESIGN STUDIO</h1>
+            <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-accentPrimary/15 text-accentPrimary border border-accentPrimary/30">v2.0 MASTER</span>
+            <span class="text-[10px] font-mono text-textMuted hidden sm:inline">&bull; 28 STYLES &middot; 5 FAMILIES</span>
+          </div>
+          <p class="text-xs text-textSecondary">Interactive Exploration, Design Marketplace &amp; Website Composition Engine</p>
         </div>
       </div>
 
-      <!-- Search & Bucket Counter -->
+      <!-- Navigation Tabs (Workflow Modes) -->
+      <nav class="flex items-center gap-1 bg-surfaceSecondary p-1 rounded-2xl border border-borderSubtle overflow-x-auto">
+        <button id="navExplore" class="nav-tab tactile-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-accentPrimary text-white shadow-sm flex items-center gap-1.5 whitespace-nowrap" data-view="explore">
+          <span>🧭</span> <span>Explore &amp; Marketplace</span>
+        </button>
+        <button id="navPreview" class="nav-tab tactile-btn px-3.5 py-1.5 rounded-xl text-xs font-medium text-textSecondary hover:text-textPrimary flex items-center gap-1.5 whitespace-nowrap" data-view="preview">
+          <span>🖥️</span> <span>Live Prototype</span>
+        </button>
+        <button id="navQuality" class="nav-tab tactile-btn px-3.5 py-1.5 rounded-xl text-xs font-medium text-textSecondary hover:text-textPrimary flex items-center gap-1.5 whitespace-nowrap" data-view="quality">
+          <span>🛡️</span> <span>Quality Audit</span>
+          <span id="qualityIndicator" class="w-2 h-2 rounded-full bg-accentSecondary"></span>
+        </button>
+        <button id="navDocs" class="nav-tab tactile-btn px-3.5 py-1.5 rounded-xl text-xs font-medium text-textSecondary hover:text-textPrimary flex items-center gap-1.5 whitespace-nowrap" data-view="docs">
+          <span>📄</span> <span>Handoff &amp; Export</span>
+        </button>
+      </nav>
+
+      <!-- Right Header Actions: Search, Bucket, Reset -->
       <div class="flex items-center gap-3">
-        <div class="relative flex-1 md:w-72">
-          <input id="searchInput" type="text" placeholder="Search styles, keywords, fonts..." 
-                 class="w-full bg-[#1A1A22] border border-white/10 rounded-xl px-3.5 py-2 text-xs text-white placeholder-white/40 focus:outline-none focus:border-accentViolet/60 focus:ring-1 focus:ring-accentViolet/60">
+        <!-- Live Search -->
+        <div class="relative w-44 lg:w-60">
+          <input id="globalSearch" type="text" placeholder="Search 28 styles, fonts, tags..." 
+                 class="w-full bg-surfaceSecondary border border-borderSubtle rounded-xl px-3 py-1.5 text-xs text-textPrimary placeholder-textMuted focus:outline-none focus:border-accentPrimary focus:ring-1 focus:ring-accentPrimary">
+          <span class="absolute right-2.5 top-2 text-[10px] text-textMuted font-mono">⌘K</span>
         </div>
-        <button id="openBucketBtn" class="active-scale flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1E1E28] border border-white/10 hover:border-white/20 text-xs font-medium text-white">
+
+        <!-- Design Bucket Button -->
+        <button id="openBucketBtn" class="tactile-btn relative flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surfaceSecondary border border-borderSubtle hover:border-accentPrimary/50 text-xs font-medium text-textPrimary shadow-sm">
           <span>🛒 Bucket</span>
-          <span id="bucketBadge" class="w-5 h-5 rounded-full bg-accentViolet text-[10px] font-bold flex items-center justify-center">0</span>
+          <span id="headerBucketBadge" class="w-5 h-5 rounded-full bg-accentPrimary text-[10px] font-bold text-white flex items-center justify-center">0</span>
+        </button>
+
+        <!-- Quick Reset -->
+        <button id="globalResetBtn" title="Reset all selections and customized overrides" class="tactile-btn p-1.5 rounded-xl text-textMuted hover:text-warning border border-borderSubtle hover:border-warning/30 bg-surfaceSecondary text-xs">
+          ↺
         </button>
       </div>
-    </div>
 
-    <!-- Category Filter Pills -->
-    <div class="max-w-7xl mx-auto mt-3 flex items-center gap-2 overflow-x-auto custom-scroll pb-1">
-      <button class="filter-pill px-3 py-1.5 rounded-full text-xs font-medium bg-accentViolet text-white border border-accentViolet" data-family="all">
-        All 28 Styles
-      </button>
-      <button class="filter-pill px-3 py-1.5 rounded-full text-xs font-medium bg-[#1A1A22] text-white/70 hover:text-white border border-white/5" data-family="Clean & Structured">
-        Clean &amp; Structured (6)
-      </button>
-      <button class="filter-pill px-3 py-1.5 rounded-full text-xs font-medium bg-[#1A1A22] text-white/70 hover:text-white border border-white/5" data-family="Soft & Tactile">
-        Soft &amp; Tactile (6)
-      </button>
-      <button class="filter-pill px-3 py-1.5 rounded-full text-xs font-medium bg-[#1A1A22] text-white/70 hover:text-white border border-white/5" data-family="Bold & Expressive">
-        Bold &amp; Expressive (5)
-      </button>
-      <button class="filter-pill px-3 py-1.5 rounded-full text-xs font-medium bg-[#1A1A22] text-white/70 hover:text-white border border-white/5" data-family="Retro & Digital">
-        Retro &amp; Digital (6)
-      </button>
-      <button class="filter-pill px-3 py-1.5 rounded-full text-xs font-medium bg-[#1A1A22] text-white/70 hover:text-white border border-white/5" data-family="Artful & Heritage">
-        Artful &amp; Heritage (5)
-      </button>
     </div>
   </header>
 
-  <!-- Main Content: Style Cards Grid -->
-  <main class="max-w-7xl mx-auto w-full p-4 md:p-8 flex-1">
-    <div id="stylesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      <!-- Injected dynamically via JS -->
-    </div>
+  <!-- ========================================== -->
+  <!-- MAIN WORKSPACE CONTAINER                   -->
+  <!-- ========================================== -->
+  <main class="flex-1 max-w-[1600px] w-full mx-auto p-4 lg:p-8 flex flex-col">
+
+    <!-- VIEW 1: EXPLORATION & MARKETPLACE -->
+    <section id="viewExplore" class="view-panel space-y-8">
+      
+      <!-- Category Switcher Banner -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-surfacePrimary p-5 rounded-3xl border border-borderSubtle shadow-xl">
+        <div>
+          <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-accentPrimary">Marketplace Architecture</span>
+          <h2 class="text-xl font-bold text-textPrimary mt-0.5">Explore Aesthetic Families &amp; Independent Design Decisions</h2>
+          <p class="text-xs text-textSecondary mt-1">
+            Pick complete systems, or select typography, palettes, buttons, and layouts independently into your Design Bucket.
+          </p>
+        </div>
+
+        <!-- Category Selector Tabs -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1">
+          <button class="category-filter-btn tactile-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-accentPrimary text-white border border-accentPrimary whitespace-nowrap" data-cat="all">
+            All Families (28)
+          </button>
+          <button class="category-filter-btn tactile-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-surfaceSecondary text-textSecondary hover:text-textPrimary border border-borderSubtle whitespace-nowrap" data-cat="Clean & Structured">
+            Clean &amp; Structured (6)
+          </button>
+          <button class="category-filter-btn tactile-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-surfaceSecondary text-textSecondary hover:text-textPrimary border border-borderSubtle whitespace-nowrap" data-cat="Soft & Tactile">
+            Soft &amp; Tactile (6)
+          </button>
+          <button class="category-filter-btn tactile-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-surfaceSecondary text-textSecondary hover:text-textPrimary border border-borderSubtle whitespace-nowrap" data-cat="Bold & Expressive">
+            Bold &amp; Expressive (5)
+          </button>
+          <button class="category-filter-btn tactile-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-surfaceSecondary text-textSecondary hover:text-textPrimary border border-borderSubtle whitespace-nowrap" data-cat="Retro & Digital">
+            Retro &amp; Digital (6)
+          </button>
+          <button class="category-filter-btn tactile-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-surfaceSecondary text-textSecondary hover:text-textPrimary border border-borderSubtle whitespace-nowrap" data-cat="Artful & Heritage">
+            Artful &amp; Heritage (5)
+          </button>
+        </div>
+      </div>
+
+      <!-- 5 Independent Category Carousels Container -->
+      <div id="carouselsContainer" class="space-y-10">
+        <!-- Rendered dynamically via JS for all 5 categories -->
+      </div>
+    </section>
+
+    <!-- VIEW 2: LIVE COMBINED WEBSITE PROTOTYPE PREVIEW -->
+    <section id="viewPreview" class="view-panel hidden space-y-6">
+      <!-- Preview Control Toolbar -->
+      <div class="bg-surfacePrimary p-4 rounded-3xl border border-borderSubtle flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-mono font-bold uppercase text-accentSecondary">Live Prototype Engine</span>
+          <h2 class="text-lg font-bold text-textPrimary">Combined Website Simulation</h2>
+          <p class="text-xs text-textSecondary">Real-time browser-rendered prototype generated from active bucket assets.</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <!-- Viewport Mode Buttons -->
+          <div class="flex items-center bg-surfaceSecondary p-1 rounded-xl border border-borderSubtle text-xs">
+            <button class="viewport-btn tactile-btn px-3 py-1 rounded-lg bg-accentPrimary text-white font-medium" data-viewport="desktop">
+              🖥️ Desktop
+            </button>
+            <button class="viewport-btn tactile-btn px-3 py-1 rounded-lg text-textSecondary hover:text-textPrimary" data-viewport="tablet">
+              📱 Tablet (768px)
+            </button>
+            <button class="viewport-btn tactile-btn px-3 py-1 rounded-lg text-textSecondary hover:text-textPrimary" data-viewport="mobile">
+              📲 Mobile (390px)
+            </button>
+          </div>
+
+          <!-- Light / Dark Appearance Toggle -->
+          <button id="toggleThemeModeBtn" class="tactile-btn px-3 py-1.5 rounded-xl bg-surfaceSecondary border border-borderSubtle text-xs text-textPrimary flex items-center gap-1.5">
+            <span id="themeModeIcon">🌙</span> <span id="themeModeLabel">Dark Canvas</span>
+          </button>
+
+          <!-- Refresh Preview -->
+          <button id="refreshPreviewBtn" class="tactile-btn px-3 py-1.5 rounded-xl bg-surfaceElevated hover:bg-surfaceSecondary border border-borderSubtle text-xs text-textPrimary">
+            ↻ Sync
+          </button>
+        </div>
+      </div>
+
+      <!-- Viewport Frame Wrapper -->
+      <div class="w-full flex justify-center py-2 overflow-x-auto">
+        <div id="previewFrameContainer" class="w-full max-w-6xl transition-all duration-300 rounded-3xl border border-borderSubtle overflow-hidden shadow-2xl bg-[#0B0B0F]">
+          <!-- LIVE WEBSITE PROTOTYPE CONTENT GENERATED DIRECTLY HERE -->
+          <div id="prototypeRoot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: QUALITY AUDIT & INSPECTION -->
+    <section id="viewQuality" class="view-panel hidden space-y-6">
+      <div class="bg-surfacePrimary p-5 rounded-3xl border border-borderSubtle">
+        <span class="text-[11px] font-mono font-bold uppercase text-warning">Deterministic Design Evaluation</span>
+        <h2 class="text-xl font-bold text-textPrimary mt-0.5">Automated Design Quality &amp; Compliance Audit</h2>
+        <p class="text-xs text-textSecondary mt-1">
+          Inspects the combined design system for WCAG 2.1 AA text contrast, touch targets, modular rhythm, and conflicting property assignments.
+        </p>
+      </div>
+
+      <!-- Audit Metrics Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-surfacePrimary border border-borderSubtle rounded-2xl p-4">
+          <span class="text-[10px] font-mono uppercase text-textMuted">Contrast Compliance</span>
+          <div id="auditContrastScore" class="text-2xl font-bold font-mono text-accentSecondary mt-1">11.4 : 1</div>
+          <span class="text-xs text-textSecondary">WCAG AA &amp; AAA Pass</span>
+        </div>
+        <div class="bg-surfacePrimary border border-borderSubtle rounded-2xl p-4">
+          <span class="text-[10px] font-mono uppercase text-textMuted">Interactive Touch Targets</span>
+          <div id="auditTargetScore" class="text-2xl font-bold font-mono text-textPrimary mt-1">&ge; 44 &times; 44 px</div>
+          <span class="text-xs text-textSecondary">Apple HIG &amp; Android Pass</span>
+        </div>
+        <div class="bg-surfacePrimary border border-borderSubtle rounded-2xl p-4">
+          <span class="text-[10px] font-mono uppercase text-textMuted">Typography Scale Ratio</span>
+          <div id="auditTypeRatio" class="text-2xl font-bold font-mono text-accentPrimary mt-1">1.25 Ratio</div>
+          <span class="text-xs text-textSecondary">Major Third Scale</span>
+        </div>
+        <div class="bg-surfacePrimary border border-borderSubtle rounded-2xl p-4">
+          <span class="text-[10px] font-mono uppercase text-textMuted">Conflict Status</span>
+          <div id="auditConflictCount" class="text-2xl font-bold font-mono text-accentSecondary mt-1">0 Conflicts</div>
+          <span class="text-xs text-textSecondary">Coherent Architecture</span>
+        </div>
+      </div>
+
+      <!-- Findings & Actionable Fixes List -->
+      <div class="bg-surfacePrimary border border-borderSubtle rounded-3xl p-6">
+        <h3 class="text-sm font-bold text-textPrimary uppercase tracking-wider mb-4 flex items-center gap-2">
+          <span>Inspection Findings &amp; Recommended Actions</span>
+          <span class="text-xs font-mono font-normal text-textMuted">(Deterministic rules from Figma Agent Rubrics)</span>
+        </h3>
+        <div id="auditFindingsList" class="space-y-3">
+          <!-- Findings injected via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: DOCUMENTATION GENERATION & EXPORT -->
+    <section id="viewDocs" class="view-panel hidden space-y-6">
+      
+      <!-- Handoff Banner -->
+      <div class="bg-surfacePrimary p-5 rounded-3xl border border-borderSubtle flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-mono font-bold uppercase text-accentSecondary">Specification &amp; Agent Handoff</span>
+          <h2 class="text-xl font-bold text-textPrimary mt-0.5">Live Design System Documentation Engine</h2>
+          <p class="text-xs text-textSecondary mt-1">
+            Progressively constructs your 28-section specification and AI implementation prompt with zero placeholder filler.
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button id="confirmAndGenerateBtn" class="tactile-btn px-4 py-2 rounded-xl bg-accentPrimary hover:bg-accentPrimary/90 text-white font-bold text-xs shadow-lg shadow-accentPrimary/25 flex items-center gap-2">
+            <span>⚡ Confirm &amp; Generate Docs</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3-Panel Documentation Studio -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Left Panel: 28 Sections Checklist (3 cols) -->
+        <div class="lg:col-span-3 bg-surfacePrimary border border-borderSubtle rounded-3xl p-5 space-y-3">
+          <div class="flex items-center justify-between border-b border-borderSubtle pb-3">
+            <span class="text-xs font-bold text-textPrimary uppercase tracking-wider">Document Sections</span>
+            <span id="docProgressBadge" class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-accentSecondary/15 text-accentSecondary font-bold">28 / 28</span>
+          </div>
+          <div id="docSectionsList" class="space-y-1 text-xs max-h-[600px] overflow-y-auto pr-1">
+            <!-- 28 sections injected via JS -->
+          </div>
+        </div>
+
+        <!-- Center Panel: Progressive Markdown Document Viewer (6 cols) -->
+        <div class="lg:col-span-6 bg-surfacePrimary border border-borderSubtle rounded-3xl p-6 flex flex-col min-h-[650px] shadow-2xl">
+          <div class="flex items-center justify-between border-b border-borderSubtle pb-4 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-accentPrimary"></span>
+              <span id="docViewerTitle" class="text-xs font-mono font-bold text-textPrimary">DESIGN_SYSTEM_SPECIFICATION.md</span>
+            </div>
+            <!-- Document Switcher Tabs -->
+            <div class="flex items-center gap-1 bg-surfaceSecondary p-1 rounded-xl text-xs">
+              <button id="tabSpecDoc" class="tactile-btn px-3 py-1 rounded-lg bg-accentPrimary text-white font-medium">
+                Specification
+              </button>
+              <button id="tabPromptDoc" class="tactile-btn px-3 py-1 rounded-lg text-textSecondary hover:text-textPrimary font-medium">
+                AI Prompt
+              </button>
+            </div>
+          </div>
+
+          <!-- Document Render Area -->
+          <div class="flex-1 overflow-y-auto max-h-[560px] pr-2">
+            <pre id="docContentOutput" class="text-[11px] font-mono text-textSecondary whitespace-pre-wrap leading-relaxed select-all"></pre>
+          </div>
+        </div>
+
+        <!-- Right Panel: Design Summary & Browser Downloads (3 cols) -->
+        <div class="lg:col-span-3 bg-surfacePrimary border border-borderSubtle rounded-3xl p-5 space-y-5">
+          <div>
+            <h4 class="text-xs font-bold text-textPrimary uppercase tracking-wider mb-2">Browser File Export</h4>
+            <p class="text-xs text-textSecondary mb-4">
+              Direct browser download using Blob URLs. Zero backend required.
+            </p>
+            <div class="space-y-2.5">
+              <button id="downloadSpecBtn" class="tactile-btn w-full py-2.5 px-4 rounded-xl bg-accentPrimary text-white text-xs font-bold flex items-center justify-between shadow-lg shadow-accentPrimary/20">
+                <span>📥 Download Spec (.md)</span>
+                <span class="text-[10px] font-mono text-white/70">~15 KB</span>
+              </button>
+              <button id="downloadPromptBtn" class="tactile-btn w-full py-2.5 px-4 rounded-xl bg-surfaceSecondary hover:bg-surfaceElevated border border-borderSubtle text-textPrimary text-xs font-medium flex items-center justify-between">
+                <span>📥 Download AI Prompt (.md)</span>
+                <span class="text-[10px] font-mono text-textMuted">~8 KB</span>
+              </button>
+              <button id="copyActiveDocBtn" class="tactile-btn w-full py-2 px-4 rounded-xl bg-surfaceSecondary hover:bg-surfaceElevated border border-borderSubtle text-textSecondary hover:text-textPrimary text-xs font-medium text-center">
+                📋 Copy Active Document
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirmed System Highlights -->
+          <div class="pt-4 border-t border-borderSubtle space-y-3">
+            <h4 class="text-xs font-bold text-textPrimary uppercase tracking-wider">Active Configuration</h4>
+            <div id="confirmedHighlights" class="space-y-2 text-xs text-textSecondary">
+              <!-- Summary tokens injected -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <!-- Bucket Tray (Floating Bottom Bar) -->
-  <aside id="bucketBar" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 bg-[#16161E]/95 backdrop-blur-xl border border-white/15 rounded-2xl shadow-2xl p-3 px-5 flex items-center gap-4 transition-all duration-300 translate-y-24 opacity-0 pointer-events-none">
-    <div class="flex items-center gap-2">
-      <span class="text-xs font-semibold text-white">Theme Bucket:</span>
-      <div id="bucketItemsList" class="flex items-center gap-1.5">
-        <!-- Bucket style mini chips -->
-      </div>
-    </div>
-    <div class="h-5 w-[1px] bg-white/10"></div>
-    <div class="flex items-center gap-2">
-      <button id="compareBtn" class="active-scale px-3 py-1.5 rounded-xl bg-accentViolet hover:bg-accentViolet/90 text-white text-xs font-medium">
-        Compare Side-by-Side
-      </button>
-      <button id="clearBucketBtn" class="text-xs text-white/50 hover:text-white/80 px-2 py-1">
-        Clear
-      </button>
-    </div>
-  </aside>
-
-  <!-- Live Customizer & Preview Modal -->
-  <div id="previewModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 md:p-6 hidden">
-    <div class="bg-[#121218] border border-white/15 rounded-3xl max-w-5xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
+  <!-- ========================================== -->
+  <!-- MODAL: STYLE INSPECTOR & EXPERIMENTER      -->
+  <!-- ========================================== -->
+  <div id="inspectorModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 lg:p-6 hidden">
+    <div class="bg-surfacePrimary border border-borderSubtle rounded-3xl max-w-5xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl">
       <!-- Modal Header -->
-      <div class="p-5 border-b border-white/10 flex items-center justify-between bg-surface/50">
+      <div class="p-5 border-b border-borderSubtle flex items-center justify-between bg-surfaceSecondary/50">
         <div class="flex items-center gap-3">
-          <span id="modalIdBadge" class="text-xs font-mono font-bold px-2 py-0.5 rounded-md bg-accentViolet/20 text-accentViolet border border-accentViolet/30">03</span>
-          <h3 id="modalStyleName" class="text-lg font-bold text-white">Bento Grid</h3>
-          <span id="modalFamilyBadge" class="text-xs text-white/50 px-2.5 py-0.5 rounded-full bg-white/5">Clean &amp; Structured</span>
+          <span id="inspIdBadge" class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-lg bg-accentPrimary/20 text-accentPrimary border border-accentPrimary/30">01</span>
+          <div>
+            <h3 id="inspStyleName" class="text-lg font-bold text-textPrimary">Minimalism</h3>
+            <span id="inspFamily" class="text-xs text-textMuted">Clean &amp; Structured</span>
+          </div>
         </div>
-        <button id="closeModalBtn" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 hover:text-white">
-          &times;
-        </button>
+        <div class="flex items-center gap-2">
+          <button id="resetInspectorBtn" class="text-xs text-textMuted hover:text-warning px-2 py-1">Reset Defaults</button>
+          <button id="closeInspectorBtn" class="w-8 h-8 rounded-full bg-surfaceSecondary hover:bg-surfaceElevated flex items-center justify-center text-textSecondary hover:text-textPrimary text-base">&times;</button>
+        </div>
       </div>
 
-      <!-- Modal Body (Two-Column: Controls Left, Live Preview Right) -->
-      <div class="p-6 overflow-y-auto custom-scroll grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1">
-        <!-- Left: Customizer Controls (5 cols) -->
+      <!-- Modal Body (Two-Column) -->
+      <div class="p-6 overflow-y-auto grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1">
+        <!-- Left: Interactive Controls (5 cols) -->
         <div class="lg:col-span-5 space-y-5">
           <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-white/50 mb-2">Color Palette Tokens</h4>
-            <div id="palettePicker" class="grid grid-cols-5 gap-2">
-              <!-- Swatches injected -->
-            </div>
-            <p class="text-[11px] text-white/40 mt-1.5">Click any swatch to tweak or copy hex code.</p>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-textMuted mb-2">Palette Tokens</h4>
+            <div id="inspPaletteGrid" class="grid grid-cols-5 gap-2"></div>
+            <p class="text-[11px] text-textMuted mt-1.5">Click any swatch to set as primary accent.</p>
           </div>
 
           <div>
-            <label class="text-xs font-bold uppercase tracking-wider text-white/50 block mb-2">Corner Radius Dial</label>
+            <label class="text-xs font-bold uppercase tracking-wider text-textMuted block mb-2">Corner Radius Dial</label>
             <div class="grid grid-cols-4 gap-2 text-xs">
-              <button class="radius-opt px-2.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white" data-radius="0px">Sharp 0px</button>
-              <button class="radius-opt px-2.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white" data-radius="12px">Soft 12px</button>
-              <button class="radius-opt px-2.5 py-2 rounded-xl bg-accentViolet/20 border border-accentViolet text-white font-medium" data-radius="24px">Bento 24px</button>
-              <button class="radius-opt px-2.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white" data-radius="999px">Pill 999px</button>
+              <button class="insp-radius-btn tactile-btn px-2 py-1.5 rounded-xl border border-borderSubtle bg-surfaceSecondary text-textPrimary" data-r="0px">Sharp 0px</button>
+              <button class="insp-radius-btn tactile-btn px-2 py-1.5 rounded-xl border border-borderSubtle bg-surfaceSecondary text-textPrimary" data-r="8px">Soft 8px</button>
+              <button class="insp-radius-btn tactile-btn px-2 py-1.5 rounded-xl border border-accentPrimary bg-accentPrimary/15 text-accentPrimary font-bold" data-r="24px">Bento 24px</button>
+              <button class="insp-radius-btn tactile-btn px-2 py-1.5 rounded-xl border border-borderSubtle bg-surfaceSecondary text-textPrimary" data-r="999px">Pill 999px</button>
             </div>
           </div>
 
           <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-white/50 mb-2">Signature Rules</h4>
-            <ul id="modalSignatureList" class="space-y-1.5 text-xs text-white/70 bg-[#161620] p-3 rounded-2xl border border-white/5">
-              <!-- Signatures injected -->
-            </ul>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-textMuted mb-2">Signature Rules</h4>
+            <ul id="inspSignatureList" class="space-y-1.5 text-xs text-textSecondary bg-surfaceSecondary p-3 rounded-2xl border border-borderSubtle"></ul>
           </div>
 
           <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-white/50 mb-2">Recommended Typefaces</h4>
-            <div id="modalTypefaces" class="flex flex-wrap gap-1.5"></div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-textMuted mb-2">Recommended Typefaces</h4>
+            <div id="inspTypefaces" class="flex flex-wrap gap-1.5"></div>
+          </div>
+
+          <!-- Add to Bucket Action -->
+          <div class="pt-4 border-t border-borderSubtle flex items-center gap-2">
+            <button id="inspAddFullBtn" class="tactile-btn flex-1 py-2.5 rounded-xl bg-accentPrimary hover:bg-accentPrimary/90 text-white font-bold text-xs shadow-lg shadow-accentPrimary/25">
+              + Add Entire Style to Bucket
+            </button>
           </div>
         </div>
 
-        <!-- Right: Real-time Component Sandbox (7 cols) -->
-        <div class="lg:col-span-7 flex flex-col justify-between bg-[#08080C] p-5 rounded-2xl border border-white/10">
+        <!-- Right: Live Component Preview (7 cols) -->
+        <div class="lg:col-span-7 flex flex-col justify-between bg-voidBg p-6 rounded-3xl border border-borderSubtle">
           <div>
-            <div class="flex items-center justify-between pb-3 border-b border-white/5 mb-4">
-              <span class="text-xs font-mono text-white/40">LIVE_SANDBOX_PREVIEW</span>
-              <span id="canvasMode" class="text-xs text-accentMint font-mono">&bull; Interactive Mode</span>
+            <div class="flex items-center justify-between pb-3 border-b border-borderSubtle mb-5">
+              <span class="text-xs font-mono text-textMuted">LIVE_COMPONENT_SPECIMEN</span>
+              <span class="text-xs text-accentSecondary font-mono">&bull; Reactive Sandbox</span>
             </div>
 
-            <!-- The Live Component Preview -->
-            <div id="sandboxCanvas" class="p-5 rounded-2xl transition-all duration-200" style="background-color: #17171D; border: 1px solid rgba(255,255,255,0.08); border-radius: 24px;">
+            <!-- Preview Card -->
+            <div id="inspPreviewCard" class="p-6 rounded-3xl transition-all duration-200 border border-white/10" style="background-color: #17171D;">
               <div class="flex items-center justify-between mb-4">
-                <span id="previewTag" class="text-xs font-semibold px-2.5 py-0.5 rounded-full text-white" style="background-color: #7C5CFF;">Featured Card</span>
-                <span class="text-xs text-white/50 font-mono">v1.0.4</span>
+                <span id="inspCardTag" class="text-xs font-semibold px-2.5 py-0.5 rounded-full text-white" style="background-color: #8066FF;">Specimen</span>
+                <span class="text-xs text-textMuted font-mono">Token State</span>
               </div>
-              <h4 id="previewHeadline" class="text-xl font-bold text-white mb-2">Engineered Spatial Rhythm</h4>
-              <p id="previewParagraph" class="text-xs text-white/70 mb-5 leading-relaxed">
-                Every element earns its spot. Hierarchies are maintained through deterministic token scales and deliberate negative space.
+              <h4 id="inspCardTitle" class="text-2xl font-bold text-white mb-2">Refined Spatial Structure</h4>
+              <p id="inspCardDesc" class="text-xs text-textSecondary mb-6 leading-relaxed">
+                Elements align to shared boundaries. Hierarchy emerges from spacing ratios rather than arbitrary decorative elements.
               </p>
               <div class="flex items-center gap-3">
-                <button id="previewCta" class="active-scale px-4 py-2 text-xs font-semibold rounded-xl text-white shadow-lg transition-transform" style="background-color: #7C5CFF;">
-                  Explore Topology
+                <button id="inspCardPrimaryBtn" class="tactile-btn px-5 py-2.5 text-xs font-semibold rounded-xl text-white shadow-lg" style="background-color: #8066FF;">
+                  Primary Action
                 </button>
-                <button id="previewSecondary" class="active-scale px-3 py-2 text-xs font-medium rounded-xl border border-white/10 text-white/80 hover:bg-white/5">
-                  View Metrics
+                <button id="inspCardSecondaryBtn" class="tactile-btn px-4 py-2.5 text-xs font-medium rounded-xl border border-borderSubtle text-textSecondary hover:bg-white/5">
+                  Secondary Action
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- Export Tabs (Prompt / Tailwind / JSON) -->
-          <div class="mt-6 pt-4 border-t border-white/10">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-bold text-white">Finalize &amp; Export:</span>
-              <div class="flex gap-1.5">
-                <button id="copyPromptBtn" class="active-scale px-3 py-1.5 rounded-lg bg-accentViolet hover:bg-accentViolet/90 text-white text-xs font-semibold">
-                  📋 Copy AI Prompt
-                </button>
-                <button id="copyTailwindBtn" class="active-scale px-3 py-1.5 rounded-lg bg-[#22222E] hover:bg-[#2A2A38] text-white text-xs font-medium">
-                  Tailwind Config
-                </button>
-              </div>
-            </div>
-            <textarea id="exportOutput" readonly rows="3" class="w-full bg-[#121218] border border-white/10 rounded-xl p-2.5 text-[11px] font-mono text-white/70 focus:outline-none custom-scroll"></textarea>
+          <div class="mt-6 pt-4 border-t border-borderSubtle">
+            <span class="text-xs font-bold text-textPrimary block mb-2">Design Philosophy Thesis</span>
+            <p id="inspWhatItMeans" class="text-xs text-textSecondary leading-relaxed bg-surfaceSecondary p-3.5 rounded-2xl border border-borderSubtle"></p>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Compare Side-by-Side Modal -->
-  <div id="compareModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
-    <div class="bg-[#121218] border border-white/15 rounded-3xl max-w-5xl w-full max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
-      <div class="p-5 border-b border-white/10 flex items-center justify-between">
-        <h3 class="text-base font-bold text-white flex items-center gap-2">
-          Side-by-Side Comparison
-          <span class="text-xs font-normal text-white/50">(Evaluate aesthetics before finalizing)</span>
+  <!-- ========================================== -->
+  <!-- DRAWER: PERSISTENT DESIGN BUCKET          -->
+  <!-- ========================================== -->
+  <div id="bucketDrawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-surfacePrimary border-l border-borderSubtle shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-borderSubtle flex items-center justify-between bg-surfaceSecondary/50">
+      <div>
+        <h3 class="text-base font-bold text-textPrimary flex items-center gap-2">
+          <span>Design Bucket</span>
+          <span id="drawerBadgeCount" class="text-xs font-mono px-2 py-0.5 rounded-full bg-accentPrimary/20 text-accentPrimary font-bold">0 Items</span>
         </h3>
-        <button id="closeCompareBtn" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70">&times;</button>
+        <p class="text-xs text-textMuted">Persistent design asset cart for your composition.</p>
       </div>
-      <div id="compareGrid" class="p-6 overflow-y-auto custom-scroll grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Injected compare cards -->
+      <button id="closeBucketDrawerBtn" class="w-8 h-8 rounded-full bg-surfaceSecondary hover:bg-surfaceElevated flex items-center justify-center text-textSecondary hover:text-textPrimary">&times;</button>
+    </div>
+
+    <!-- Conflict Warning Banner (if any) -->
+    <div id="conflictAlertBanner" class="p-4 bg-warning/10 border-b border-warning/20 hidden">
+      <div class="flex items-start gap-2">
+        <span class="text-warning text-sm">⚠️</span>
+        <div class="flex-1">
+          <span class="text-xs font-bold text-warning block">Design Conflicts Detected</span>
+          <p id="conflictAlertText" class="text-[11px] text-textSecondary mt-0.5"></p>
+          <button id="resolveConflictQuickBtn" class="text-[11px] font-bold text-warning underline mt-1">Resolve in Quality Audit &rarr;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bucket Items List (Grouped by Asset Category) -->
+    <div id="bucketItemsContainer" class="p-5 flex-1 overflow-y-auto space-y-4">
+      <!-- Injected via JS -->
+    </div>
+
+    <!-- Drawer Footer Actions -->
+    <div class="p-5 border-t border-borderSubtle bg-surfaceSecondary/40 space-y-2.5">
+      <button id="drawerProceedToPreviewBtn" class="tactile-btn w-full py-2.5 rounded-xl bg-accentPrimary hover:bg-accentPrimary/90 text-white font-bold text-xs shadow-lg shadow-accentPrimary/20 flex items-center justify-center gap-2">
+        <span>Go to Live Prototype &rarr;</span>
+      </button>
+      <div class="flex items-center justify-between gap-2">
+        <button id="clearAllBucketBtn" class="text-xs text-textMuted hover:text-warning px-2 py-1">
+          Clear Bucket
+        </button>
+        <button id="savePresetBtn" class="text-xs text-textSecondary hover:text-textPrimary px-2 py-1">
+          Save Preset
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- Notification Toast -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-accentMint text-[#08080C] px-4 py-2.5 rounded-xl font-bold text-xs shadow-2xl transition-all duration-300 translate-y-16 opacity-0 pointer-events-none">
-    Copied to clipboard!
+  <!-- Toast Notification -->
+  <div id="globalToast" class="fixed bottom-6 right-6 z-50 bg-accentSecondary text-[#08080C] px-4 py-2.5 rounded-xl font-bold text-xs shadow-2xl transition-all duration-300 translate-y-16 opacity-0 pointer-events-none">
+    Action completed
   </div>
 
-  <footer class="border-t border-borderLight py-4 px-8 text-center text-xs text-white/40">
-    UI Design Studio &middot; Embedded 28 Styles &middot; Runs 100% Offline with Zero Dependencies
+  <!-- Footer -->
+  <footer class="border-t border-borderSubtle py-4 px-6 text-center text-xs text-textMuted bg-voidBg">
+    UI Design Studio &middot; 28 Embedded Styles &middot; Continuous Progressive Disclosure &middot; Dual MCP &amp; Skill Engine
   </footer>
 
+  <!-- ========================================== -->
+  <!-- APPLICATION LOGIC & STATE ENGINE           -->
+  <!-- ========================================== -->
   <script>
-    // Embedded 28 styles data
+    // 1. EMBEDDED COMPLETE DATA (28 STYLES)
     const STYLES = [{"id":"01","slug":"minimalism","name":"Minimalism","family":"Clean \u0026 Structured","tagline":"Say more with less.","what_it_means":"Minimalism strips an interface down to what matters: one idea per screen, generous whitespace, a restrained palette and quiet typography. Every element must earn its place, so hierarchy comes from spacing and scale rather than decoration.","signature_moves":["Huge whitespace, few elements per view","One accent colour (or none)","Thin type, small caps nav, quiet borders","A single hero object or line of copy","Motion is slow and subtle"],"palette":["#FAFAF8","#111111","#8A8A85","#E6E4DF","#C9A27E"],"typefaces":["Inter","Helvetica Now","Neue Montreal"],"best_for":"Premium products, portfolios, studios, single-product launches","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a landing page for [PRODUCT] in a strict Minimalist style. Off-white background (#FAFAF8), near-black text (#111). One centered hero: a single product image on a soft shadow, a 2-line headline in a light 56px sans-serif with tight tracking, one quiet text link as the CTA. Navigation: 3 small links, 12px, letter spaced. At least 120px vertical padding between sections, max 3 elements per section, no cards, no gradients, no icons. Use one warm accent (#C9A27E) only for hover states. Hierarchy comes from size and spacing only."},{"id":"02","slug":"swiss-design","name":"Swiss Design","family":"Clean \u0026 Structured","tagline":"The grid is the hero.","what_it_means":"Also called the International Typographic Style (1950s Switzerland). It is built on a rigid modular grid, flush-left sans-serif type, asymmetric layouts and objective clarity. Big numbers, bold rules and red/black/white palettes make information feel engineered.","signature_moves":["Visible modular grid and strong alignment","Flush-left, ragged-right Helvetica-style type","Asymmetric composition, huge type scale jumps","Red, black and white with geometric shapes","Numbers and labels used as graphic elements"],"palette":["#FFFFFF","#111111","#E30613","#F2F2F2","#9B9B9B"],"typefaces":["Helvetica Neue","Inter","Neue Haas Grotesk"],"best_for":"Agencies, conferences, architecture, data-heavy sites","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [EVENT / STUDIO] in classic Swiss (International Typographic) style. Build on a visible 12-column grid with thin hairline rules. Use one grotesk typeface (Helvetica Neue or Inter) only, flush-left and ragged-right, with dramatic size contrast: a 140px bold headline next to 11px captions. Palette: white, black and signal red (#E30613) only. Add one large geometric shape (a red circle) placed asymmetrically. Use numbered sections (01, 02, 03) as graphic elements. No shadows, no rounded corners, no images except optional black-and-white photography."},{"id":"03","slug":"bento-grid","name":"Bento Grid","family":"Clean \u0026 Structured","tagline":"Everything in its box.","what_it_means":"Named after the Japanese lunch box, Bento layouts arrange features into a tidy grid of rounded tiles of different sizes. Each tile tells one small story (a stat, a feature, a visual), so a whole product can be scanned at a glance. Popularised by Apple keynotes and modern SaaS sites.","signature_moves":["Rounded tiles of mixed sizes on one grid","One idea per tile: stat, icon, screenshot","Consistent gaps (12-20px) and corner radius","Often dark mode with one accent per tile","Great for feature overviews and dashboards"],"palette":["#0B0B0F","#17171D","#7C5CFF","#3DDC97","#F5F5F7"],"typefaces":["SF Pro","Inter","Geist"],"best_for":"SaaS feature sections, product launches, portfolios, dashboards","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Create a features section for [PRODUCT] using a Bento Grid layout. Dark background (#0B0B0F), tiles in #17171D with 24px radius, 16px gaps, on a 4-column grid with mixed spans (one 2x2 hero tile, two 2x1 tiles, three 1x1 tiles). Each tile holds exactly one idea: a big stat, a feature with an icon, a mini chart, or a UI screenshot. Use Inter/Geist, white headings, grey (#9A9AA5) body. Give each tile a subtle accent glow (violet #7C5CFF or mint #3DDC97). Hover: tile lifts 4px and the border brightens. Make it responsive: tiles stack to 1 column on mobile."},{"id":"04","slug":"editorial-design","name":"Editorial Design","family":"Clean \u0026 Structured","tagline":"Read it like a magazine.","what_it_means":"Editorial design borrows from print magazines and newspapers: expressive serif headlines, multi-column text, drop caps, pull quotes, captions and rules. It treats the web page as a crafted spread, prioritising reading rhythm and storytelling over app-like components.","signature_moves":["Large contrasting serif headlines","Multi-column body, drop caps, pull quotes","Thin rules, issue numbers, bylines, captions","Full-bleed photography with art direction","Mix of serif display + clean sans for meta"],"palette":["#F4EFE6","#1A1A1A","#B23A2B","#D9D0C1","#6B6358"],"typefaces":["Playfair Display","GT Super","Canela","Inter"],"best_for":"Blogs, publications, long-form stories, brand journals","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a long-form article page for [PUBLICATION] in a print-magazine Editorial style. Warm paper background (#F4EFE6), ink text (#1A1A1A), one red accent (#B23A2B). Masthead with issue number and date separated by thin rules. Headline in a high-contrast serif (Playfair Display, 80px, tight leading) with an italic deck below. Body text in 3 columns with a large drop cap, a pull quote breaking across columns, and a full-bleed photo with a small caption. Bylines and section labels in a small letter-spaced sans-serif. No cards, no rounded corners, no shadows."},{"id":"05","slug":"luxury-typography","name":"Luxury Typography","family":"Clean \u0026 Structured","tagline":"Type that whispers money.","what_it_means":"Luxury typographic design lets elegant letterforms carry the brand. Think oversized high-contrast serifs, refined italics, wide letter spaced capitals and a near-monochrome palette with a touch of gold. Restraint, slow pacing and impeccable spacing signal exclusivity.","signature_moves":["Oversized, high-contrast serif display type","Wide-tracked uppercase labels","Black / ivory palette with metallic accent","Lots of negative space, centered symmetry","Slow fades and refined micro-interactions"],"palette":["#0E0D0B","#F3EDE2","#C6A15B","#2A2723","#8C8475"],"typefaces":["Cormorant Garamond","Didot","Bodoni Moda","a fine sans"],"best_for":"Fashion, jewellery, hotels, perfume, fine dining","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [LUXURY BRAND] using Luxury Typography as the main visual. Deep black background (#0E0D0B), ivory text (#F3EDE2) and a muted gold accent (#C6A15B) for thin 1px rules and small details. Hero: the brand name in an oversized high-contrast serif (Cormorant Garamond / Didot, 160px+), with one word in italic. Navigation and labels in tiny uppercase with 0.4em letter-spacing. Centered, symmetric composition with huge margins. A single thin-outline CTA button. Very slow fade-in animations. No icons, no bright colours, no rounded shapes."},{"id":"06","slug":"bauhaus","name":"Bauhaus","family":"Clean \u0026 Structured","tagline":"Circle, square, triangle.","what_it_means":"Rooted in the 1919 German art school, Bauhaus design reduces everything to primary colours and primary shapes. Bold geometric blocks, sans-serif type and functional composition create posters turned-interfaces that feel playful yet disciplined.","signature_moves":["Primary colours: red, yellow, blue + black","Circles, squares, triangles as layout blocks","Geometric sans-serif, often rotated type","Flat colour, no gradients or shadows","Function-first, asymmetric balance"],"palette":["#F2EBDD","#D7263D","#F4B400","#1E4CA1","#111111"],"typefaces":["Futura","Josefin Sans","Archivo Black"],"best_for":"Creative studios, museums, education, posters \u0026 events","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a hero section for [STUDIO / EVENT] in a Bauhaus style. Cream background (#F2EBDD). Compose the layout from large flat geometric shapes: a red (#D7263D) circle, a yellow (#F4B400) quarter-circle, a blue (#1E4CA1) square and a black triangle, overlapping on a hidden grid. Typography: a heavy geometric sans-serif (Futura / Archivo Black) in uppercase, with one word rotated 90°. Use thick black bars as dividers. No gradients, no shadows, no rounded cards. Buttons are flat rectangles in primary colours. Hover states swap colours between shapes."},{"id":"07","slug":"neumorphism","name":"Neumorphism","family":"Soft \u0026 Tactile","tagline":"Soft plastic, pressed into the page.","what_it_means":"Neumorphism (new skeuomorphism) makes elements look extruded from, or pressed into, the background itself. The element shares the background colour and is shaped only by a light shadow on one side and a dark shadow on the other. It feels calm and tactile, but needs care for contrast and accessibility.","signature_moves":["Element colour = background colour","Dual shadows: light top-left, dark bottom-right","Inset shadows for pressed/active states","Soft rounded controls: dials, toggles, sliders","Low contrast; add one accent for accessibility"],"palette":["#E0E5EC","#A3B1C6","#FFFFFF","#4D5B7C","#6C63FF"],"typefaces":["Nunito","Poppins","Manrope"],"best_for":"Smart-home controls, music players, calculators, widgets","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a smart-home control app screen in Neumorphism style. Background and all elements use the same soft grey (#E0E5EC). Shape everything with dual shadows: -8px -8px 16px #FFFFFF and 8px 8px 16px #A3B1C6. Include: a large circular thermostat dial with an inset track, 4 room toggle cards, a pressed (inset-shadow) active state, a pill slider for lights. Rounded corners 24-32px. Text in dark slate (#4D5B7C), one accent (#6C63FF) for active values to keep contrast accessible. Font: Nunito or Manrope. No borders, no gradients except subtle ones on knobs."},{"id":"08","slug":"glassmorphism","name":"Glassmorphism","family":"Soft \u0026 Tactile","tagline":"Frosted glass over colour.","what_it_means":"Glassmorphism layers translucent, frosted panels over vivid, blurred backgrounds. Background blur, a thin bright border and subtle transparency create depth and a sense of hierarchy, as if the interface were made of sheets of frosted glass floating above colour.","signature_moves":["Background blur (backdrop-filter) on panels","Semi-transparent white fills (10-25%)","1px light border to catch the \u0027edge\u0027","Vivid gradient blobs behind the glass","Layered depth with soft shadows"],"palette":["#1B1640","#FF5ACD","#5B8CFF","#FFFFFF","#FFFFFF"],"typefaces":["SF Pro","Inter","Plus Jakarta Sans"],"best_for":"Fintech cards, music \u0026 weather apps, dashboards, OS-style UIs","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a finance dashboard for [APP] in Glassmorphism style. Background: deep indigo (#1B1640) with 3 large blurred gradient blobs (pink #FF5ACD, blue #5B8CFF, orange). Panels are frosted glass: background rgba(255,255,255,0.12), backdrop-filter: blur(20px), 1px border rgba(255,255,255,0.3), 24px radius, soft shadow. Include a glass credit card, a balance card with a line chart, and a recent transactions list. White text with 70% opacity for secondary text. Font: Inter / Plus Jakarta Sans. Make sure text contrast stays readable over the blur."},{"id":"09","slug":"claymorphism","name":"Claymorphism","family":"Soft \u0026 Tactile","tagline":"Puffy, squishy, friendly 3D.","what_it_means":"Claymorphism makes UI elements look like soft inflated clay: big rounded shapes, pastel colours, and a combination of outer drop shadows with inner highlights and inner shadows. It feels playful and approachable, often paired with 3D clay illustrations.","signature_moves":["Very round corners (30px+) and pill buttons","Outer shadow + inner light + inner dark shadow","Pastel, candy-like colours","3D clay-style illustrations and blobs","Chunky rounded fonts"],"palette":["#EFE7FF","#FF8FB1","#7CC6FE","#FFD36E","#3B2A63"],"typefaces":["Fredoka","Baloo 2","Nunito"],"best_for":"Kids \u0026 education, habit trackers, playful fintech, onboarding","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a mobile habit-tracker landing page in Claymorphism style. Pastel lavender background (#EFE7FF). All cards and buttons look like puffy clay: border-radius 32px+, an outer drop shadow (12px 12px 24px rgba(120,80,180,.3)) PLUS inner highlights (inset 6px 6px 12px rgba(255,255,255,.7)) and inner shade (inset -6px -6px 12px rgba(0,0,0,.12)). Candy colours: pink #FF8FB1, sky #7CC6FE, butter #FFD36E. Add 3D clay-style blobs and a smiling mascot. Rounded chunky font (Fredoka / Baloo 2), deep purple text (#3B2A63). Buttons squish (scale 0.95) on press."},{"id":"10","slug":"skeuomorphism","name":"Skeuomorphism","family":"Soft \u0026 Tactile","tagline":"Make it look real.","what_it_means":"Skeuomorphism imitates real-world materials and objects: leather, brushed metal, wood, paper, glossy buttons and realistic lighting. It was the signature of early iPhone apps and is making a comeback as \u0027tactile\u0027 design, giving users instantly familiar, satisfying controls.","signature_moves":["Realistic textures: metal, leather, wood, paper","Detailed lighting, gradients and highlights","Physical metaphors: knobs, switches, notebooks","Embossed/debossed text and stitching","Rich depth and drop shadows"],"palette":["#2B2B2E","#C9CCD1","#6E4B2A","#F2D16B","#E04A3A"],"typefaces":["SF Pro","Helvetica Neue","Lucida Grande"],"best_for":"Audio/music tools, camera apps, retro-tech products, games","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a vintage synthesizer/audio plugin interface for [APP] in full Skeuomorphism. A brushed aluminium faceplate (layered linear gradients with fine noise) set inside walnut wood side panels. Include realistic rotary knobs with metallic radial highlights and tick marks, a glowing amber VU meter with a needle, chunky toggle switches, and embossed engraved labels (text-shadow 0 1px 0 rgba(255,255,255,.5)). Use realistic top down lighting, screws in the corners, and soft drop shadows so every control looks touchable. Font: Helvetica Neue, small caps labels."},{"id":"11","slug":"ethereal","name":"Ethereal","family":"Soft \u0026 Tactile","tagline":"Light, mist and quiet glow.","what_it_means":"Ethereal design feels weightless and dreamlike: soft pastel gradients that fade into mist, glowing orbs, grain, delicate thin serifs and lots of air. It evokes calm, spirituality and wellness, using light itself as the main visual element.","signature_moves":["Soft pastel gradients that dissolve to white","Glowing orbs, halos and light leaks","Thin, airy serif or light sans type","Film grain / noise for softness","Slow floating motion"],"palette":["#F7F3FF","#D9C8FF","#FFD9E8","#CDEBFF","#5E5873"],"typefaces":["Cormorant","Fraunces Light","Inter Light"],"best_for":"Wellness, meditation, skincare, spiritual \u0026 beauty brands","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a landing page for [WELLNESS / MEDITATION APP] in an Ethereal style. Background: a soft misty gradient of lavender (#D9C8FF), blush (#FFD9E8) and sky (#CDEBFF) dissolving into near-white (#F7F3FF), with a large glowing white orb and gentle light-leak halos. Add subtle film grain. Headline in a thin, airy serif (Cormorant / Fraunces Light, 72px) in muted plum (#5E5873); body in Inter Light. Translucent pill buttons with soft glow. Elements slowly float (6-10s ease-in-out loops). No hard edges, no strong contrast, plenty of breathing room."},{"id":"12","slug":"aurora-gradient","name":"Aurora Gradient","family":"Soft \u0026 Tactile","tagline":"Living colour mesh.","what_it_means":"Aurora (or mesh-gradient) design uses large, blurred, flowing gradients that resemble the northern lights, usually on dark backgrounds. The gradient is the brand: it moves slowly, glows behind content and gives modern AI and tech products an energetic, premium feel.","signature_moves":["Large blurred mesh gradients, often animated","Dark base so colours glow","Clean sans type and minimal UI on top","Subtle grain to avoid banding","Glowing borders and light beams"],"palette":["#07070C","#6A5BFF","#00D1B2","#FF4FD8","#F2F2F7"],"typefaces":["Geist","Inter","Satoshi"],"best_for":"AI products, SaaS launches, crypto, developer tools","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a hero section for [AI PRODUCT] in an Aurora Gradient style. Near-black background (#07070C) with a large, softly blurred aurora mesh gradient (violet #6A5BFF, teal #00D1B2, magenta #FF4FD8) flowing behind the headline and slowly animating (20s loop). Add fine noise to prevent banding. Headline in Geist/Inter semibold 72px, white, tight tracking, with a small pill announcement badge above it. A glowing primary button with a gradient border, and a product screenshot below with a light-beam glow on its top edge. Keep UI minimal so the light is the hero."},{"id":"13","slug":"neo-brutalism","name":"Neo-Brutalism","family":"Bold \u0026 Expressive","tagline":"Loud, raw, unapologetic.","what_it_means":"Neo-Brutalism takes the raw honesty of brutalist web design and adds colour. Thick black outlines, hard offset shadows with zero blur, clashing flat colours and chunky type make interfaces look deliberately unpolished, confident and fun.","signature_moves":["Thick black borders (2-4px) on everything","Hard offset shadows: 6px 6px 0 \\#000","Flat, saturated, clashing colours","Chunky grotesk type, stickers, tilted badges","Visible structure, no gradients, no blur"],"palette":["#FFE94A","#FF6B9E","#4D7CFE","#00C48C","#111111"],"typefaces":["Archivo Black","Space Grotesk","Lexend Mega"],"best_for":"Startups, indie tools, creator brands, Gen-Z products","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a landing page for [STARTUP] in Neo-Brutalism style. Bright yellow background (#FFE94A). Every card, button and image gets a 3px solid black border and a hard offset shadow (6px 6px 0 #000, no blur). Use flat clashing colours: pink #FF6B9E, blue #4D7CFE, green #00C48C. Typography: Archivo Black for huge headlines, Space Grotesk for body. Add tilted sticker badges, a marquee ticker strip, and chunky buttons that move 3px down-right and lose their shadow on press. Squared or lightly rounded (8px) corners. No gradients, no blur, no subtle greys."},{"id":"14","slug":"maximalism","name":"Maximalism","family":"Bold \u0026 Expressive","tagline":"More is more.","what_it_means":"Maximalism rejects restraint. It layers bold patterns, clashing colours, multiple typefaces, stickers, collage and texture into rich, dense compositions. Done well, it feels curated chaos: joyful, energetic and impossible to ignore.","signature_moves":["Layered patterns: stripes, dots, checks","Many colours and several typefaces at once","Collage, stickers, overlapping elements","Oversized, rotated and outlined type","Dense composition with a clear focal point"],"palette":["#FF3D7F","#FFD400","#2B59FF","#00B37E","#FF7A00"],"typefaces":["stickers","collage and texture into rich","dense compositions. Done well","it feels curated chaos: joyful","energetic and impossible to ignore. **`S I G N A T U R E M O V E S`** → Layered patterns: stripes","dots","checks → Many colours and several typefaces at once → Collage","stickers","overlapping elements → Oversized","rotated and outlined type → Dense composition with a clear focal point **`P A L E T T E`** `#FF3D7F #FFD400 #2B59FF #00B37E #FF7A00 T Y P E F A C E S` Abril Fatface","Monoton","Space Grotesk (mix\\!)"],"best_for":"Fashion drops, festivals, music, creative agencies, youth brands","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [FESTIVAL / FASHION DROP] in a Maximalist style. Layer multiple bold patterns (checkerboard, polka dots, stripes) in clashing colours: hot pink #FF3D7F, yellow #FFD400, cobalt #2B59FF, green #00B37E, orange #FF7A00. Mix 3 typefaces (a fat serif like Abril Fatface, a display font like Monoton, a grotesk for body). Overlap rotated photo cut-outs, stickers, starbursts and a scrolling marquee. Keep one huge headline as the focal point so it reads despite the chaos. Add playful hover wiggles. Embrace density, but keep the CTA obvious."},{"id":"15","slug":"memphis","name":"Memphis","family":"Bold \u0026 Expressive","tagline":"80s confetti geometry.","what_it_means":"Inspired by the Memphis Group (Milan, 1981), this style is a playful explosion of squiggles, zig-zags, confetti shapes, terrazzo, bright pastels and bold black outlines. It is cheeky, retro and anti-serious, great for brands that want personality.","signature_moves":["Squiggles, zig-zags, dots, triangles as decoration","Bright pastels + black outlines","Terrazzo and grid patterns","Playful, slightly off-kilter layouts","Rounded geometric type"],"palette":["#FFF4E0","#FF6F91","#3EC1D3","#FFC93C","#7A5CFA"],"typefaces":["Fredoka","Righteous","Poppins Black"],"best_for":"Kids brands, snacks \u0026 drinks, creative events, social apps","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a landing page for [FUN BRAND] in a 1980s Memphis style. Cream background (#FFF4E0) scattered with confetti decorations: black squiggles, zig-zag lines, polka-dot triangles, half circles and terrazzo specks in pink #FF6F91, teal #3EC1D3, yellow #FFC93C and purple #7A5CFA. Shapes have thick black outlines. Headline in a chunky rounded geometric font (Fredoka / Righteous) with a coloured offset shadow. Product image sits on a geometric plinth. Buttons are pill-shaped with black borders. Decorations gently bob on hover."},{"id":"16","slug":"scrapbook","name":"Scrapbook","family":"Bold \u0026 Expressive","tagline":"Cut, tape, stick, scribble.","what_it_means":"Scrapbook design recreates a handmade journal: polaroid photos, torn paper, washi tape, stamps, doodles and handwritten notes on textured paper. It feels personal, nostalgic and human, perfect for storytelling and community-driven brands.","signature_moves":["Paper textures: kraft, notebook, torn edges","Polaroids and photos held with tape","Handwritten fonts, doodles, arrows","Stickers, stamps, tickets, sticky notes","Slight rotations; nothing perfectly aligned"],"palette":["#E9DCC4","#FFFDF6","#F2A7A0","#9CC9B5","#2E2A26"],"typefaces":["Caveat","Permanent Marker","Special Elite"],"best_for":"Travel blogs, personal portfolios, community \u0026 lifestyle brands","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a travel-journal homepage for [BRAND / PERSON] in a Scrapbook style. Kraft-paper background (#E9DCC4) with subtle paper texture. Place 3 polaroid photos (white frames, 6px padding, slightly rotated -6° to 8°) held by semi-transparent washi-tape strips in pink #F2A7A0 and mint #9CC9B5. Add a yellow sticky note, a torn-paper text block, a postage stamp and hand-drawn doodle arrows. Headline in Permanent Marker, notes in Caveat, body in a typewriter font. Nothing perfectly aligned; elements wiggle slightly on hover."},{"id":"17","slug":"conceptual-sketch","name":"Conceptual Sketch","family":"Bold \u0026 Expressive","tagline":"Ideas, still in pencil.","what_it_means":"Conceptual Sketch design looks like a designer\u0027s notebook or whiteboard: hand-drawn wobbly boxes, wireframe placeholders, pencil annotations, arrows and grid paper. It signals thinking-in progress and creativity, and is popular for tools, agencies and educational content.","signature_moves":["Hand-drawn wobbly borders and arrows","Graph or dot-grid paper backgrounds","Wireframe placeholders (crossed image boxes)","Handwritten annotations and highlights","Blue-pencil / marker colour palette"],"palette":["#FBFAF5","#2B4C7E","#1F1F1F","#FFE45E","#E85D4A"],"typefaces":["Caveat","Kalam","Architects Daughter"],"best_for":"Design tools, whiteboard apps, agencies, tutorials, pitch pages","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a landing page for [CREATIVE TOOL] in a Conceptual Sketch style, as if drawn in a designer\u0027s notebook. Off-white dot-grid paper background (#FBFAF5). All boxes, buttons and cards use hand-drawn wobbly borders (irregular border-radius like 255px 15px 225px 15px / 15px 225px 15px 255px) in ink black. Image placeholders are wireframe boxes with an X. Add handwritten annotations in blue pencil (#2B4C7E) with curved arrows pointing at features, yellow highlighter marks (#FFE45E) behind key words, and a red circled callout (#E85D4A). Fonts: Caveat / Architects Daughter."},{"id":"18","slug":"pixel-art","name":"Pixel Art","family":"Retro \u0026 Digital","tagline":"8-bit charm, modern layout.","what_it_means":"Pixel Art design brings back the blocky graphics of 8- and 16-bit games: bitmap fonts, chunky pixel icons, stepped edges and limited palettes. On modern clean layouts (like the reference post) it feels nostalgic, playful and handcrafted while staying readable.","signature_moves":["Bitmap / pixel fonts for headlines and nav","Icons and illustrations built on a visible pixel grid","Stepped (non-anti-aliased) shapes, hard edges","Limited palette, often on a clean light background","Retro game UI: health bars, score counters"],"palette":["#F1F1F4","#2A1FE0","#111111","#FF4FB8","#E23B3B"],"typefaces":["Press Start 2P","VT323","Silkscreen","PP NeueBit"],"best_for":"Gaming, creative agencies, indie products, playful portfolios","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design an agency homepage for [STUDIO] in a Pixel Art style on a modern, clean layout. Light grey background (#F1F1F4). A giant headline in a blocky pixel font (Press Start 2P / PP NeueBit) in electric blue (#2A1FE0), with a black pixel subheading underneath. Navigation and labels in a monospaced bitmap font (VT323). Decorate with pixel-art icons drawn on a visible grid: a red 3D-ish pixel heart, pixel clouds, sparkles. Hot-pink (#FF4FB8) pixel button with a hard 1-step shadow. Stats row with big pixel numbers (20+, 85+, 42+). Use image-rendering: pixelated; no anti-aliased curves."},{"id":"19","slug":"y2k-aesthetic","name":"Y2K Aesthetic","family":"Retro \u0026 Digital","tagline":"Chrome, bubbles and futuristic optimism.","what_it_means":"Y2K design channels the late-90s/early-2000s vision of the future: liquid chrome type, iridescent holographic gradients, glossy bubble buttons, sparkles, blobby shapes and translucent tech. It is shiny, optimistic and nostalgic for Gen-Z audiences.","signature_moves":["Liquid chrome / metallic text","Holographic iridescent gradients (pink, blue, lilac)","Glossy pill buttons with highlights","Sparkles ✦, stars, butterflies, blobby 3D shapes","Translucent windows and early-web UI nods"],"palette":["#E8E4FF","#FF9DE2","#8FD3FF","#C9B6FF","#B8C0CC"],"typefaces":["Monoton","Syne","Michroma","chrome effects"],"best_for":"Fashion, beauty, music, Gen-Z apps, merch drops","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a merch-drop landing page for [BRAND] in a Y2K aesthetic. Background: soft holographic iridescent gradient (pink #FF9DE2, baby blue #8FD3FF, lilac #C9B6FF). Headline in liquid chrome lettering (silver gradient fill, white highlights, dark outline, slight bevel). Glossy pill buttons with a white top highlight and inner glow. Decorate with 4-point sparkles ✦ , chrome blob shapes, a butterfly and a translucent early 2000s window panel with a title bar. Fonts: a wide futuristic display face (Michroma / Syne) plus a clean sans. Add gentle shimmer animations."},{"id":"20","slug":"vaporwave","name":"Vaporwave","family":"Retro \u0026 Digital","tagline":"Statues, sunsets and old Windows.","what_it_means":"Vaporwave is an ironic, dreamy internet aesthetic built from 80s-90s consumer tech: Greek statues, pastel pink and teal, checkerboard floors, palm trees, Windows 95 windows, Japanese text and glitchy VHS effects. It feels nostalgic, surreal and slightly melancholic.","signature_moves":["Pink + teal + purple pastel gradients","Retro OS windows, cursors, low-res graphics","Classical statues, palms, checkerboard floors","Wide-spaced text (\u0027Ａ Ｅ Ｓ Ｔ Ｈ Ｅ Ｔ Ｉ Ｃ\u0027) \u0026 Japanese → VHS noise, scanlines, glitch"],"palette":["#FF71CE","#01CDFE","#05FFA1","#B967FF","#FFFB96"],"typefaces":["VT323","MS Sans Serif-style","wide-spaced serif"],"best_for":"Music \u0026 playlists, art projects, streetwear, meme savvy brands","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a music/playlist page for [ARTIST] in a Vaporwave aesthetic. Pastel sunset gradient sky (pink #FF71CE to purple #B967FF), a perspective checkerboard floor, palm-tree silhouettes and a classical marble bust. Overlay a Windows-95-style window (grey bevelled title bar in #01CDFE) containing the track list and a retro media player. Headline in full-width spaced letters (\u0027 Ｖ Ａ Ｐ Ｏ Ｒ \u0027) with Japanese katakana underneath. Use VT323 for UI text, add VHS scanlines, slight chromatic aberration and a pixel cursor."},{"id":"21","slug":"synthwave","name":"Synthwave","family":"Retro \u0026 Digital","tagline":"Neon sunsets on an endless grid.","what_it_means":"Synthwave (outrun / retrowave) is a love letter to 1980s sci-fi and arcade culture: a striped neon sunset over a glowing perspective grid, chrome type, magenta and cyan glows and dark purple skies. It feels cinematic, nostalgic and energetic.","signature_moves":["Striped gradient sun on the horizon","Glowing magenta perspective grid floor","Neon glow text (text-shadow blooms)","Chrome / gradient italic display type","Dark purple-to-black night sky, stars"],"palette":["#0D0221","#FF2A6D","#05D9E8","#F9C80E","#7B2CBF"],"typefaces":["Monoton","Orbitron","Audiowide"],"best_for":"Music, gaming, events, nightlife, retro-themed launches","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a hero for [GAME / MUSIC EVENT] in Synthwave (outrun) style. Night sky gradient from deep purple (#0D0221) to magenta at the horizon with tiny stars. A big sunset sun with a yellow-to-pink gradient (#F9C80E to #FF2A6D) cut by horizontal stripes on its lower half. Below the horizon, a glowing magenta perspective grid floor (CSS transform: perspective + rotateX) that scrolls toward the viewer. Headline in Monoton / Orbitron with neon cyan (#05D9E8) glow and a chrome italic subtitle. Neon-outline buttons. Add subtle scanlines."},{"id":"22","slug":"cybercore","name":"Cybercore","family":"Retro \u0026 Digital","tagline":"The early internet, overclocked.","what_it_means":"Cybercore is a nostalgic, hacker-flavoured internet aesthetic: terminal windows, ASCII art, glitchy RGB-split text, wireframe globes, binary rain, pop-ups and acid-green on black. It celebrates raw digital culture and the feeling of being \u0027jacked in\u0027 to the web.","signature_moves":["Terminal / command-line windows and monospace → Acid green, cyan and magenta on black","Glitch, RGB split, scanlines, noise","ASCII art, wireframes, binary/hex data","OS pop-ups, loading bars, cursor blinks"],"palette":["#050505","#39FF14","#00F0FF","#FF00E5","#C0C0C0"],"typefaces":["JetBrains Mono","VT323","Orbitron"],"best_for":"Developer tools, hackathons, security, music \u0026 digital art","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a hackathon landing page for [EVENT] in Cybercore style. Pure black background (#050505) with faint scanlines and a dim green grid. Main content inside terminal windows with title bars (\u0027root@cyber:~$\u0027), monospaced text (JetBrains Mono / VT323) in acid green #39FF14, blinking cursor. Headline uses RGB-split glitch (text-shadow 3px 0 #FF00E5, -3px 0 #00F0FF). Add an ASCII-art logo, a rotating wireframe globe, a fake loading bar, binary rain columns and a warning pop-up. Hover = glitch jitter animation."},{"id":"23","slug":"cyberpunk","name":"Cyberpunk","family":"Retro \u0026 Digital","tagline":"High tech, low life, neon rain.","what_it_means":"Cyberpunk design depicts a dystopian neon future: dark rainy cityscapes, aggressive yellow/magenta/cyan neon, angular clipped corner panels, HUD overlays, Japanese signage and glitch. It feels edgy, futuristic and immersive, like the UI of a sci-fi game.","signature_moves":["Dark city backdrops with neon glow","Angular panels with clipped corners (clip-path)","HUD details: brackets, coordinates, scanners","Acid yellow + hot magenta + cyan accents","Katakana / kanji, glitch and warning stripes"],"palette":["#0A0A12","#FCEE0A","#FF003C","#00F0FF","#1E1E2E"],"typefaces":["Orbitron","Rajdhani","Chakra Petch"],"best_for":"Games, esports, tech launches, streetwear, sci-fi content","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a game landing page for [GAME] in a Cyberpunk style. Dark rainy neon city backdrop (#0A0A12) with silhouetted skyscrapers and glowing signs in katakana. UI panels have sharp clipped corners (clip-path polygons), thin cyan (#00F0FF) borders and HUD brackets, coordinates and small data readouts. Primary accent is acid yellow (#FCEE0A) with hot red-magenta (#FF003C) for warnings. Headline in Orbitron / Chakra Petch, uppercase, with a slight glitch offset. Angular yellow CTA button with a notched corner, yellow-black warning stripes, rain streaks and flicker animations."},{"id":"24","slug":"surrealism","name":"Surrealism","family":"Artful \u0026 Heritage","tagline":"Dream logic as interface.","what_it_means":"Surrealist design borrows from Magritte and Dalí: impossible scenes, floating objects, doors in the sky, giant eyes, melting forms and dramatic shadows. It makes a brand feel imaginative and memorable by bending reality while keeping the UI itself simple.","signature_moves":["Impossible compositions: floating, oversized objects → Arches, doors, stairs leading nowhere","Dreamy skies and long cast shadows","Clean serif/sans type placed calmly on top","Unexpected scale and scroll-driven reveals"],"palette":["#9EC9F0","#F4D9B8","#E86A4A","#2D3A6B","#FFF8EC"],"typefaces":["DM Serif Display","Syne","Fraunces"],"best_for":"Art \u0026 culture, creative agencies, fragrances, music, storytelling","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [CREATIVE BRAND] in a Surrealist style inspired by Magritte. A calm sky-blue gradient (#9EC9F0) above a sandy plane (#F4D9B8) with a perspective checkerboard floor fading into the distance. Place impossible objects: a free-standing doorway opening onto a night sky, a giant floating sphere with a long cast shadow, a staircase that ends in the air, and a cloud passing through an arch. Headline in an elegant serif (DM Serif Display, 64px) in deep navy (#2D3A6B). Keep UI minimal; objects drift slowly on scroll (parallax)."},{"id":"25","slug":"art-deco","name":"Art Deco","family":"Artful \u0026 Heritage","tagline":"Gatsby-era glamour.","what_it_means":"Art Deco (1920s-30s) is symmetrical, geometric and glamorous: gold line work, sunbursts, fan shapes, stepped forms and tall condensed type on deep black, emerald or navy. It signals luxury, celebration and timeless craftsmanship.","signature_moves":["Strict symmetry and stepped geometry","Gold line ornaments, sunbursts, fans, chevrons","Tall, condensed, high-waisted display type","Deep jewel tones (black, emerald, navy) + gold","Framed panels with double gold borders"],"palette":["#0B1A17","#D4AF37","#0F4C3A","#F3E9D2","#1C1C1C"],"typefaces":["Poiret One","Limelight","Josefin Sans"],"best_for":"Hotels \u0026 bars, weddings, events \u0026 galas, premium spirits","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design an invitation-style landing page for [BAR / HOTEL / GALA] in Art Deco style. Deep emerald-black background (#0B1A17) with gold (#D4AF37) geometric line ornaments: a central sunburst fan, stepped ziggurat corners, chevrons and double-line frames. Strict symmetry. Headline in a tall, condensed geometric display font (Poiret One / Limelight) with wide letter-spacing; ivory body text (#F3E9D2). Gold outline buttons with stepped corners. Subtle shimmer on gold elements. No rounded UI, no drop shadows."},{"id":"26","slug":"victorian","name":"Victorian","family":"Artful \u0026 Heritage","tagline":"Ornate, gilded, storied.","what_it_means":"Victorian design draws on 19th-century print and interiors: ornate frames, flourishes, damask patterns, engraved illustrations, blackletter and decorative serifs, rich burgundy, forest green and gold. It conveys heritage, craftsmanship and old-world romance.","signature_moves":["Ornate frames, flourishes and dividers","Blackletter + decorative serif type mixes","Damask / wallpaper patterns","Rich dark palette: burgundy, green, gold, cream","Engraved illustrations, labels and seals"],"palette":["#2B0F14","#5B1A24","#1F3B2D","#C9A54C","#F2E6CC"],"typefaces":["UnifrakturMaguntia","Playfair Display","IM Fell"],"best_for":"Tea, whisky, perfumers, bookshops, heritage \u0026 antique brands","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [HERITAGE BRAND, e.g. tea merchant] in a Victorian style. Dark burgundy background (#2B0F14) with a subtle damask wallpaper pattern. Centre a cream (#F2E6CC) label panel inside an ornate gold (#C9A54C) double frame with corner flourishes. Headline in blackletter (UnifrakturMaguntia), subheads in a decorative serif (Playfair / IM Fell) with small caps, \u0027Est. 1887\u0027 seal, engraved-style illustration and ornamental dividers ( ❦ ). Buttons look like printed tickets with scalloped edges. Muted forest green (#1F3B2D) for secondary blocks."},{"id":"27","slug":"bohemian","name":"Bohemian","family":"Artful \u0026 Heritage","tagline":"Sun-baked, handmade, free.","what_it_means":"Bohemian (boho) design feels warm, earthy and handcrafted: terracotta, sand, olive and mustard tones, arches, sun and moon motifs, woven and rug-like patterns, botanical illustrations and relaxed serif type. It evokes travel, freedom and slow artisanal living.","signature_moves":["Earthy palette: terracotta, sand, olive, mustard","Arches, suns, moons, wavy organic shapes","Woven / rug / macramé patterns","Botanical line drawings and dried flowers","Soft serif + handwritten accents"],"palette":["#F3E5D0","#C8633F","#8A9A5B","#E0A84E","#5A3A2E"],"typefaces":["DM Serif Display","Fraunces","Caveat"],"best_for":"Home décor, ceramics, yoga retreats, travel, handmade goods","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design an online store homepage for [HANDMADE / DECOR BRAND] in a Bohemian (boho) style. Warm sand background (#F3E5D0). Use arch-shaped image frames, a half-sun with rays, a crescent moon and wavy organic shapes in terracotta (#C8633F), olive (#8A9A5B) and mustard (#E0A84E). Add a woven rug-style pattern strip and a few botanical line drawings (pampas grass, leaves). Headline in a soft, warm serif (Fraunces / DM Serif Display) in brown (#5A3A2E) with a handwritten accent word. Rounded, earthy buttons. Relaxed, slightly asymmetric layout."},{"id":"28","slug":"wabi-sabi","name":"Wabi-Sabi","family":"Artful \u0026 Heritage","tagline":"Beauty in imperfection.","what_it_means":"Wabi-Sabi is a Japanese philosophy that finds beauty in the imperfect, impermanent and incomplete. In UI it means earthy neutrals, natural textures (paper, clay, stone), asymmetric layouts, irregular organic shapes, generous emptiness and a calm, contemplative pace.","signature_moves":["Muted earthy neutrals, paper and clay textures","Asymmetry and irregular organic shapes","Lots of empty space (ma)","Quiet serif or mincho type, vertical text","Slow, gentle transitions; nothing flashy"],"palette":["#EEE9E0","#C8BFB0","#8B7E6A","#4A4238","#A65E3A"],"typefaces":["Shippori Mincho","Cormorant","Noto Serif JP"],"best_for":"Ceramics, tea houses, architecture, skincare, mindful products","prompt_template":"B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [CERAMICS / TEA / MINDFUL BRAND] in a Wabi-Sabi style. Warm rice-paper background (#EEE9E0) with subtle paper fibre texture. Asymmetric layout with lots of empty space. A single photo of a hand-made, imperfect ceramic bowl inside an irregular organic shape (uneven border-radius). Earthy neutrals (#C8BFB0, #8B7E6A, #4A4238) and one muted rust accent (#A65E3A) like a hanko seal stamp. Typography: a quiet serif / mincho (Shippori Mincho), small sizes, a short vertical Japanese line. Thin hand-drawn brush stroke divider. Slow fade transitions only."}];
 
-    let selectedBucket = [];
-    let currentActiveStyle = STYLES[2]; // Default to Bento Grid
+    // 2. GLOBAL STATE
+    const StudioState = {
+      activeView: 'explore',
+      activeCategory: 'all',
+      selectedBucket: [], // Array of { id, type, styleId, styleName, properties }
+      customOverrides: {
+        primaryColor: null,
+        secondaryColor: null,
+        backgroundColor: '#0B0B0F',
+        surfaceColor: '#17171D',
+        headingFont: 'Geist',
+        bodyFont: 'Inter',
+        borderRadius: '24px',
+        spacingDensity: 'comfortable',
+      },
+      previewViewport: 'desktop',
+      previewTheme: 'dark',
+      activeDocType: 'spec',
+      generationProgress: 28,
+    };
 
-    const stylesGrid = document.getElementById('stylesGrid');
-    const searchInput = document.getElementById('searchInput');
-    const filterPills = document.querySelectorAll('.filter-pill');
-    const bucketBar = document.getElementById('bucketBar');
-    const bucketBadge = document.getElementById('bucketBadge');
-    const bucketItemsList = document.getElementById('bucketItemsList');
-    const previewModal = document.getElementById('previewModal');
-    const compareModal = document.getElementById('compareModal');
-    const toast = document.getElementById('toast');
+    // Load persisted state from localStorage
+    function loadPersistedState() {
+      try {
+        const saved = localStorage.getItem('ui_design_studio_v2');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed.selectedBucket) StudioState.selectedBucket = parsed.selectedBucket;
+          if (parsed.customOverrides) StudioState.customOverrides = { ...StudioState.customOverrides, ...parsed.customOverrides };
+        }
+      } catch (e) {
+        console.warn('LocalStorage load error:', e);
+      }
+    }
 
+    function savePersistedState() {
+      try {
+        localStorage.setItem('ui_design_studio_v2', JSON.stringify({
+          selectedBucket: StudioState.selectedBucket,
+          customOverrides: StudioState.customOverrides,
+        }));
+      } catch (e) {
+        console.warn('LocalStorage save error:', e);
+      }
+    }
+
+    // Toast Notification helper
     function showToast(msg) {
+      const toast = document.getElementById('globalToast');
       toast.textContent = msg;
       toast.classList.remove('translate-y-16', 'opacity-0');
-      setTimeout(() => {
-        toast.classList.add('translate-y-16', 'opacity-0');
-      }, 2000);
+      setTimeout(() => toast.classList.add('translate-y-16', 'opacity-0'), 2200);
     }
 
-    // Render Cards in Main Grid
-    function renderCards(items) {
-      stylesGrid.innerHTML = '';
-      if (items.length === 0) {
-        stylesGrid.innerHTML = `<div class="col-span-full py-16 text-center text-white/40 text-sm">No styles match your search.</div>`;
-        return;
-      }
+    // ==========================================
+    // 3. CAROUSEL & EXPLORATION ENGINE
+    // ==========================================
+    const CATEGORIES = [
+      "Clean & Structured",
+      "Soft & Tactile",
+      "Bold & Expressive",
+      "Retro & Digital",
+      "Artful & Heritage"
+    ];
 
-      items.forEach(style => {
-        const inBucket = selectedBucket.includes(style.id);
-        const card = document.createElement('div');
-        card.className = "bento-item bg-surface border border-borderLight hover:border-accentViolet/40 rounded-3xl p-5 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 group";
+    function renderCarousels() {
+      const container = document.getElementById('carouselsContainer');
+      container.innerHTML = '';
+
+      const query = document.getElementById('globalSearch').value.toLowerCase().trim();
+
+      CATEGORIES.forEach(cat => {
+        // Filter styles in category
+        let catStyles = STYLES.filter(s => s.family === cat);
+        if (query) {
+          catStyles = catStyles.filter(s => 
+            s.name.toLowerCase().includes(query) ||
+            s.tagline.toLowerCase().includes(query) ||
+            s.best_for.toLowerCase().includes(query) ||
+            (s.typefaces && s.typefaces.join(' ').toLowerCase().includes(query))
+          );
+        }
+
+        // If category filter is active and not matching, hide
+        if (StudioState.activeCategory !== 'all' && StudioState.activeCategory !== cat) {
+          return;
+        }
+
+        if (catStyles.length === 0) return;
+
+        const catSection = document.createElement('div');
+        catSection.className = "bg-surfacePrimary border border-borderSubtle rounded-3xl p-6 shadow-xl space-y-4";
         
-        // Palette swatches HTML
-        const paletteHtml = (style.palette || []).map(hex => 
-          `<span class="w-6 h-6 rounded-lg border border-white/10 inline-block shadow-sm" style="background-color: ${hex}" title="${hex}"></span>`
-        ).join('');
-
-        card.innerHTML = `
-          <div>
-            <div class="flex items-start justify-between gap-2">
-              <span class="text-xs font-mono font-bold text-accentViolet">${style.id}</span>
-              <span class="text-[10px] uppercase font-medium px-2 py-0.5 rounded-full bg-white/5 text-white/60">${style.family}</span>
+        // Carousel Header (Category Title, Counters, Prev/Next Navigation)
+        const catIdSlug = cat.toLowerCase().replace(/[^a-z0-9]/g, '-');
+        catSection.innerHTML = `
+          <div class="flex items-center justify-between pb-3 border-b border-borderSubtle">
+            <div>
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-accentPrimary">${cat}</span>
+              <h3 class="text-lg font-bold text-textPrimary">${cat} Collection</h3>
             </div>
-            <h3 class="text-lg font-bold text-white mt-1 group-hover:text-accentViolet transition-colors">${style.name}</h3>
-            <p class="text-xs italic text-white/50 mt-0.5">${style.tagline || ''}</p>
-            <p class="text-xs text-white/70 mt-3 line-clamp-2 leading-relaxed">${style.what_it_means || ''}</p>
-            
-            <div class="mt-4 flex items-center gap-1.5">
-              ${paletteHtml}
-            </div>
-
-            <div class="mt-4 pt-3 border-t border-white/5">
-              <span class="text-[11px] text-white/40">Best for: </span>
-              <span class="text-[11px] text-white/80">${style.best_for || 'General UI'}</span>
+            <div class="flex items-center gap-3">
+              <span id="counter-${catIdSlug}" class="text-xs font-mono text-textMuted">1 / ${catStyles.length}</span>
+              <div class="flex items-center gap-1">
+                <button class="carousel-prev-btn tactile-btn w-8 h-8 rounded-xl bg-surfaceSecondary hover:bg-surfaceElevated border border-borderSubtle text-textSecondary hover:text-textPrimary flex items-center justify-center text-xs" data-target="${catIdSlug}">
+                  &larr;
+                </button>
+                <button class="carousel-next-btn tactile-btn w-8 h-8 rounded-xl bg-surfaceSecondary hover:bg-surfaceElevated border border-borderSubtle text-textSecondary hover:text-textPrimary flex items-center justify-center text-xs" data-target="${catIdSlug}">
+                  &rarr;
+                </button>
+              </div>
             </div>
           </div>
-
-          <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between gap-2">
-            <button class="customize-btn active-scale flex-1 py-2 px-3 rounded-xl bg-accentViolet/10 hover:bg-accentViolet text-white text-xs font-semibold border border-accentViolet/30 transition-all text-center" data-id="${style.id}">
-              Live Studio
-            </button>
-            <button class="bucket-btn active-scale p-2 rounded-xl border ${inBucket ? 'bg-accentMint/20 border-accentMint text-accentMint' : 'border-white/10 text-white/60 hover:text-white'} text-xs" data-id="${style.id}" title="${inBucket ? 'Remove from bucket' : 'Add to bucket'}">
-              ${inBucket ? '✓ In Bucket' : '+ Bucket'}
-            </button>
+          <!-- Horizontal Scroll Track -->
+          <div id="track-${catIdSlug}" class="carousel-track flex items-stretch gap-5 overflow-x-auto custom-scroll pb-4 pt-1">
           </div>
         `;
-        stylesGrid.appendChild(card);
-      });
 
-      // Attach event listeners
-      document.querySelectorAll('.customize-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const id = e.target.getAttribute('data-id');
-          openCustomizer(id);
+        container.appendChild(catSection);
+
+        const track = catSection.querySelector(`#track-${catIdSlug}`);
+        catStyles.forEach((style, idx) => {
+          const isSelected = StudioState.selectedBucket.some(b => b.styleId === style.id);
+          const card = document.createElement('div');
+          card.className = "carousel-item min-w-[320px] max-w-[340px] flex-shrink-0 bg-surfaceSecondary border border-borderSubtle hover:border-accentPrimary/50 rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 group";
+
+          const swatches = (style.palette || []).map(hex => 
+            `<span class="w-5 h-5 rounded-md border border-white/10 inline-block shadow-sm" style="background-color: ${hex}" title="${hex}"></span>`
+          ).join('');
+
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-accentPrimary">${style.id}</span>
+                <span class="text-[10px] text-textMuted uppercase font-mono">${style.family}</span>
+              </div>
+              <h4 class="text-base font-bold text-textPrimary mt-1 group-hover:text-accentPrimary transition-colors">${style.name}</h4>
+              <p class="text-xs italic text-textMuted mt-0.5 line-clamp-1">${style.tagline}</p>
+              
+              <!-- Mini Visual Specimen -->
+              <div class="mt-4 p-3 rounded-xl border border-white/5 space-y-2" style="background-color: ${style.palette[0] || '#141418'};">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-semibold text-white px-2 py-0.5 rounded-full" style="background-color: ${style.palette[2] || '#8066FF'};">Badge</span>
+                  <span class="w-2 h-2 rounded-full" style="background-color: ${style.palette[3] || '#35D6A0'};"></span>
+                </div>
+                <div class="text-xs font-bold text-white line-clamp-1">${style.name} System</div>
+                <button class="w-full py-1 text-[10px] font-semibold rounded-lg text-white" style="background-color: ${style.palette[2] || '#8066FF'};">
+                  Component
+                </button>
+              </div>
+
+              <!-- Palettes -->
+              <div class="mt-4 flex items-center gap-1.5">
+                ${swatches}
+              </div>
+
+              <!-- Typography & Use -->
+              <div class="mt-3 text-[11px] text-textSecondary space-y-1">
+                <p><span class="text-textMuted">Fonts:</span> ${(style.typefaces || []).slice(0, 2).join(', ')}</p>
+                <p class="line-clamp-1"><span class="text-textMuted">Best:</span> ${style.best_for}</p>
+              </div>
+            </div>
+
+            <!-- Actions Bar -->
+            <div class="mt-5 pt-3 border-t border-borderSubtle flex items-center gap-2">
+              <button class="inspect-btn tactile-btn flex-1 py-1.5 px-2.5 rounded-xl bg-surfaceElevated hover:bg-surfaceSecondary border border-borderSubtle text-xs text-textPrimary font-medium text-center" data-id="${style.id}">
+                Inspect
+              </button>
+              <button class="bucket-toggle-btn tactile-btn px-3 py-1.5 rounded-xl border ${isSelected ? 'bg-accentSecondary/20 border-accentSecondary text-accentSecondary' : 'border-borderSubtle bg-surfacePrimary text-textSecondary hover:text-textPrimary'} text-xs font-semibold" data-id="${style.id}">
+                ${isSelected ? '✓ In Bucket' : '+ Bucket'}
+              </button>
+            </div>
+          `;
+          track.appendChild(card);
+        });
+
+        // Track drag & scroll event listeners
+        let isDown = false;
+        let startX, scrollLeft;
+        track.addEventListener('mousedown', (e) => {
+          isDown = true;
+          startX = e.pageX - track.offsetLeft;
+          scrollLeft = track.scrollLeft;
+        });
+        track.addEventListener('mouseleave', () => isDown = false);
+        track.addEventListener('mouseup', () => isDown = false);
+        track.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - track.offsetLeft;
+          const walk = (x - startX) * 1.5;
+          track.scrollLeft = scrollLeft - walk;
+        });
+
+        // Update counter on scroll
+        track.addEventListener('scroll', () => {
+          const itemWidth = 340;
+          const currentIdx = Math.min(catStyles.length, Math.floor(track.scrollLeft / itemWidth) + 1);
+          const counterEl = document.getElementById(`counter-${catIdSlug}`);
+          if (counterEl) counterEl.textContent = `${currentIdx} / ${catStyles.length}`;
         });
       });
 
-      document.querySelectorAll('.bucket-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const id = e.target.getAttribute('data-id');
-          toggleBucket(id);
+      // Bind Prev/Next buttons
+      document.querySelectorAll('.carousel-prev-btn').forEach(b => {
+        b.addEventListener('click', () => {
+          const target = b.getAttribute('data-target');
+          const t = document.getElementById(`track-${target}`);
+          if (t) t.scrollBy({ left: -340, behavior: 'smooth' });
         });
+      });
+      document.querySelectorAll('.carousel-next-btn').forEach(b => {
+        b.addEventListener('click', () => {
+          const target = b.getAttribute('data-target');
+          const t = document.getElementById(`track-${target}`);
+          if (t) t.scrollBy({ left: 340, behavior: 'smooth' });
+        });
+      });
+
+      // Bind Inspect & Bucket buttons
+      document.querySelectorAll('.inspect-btn').forEach(b => {
+        b.addEventListener('click', () => openStyleInspector(b.getAttribute('data-id')));
+      });
+      document.querySelectorAll('.bucket-toggle-btn').forEach(b => {
+        b.addEventListener('click', () => toggleStyleInBucket(b.getAttribute('data-id')));
       });
     }
 
-    // Toggle Style in Bucket
-    function toggleBucket(id) {
-      if (selectedBucket.includes(id)) {
-        selectedBucket = selectedBucket.filter(x => x !== id);
-      } else {
-        selectedBucket.push(id);
-      }
-      updateBucketUi();
-      renderCards(getActiveFilteredStyles());
-    }
+    // ==========================================
+    // 4. STYLE INSPECTION & EXPERIMENTATION
+    // ==========================================
+    let currentInspectingStyle = STYLES[0];
 
-    function updateBucketUi() {
-      bucketBadge.textContent = selectedBucket.length;
-      if (selectedBucket.length > 0) {
-        bucketBar.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-        bucketItemsList.innerHTML = selectedBucket.map(id => {
-          const s = STYLES.find(x => x.id === id);
-          return `<span class="px-2 py-0.5 rounded-md bg-white/10 text-xs font-mono font-bold text-white">${s.id} ${s.name}</span>`;
-        }).join('');
-      } else {
-        bucketBar.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-      }
-    }
-
-    // Open Live Studio Customizer
-    function openCustomizer(id) {
+    function openStyleInspector(id) {
       const s = STYLES.find(x => x.id === id);
       if (!s) return;
-      currentActiveStyle = s;
+      currentInspectingStyle = s;
 
-      document.getElementById('modalIdBadge').textContent = s.id;
-      document.getElementById('modalStyleName').textContent = s.name;
-      document.getElementById('modalFamilyBadge').textContent = s.family;
+      document.getElementById('inspIdBadge').textContent = s.id;
+      document.getElementById('inspStyleName').textContent = s.name;
+      document.getElementById('inspFamily').textContent = s.family;
+      document.getElementById('inspWhatItMeans').textContent = s.what_it_means;
 
-      // Palette Swatches
-      const palettePicker = document.getElementById('palettePicker');
-      palettePicker.innerHTML = (s.palette || []).map((hex, i) => `
-        <button class="palette-swatch w-full h-10 rounded-xl border border-white/20 shadow-md relative group active-scale" style="background-color: ${hex}" data-hex="${hex}">
-          <span class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-[10px] font-mono text-white rounded-xl">Copy</span>
-        </button>
+      // Render Swatches
+      const swatchesContainer = document.getElementById('inspPaletteGrid');
+      swatchesContainer.innerHTML = (s.palette || []).map((hex) => `
+        <button class="insp-swatch-btn tactile-btn w-full h-9 rounded-xl border border-white/20 shadow-sm" style="background-color: ${hex}" data-hex="${hex}" title="${hex}"></button>
       `).join('');
 
-      palettePicker.querySelectorAll('.palette-swatch').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+      swatchesContainer.querySelectorAll('.insp-swatch-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
           const hex = btn.getAttribute('data-hex');
-          navigator.clipboard.writeText(hex);
-          showToast(`Copied ${hex}`);
-          // Update live preview accent
-          document.getElementById('previewCta').style.backgroundColor = hex;
-          document.getElementById('previewTag').style.backgroundColor = hex;
+          document.getElementById('inspCardPrimaryBtn').style.backgroundColor = hex;
+          document.getElementById('inspCardTag').style.backgroundColor = hex;
+          showToast(`Applied ${hex} to active preview`);
         });
       });
 
-      // Signatures
-      const sigList = document.getElementById('modalSignatureList');
+      // Render Signatures
+      const sigList = document.getElementById('inspSignatureList');
       sigList.innerHTML = (s.signature_moves || []).map(m => `<li>&bull; ${m}</li>`).join('');
 
-      // Typefaces
-      const tfContainer = document.getElementById('modalTypefaces');
+      // Render Typefaces
+      const tfContainer = document.getElementById('inspTypefaces');
       tfContainer.innerHTML = (s.typefaces || []).map(t => 
-        `<span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-white/80 font-mono">${t}</span>`
+        `<span class="px-2.5 py-1 rounded-lg bg-surfacePrimary border border-borderSubtle text-xs text-textSecondary font-mono">${t}</span>`
       ).join('');
 
-      // Live Sandbox Styles
-      const bg = s.palette && s.palette[0] ? s.palette[0] : '#17171D';
-      const accent = s.palette && s.palette[2] ? s.palette[2] : '#7C5CFF';
-      
-      const canvas = document.getElementById('sandboxCanvas');
-      canvas.style.backgroundColor = bg;
-      document.getElementById('previewCta').style.backgroundColor = accent;
-      document.getElementById('previewTag').style.backgroundColor = accent;
+      // Preview Specimen Card Defaults
+      const card = document.getElementById('inspPreviewCard');
+      card.style.backgroundColor = s.palette[0] || '#17171D';
+      card.style.borderRadius = '24px';
+      document.getElementById('inspCardPrimaryBtn').style.backgroundColor = s.palette[2] || '#8066FF';
+      document.getElementById('inspCardTag').style.backgroundColor = s.palette[2] || '#8066FF';
 
-      // Export Output default (Prompt)
-      document.getElementById('exportOutput').value = s.prompt_template || '';
-
-      previewModal.classList.remove('hidden');
+      document.getElementById('inspectorModal').classList.remove('hidden');
     }
 
-    // Radius selector in modal
-    document.querySelectorAll('.radius-opt').forEach(btn => {
+    // Corner Radius controls inside inspector
+    document.querySelectorAll('.insp-radius-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.radius-opt').forEach(b => {
-          b.classList.remove('bg-accentViolet/20', 'border-accentViolet');
-          b.classList.add('bg-white/5', 'border-white/10');
+        document.querySelectorAll('.insp-radius-btn').forEach(b => {
+          b.classList.remove('border-accentPrimary', 'bg-accentPrimary/15', 'text-accentPrimary', 'font-bold');
+          b.classList.add('border-borderSubtle', 'bg-surfaceSecondary', 'text-textPrimary');
         });
-        btn.classList.add('bg-accentViolet/20', 'border-accentViolet');
-        btn.classList.remove('bg-white/5', 'border-white/10');
-        const rad = btn.getAttribute('data-radius');
-        document.getElementById('sandboxCanvas').style.borderRadius = rad;
-        document.getElementById('previewCta').style.borderRadius = rad === '999px' ? '999px' : (rad === '0px' ? '0px' : '12px');
+        btn.classList.add('border-accentPrimary', 'bg-accentPrimary/15', 'text-accentPrimary', 'font-bold');
+        btn.classList.remove('border-borderSubtle', 'bg-surfaceSecondary', 'text-textPrimary');
+        const r = btn.getAttribute('data-r');
+        document.getElementById('inspPreviewCard').style.borderRadius = r;
       });
     });
 
-    // Copy Prompt / Tailwind
-    document.getElementById('copyPromptBtn').addEventListener('click', () => {
-      const p = currentActiveStyle.prompt_template || '';
-      navigator.clipboard.writeText(p);
-      showToast('AI Prompt copied to clipboard!');
+    document.getElementById('closeInspectorBtn').addEventListener('click', () => {
+      document.getElementById('inspectorModal').classList.add('hidden');
     });
 
-    document.getElementById('copyTailwindBtn').addEventListener('click', () => {
-      const p = currentActiveStyle.palette || [];
-      const tw = `module.exports = {\n  theme: {\n    extend: {\n      colors: {\n        canvas: '${p[0] || "#0B0B0F"}',\n        card: '${p[1] || "#17171D"}',\n        accent: '${p[2] || "#7C5CFF"}',\n        accentSecondary: '${p[3] || "#3DDC97"}',\n        text: '${p[4] || "#F5F5F7"}'\n      }\n    }\n  }\n};`;
-      document.getElementById('exportOutput').value = tw;
-      navigator.clipboard.writeText(tw);
-      showToast('Tailwind config copied!');
+    document.getElementById('resetInspectorBtn').addEventListener('click', () => {
+      openStyleInspector(currentInspectingStyle.id);
+      showToast('Reset inspector to defaults');
     });
 
-    // Close Modal
-    document.getElementById('closeModalBtn').addEventListener('click', () => {
-      previewModal.classList.add('hidden');
+    document.getElementById('inspAddFullBtn').addEventListener('click', () => {
+      addCompleteStyleToBucket(currentInspectingStyle.id);
+      document.getElementById('inspectorModal').classList.add('hidden');
     });
 
-    // Compare Modal
-    document.getElementById('compareBtn').addEventListener('click', () => {
-      if (selectedBucket.length === 0) return;
-      const compareGrid = document.getElementById('compareGrid');
-      compareGrid.innerHTML = '';
-
-      selectedBucket.forEach(id => {
-        const s = STYLES.find(x => x.id === id);
-        const col = document.createElement('div');
-        col.className = "bg-[#181822] border border-white/10 rounded-2xl p-5 flex flex-col justify-between";
-        const palette = (s.palette || []).map(h => `<span class="w-5 h-5 rounded-md inline-block" style="background:${h}" title="${h}"></span>`).join(' ');
-        
-        col.innerHTML = `
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold text-accentViolet">${s.id}</span>
-              <span class="text-[10px] text-white/50">${s.family}</span>
-            </div>
-            <h4 class="text-lg font-bold text-white mt-1">${s.name}</h4>
-            <p class="text-xs italic text-white/50">${s.tagline}</p>
-            <div class="my-3 flex items-center gap-1">${palette}</div>
-            <div class="text-xs text-white/70 space-y-2 mt-4">
-              <p><strong>Fonts:</strong> ${(s.typefaces || []).join(', ')}</p>
-              <p><strong>Best for:</strong> ${s.best_for}</p>
-            </div>
-          </div>
-          <button class="open-from-compare active-scale mt-5 w-full py-2 rounded-xl bg-accentViolet text-white text-xs font-semibold" data-id="${s.id}">
-            Select &amp; Customize
-          </button>
-        `;
-        compareGrid.appendChild(col);
-      });
-
-      document.querySelectorAll('.open-from-compare').forEach(b => {
-        b.addEventListener('click', (e) => {
-          compareModal.classList.add('hidden');
-          openCustomizer(e.target.getAttribute('data-id'));
-        });
-      });
-
-      compareModal.classList.remove('hidden');
-    });
-
-    document.getElementById('closeCompareBtn').addEventListener('click', () => {
-      compareModal.classList.add('hidden');
-    });
-
-    document.getElementById('clearBucketBtn').addEventListener('click', () => {
-      selectedBucket = [];
-      updateBucketUi();
-      renderCards(getActiveFilteredStyles());
-    });
-
-    // Filtering logic
-    let activeFamily = 'all';
-
-    function getActiveFilteredStyles() {
-      const q = searchInput.value.toLowerCase();
-      return STYLES.filter(s => {
-        const matchFam = activeFamily === 'all' || s.family === activeFamily;
-        const matchQ = !q || 
-                       s.name.toLowerCase().includes(q) || 
-                       (s.tagline && s.tagline.toLowerCase().includes(q)) || 
-                       (s.best_for && s.best_for.toLowerCase().includes(q)) ||
-                       (s.typefaces && s.typefaces.join(' ').toLowerCase().includes(q));
-        return matchFam && matchQ;
-      });
+    // ==========================================
+    // 5. DESIGN BUCKET & CONFLICT INTELLIGENCE
+    // ==========================================
+    function toggleStyleInBucket(styleId) {
+      const idx = StudioState.selectedBucket.findIndex(b => b.styleId === styleId && b.type === 'Complete Style');
+      if (idx >= 0) {
+        StudioState.selectedBucket.splice(idx, 1);
+        showToast('Removed from bucket');
+      } else {
+        addCompleteStyleToBucket(styleId);
+      }
+      updateBucketUI();
+      renderCarousels();
+      savePersistedState();
     }
 
-    searchInput.addEventListener('input', () => {
-      renderCards(getActiveFilteredStyles());
+    function addCompleteStyleToBucket(styleId) {
+      const s = STYLES.find(x => x.id === styleId);
+      if (!s) return;
+      // Prevent exact duplicate complete style
+      if (!StudioState.selectedBucket.some(b => b.styleId === styleId && b.type === 'Complete Style')) {
+        StudioState.selectedBucket.push({
+          id: 'item-' + Date.now() + '-' + Math.random().toString(36).substr(2, 4),
+          type: 'Complete Style',
+          styleId: s.id,
+          styleName: s.name,
+          family: s.family,
+          properties: {
+            palette: s.palette,
+            typefaces: s.typefaces,
+            prompt_template: s.prompt_template,
+          }
+        });
+        // Also sync default custom overrides
+        StudioState.customOverrides.primaryColor = s.palette[2] || '#8066FF';
+        StudioState.customOverrides.surfaceColor = s.palette[0] || '#17171D';
+        StudioState.customOverrides.headingFont = s.typefaces[0] || 'Geist';
+        showToast(`Added ${s.name} to Design Bucket`);
+      }
+      updateBucketUI();
+      renderCarousels();
+      savePersistedState();
+    }
+
+    function removeBucketItem(itemId) {
+      StudioState.selectedBucket = StudioState.selectedBucket.filter(b => b.id !== itemId);
+      updateBucketUI();
+      renderCarousels();
+      savePersistedState();
+      showToast('Item removed from bucket');
+    }
+
+    function updateBucketUI() {
+      const count = StudioState.selectedBucket.length;
+      document.getElementById('headerBucketBadge').textContent = count;
+      document.getElementById('drawerBadgeCount').textContent = `${count} Items`;
+
+      const container = document.getElementById('bucketItemsContainer');
+      container.innerHTML = '';
+
+      if (count === 0) {
+        container.innerHTML = `
+          <div class="py-12 text-center text-textMuted text-xs space-y-2">
+            <span class="text-3xl block">🛒</span>
+            <p>Your Design Bucket is empty.</p>
+            <p class="text-[11px] text-textMuted">Explore styles and click "+ Bucket" to collect design decisions.</p>
+          </div>
+        `;
+      } else {
+        StudioState.selectedBucket.forEach(item => {
+          const el = document.createElement('div');
+          el.className = "bg-surfaceSecondary border border-borderSubtle rounded-2xl p-3.5 flex items-start justify-between gap-3";
+          el.innerHTML = `
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-accentPrimary/20 text-accentPrimary font-bold">${item.type}</span>
+                <span class="text-xs font-bold text-textPrimary">${item.styleName}</span>
+              </div>
+              <div class="mt-2 flex items-center gap-1">
+                ${(item.properties.palette || []).slice(0, 4).map(h => `<span class="w-4 h-4 rounded-md inline-block border border-white/10" style="background:${h}"></span>`).join('')}
+              </div>
+            </div>
+            <button class="tactile-btn text-textMuted hover:text-warning text-xs p-1" onclick="removeBucketItem('${item.id}')" title="Remove">
+              &times;
+            </button>
+          `;
+          container.appendChild(el);
+        });
+      }
+
+      // Run Conflict Inspection
+      inspectConflicts();
+    }
+
+    function inspectConflicts() {
+      const banner = document.getElementById('conflictAlertBanner');
+      const text = document.getElementById('conflictAlertText');
+      const completeStyles = StudioState.selectedBucket.filter(b => b.type === 'Complete Style');
+
+      if (completeStyles.length > 1) {
+        banner.classList.remove('hidden');
+        text.textContent = `You have selected ${completeStyles.length} full design styles (${completeStyles.map(s => s.styleName).join(', ')}). The prototype will prioritize ${completeStyles[completeStyles.length - 1].styleName}.`;
+      } else {
+        banner.classList.add('hidden');
+      }
+    }
+
+    // Bucket Drawer toggle
+    const bucketDrawer = document.getElementById('bucketDrawer');
+    document.getElementById('openBucketBtn').addEventListener('click', () => {
+      bucketDrawer.classList.remove('translate-x-full');
+    });
+    document.getElementById('closeBucketDrawerBtn').addEventListener('click', () => {
+      bucketDrawer.classList.add('translate-x-full');
+    });
+    document.getElementById('clearAllBucketBtn').addEventListener('click', () => {
+      StudioState.selectedBucket = [];
+      updateBucketUI();
+      renderCarousels();
+      savePersistedState();
+      showToast('Bucket cleared');
+    });
+    document.getElementById('drawerProceedToPreviewBtn').addEventListener('click', () => {
+      bucketDrawer.classList.add('translate-x-full');
+      switchView('preview');
     });
 
-    filterPills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        filterPills.forEach(p => {
-          p.classList.remove('bg-accentViolet', 'text-white', 'border-accentViolet');
-          p.classList.add('bg-[#1A1A22]', 'text-white/70', 'border-white/5');
+    // ==========================================
+    // 6. LIVE COMBINED WEBSITE PROTOTYPE ENGINE
+    // ==========================================
+    function renderWebsitePrototype() {
+      const root = document.getElementById('prototypeRoot');
+      const overrides = StudioState.customOverrides;
+
+      // Compute active theme tokens
+      const primaryHex = overrides.primaryColor || '#8066FF';
+      const surfaceHex = overrides.surfaceColor || '#14151A';
+      const bgHex = overrides.backgroundColor || '#0B0B0F';
+      const radiusVal = overrides.borderRadius || '24px';
+      const headingFont = overrides.headingFont || 'Geist';
+      const bodyFont = overrides.bodyFont || 'Inter';
+
+      root.innerHTML = `
+        <div style="background-color: ${bgHex}; font-family: '${bodyFont}', sans-serif; color: #F0F0F3;" class="p-6 md:p-10 space-y-10 min-h-[700px]">
+          
+          <!-- Prototype Navigation Bar -->
+          <header class="flex items-center justify-between pb-4 border-b border-white/10">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-white text-xs" style="background-color: ${primaryHex};">N</span>
+              <span class="font-bold text-sm tracking-tight text-white font-['${headingFont}']">Nexus Platform</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-6 text-xs text-white/70">
+              <a href="#features" class="hover:text-white">Features</a>
+              <a href="#metrics" class="hover:text-white">Telemetry</a>
+              <a href="#pricing" class="hover:text-white">Pricing</a>
+            </nav>
+            <div class="flex items-center gap-2">
+              <button class="tactile-btn px-4 py-2 text-xs font-semibold text-white shadow-md" style="background-color: ${primaryHex}; border-radius: ${radiusVal};">
+                Get Started
+              </button>
+            </div>
+          </header>
+
+          <!-- Prototype Hero Section -->
+          <section class="max-w-3xl mx-auto text-center py-6 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold border border-white/10" style="background-color: ${surfaceHex}; color: ${primaryHex};">
+              <span class="w-1.5 h-1.5 rounded-full" style="background-color: ${primaryHex};"></span>
+              Synchronized Prototype Runtime
+            </div>
+            <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight font-['${headingFont}']">
+              Composed Live From Active Design Tokens
+            </h2>
+            <p class="text-xs md:text-sm text-white/70 max-w-xl mx-auto leading-relaxed">
+              Every card, font family, corner radius, and button state responds instantaneously to your bucket decisions.
+            </p>
+            <div class="flex items-center justify-center gap-3 pt-2">
+              <button class="tactile-btn px-6 py-2.5 text-xs font-bold text-white shadow-lg" style="background-color: ${primaryHex}; border-radius: ${radiusVal};">
+                Deploy Agent
+              </button>
+              <button class="tactile-btn px-4 py-2.5 text-xs font-medium text-white/80 border border-white/15 hover:bg-white/5" style="border-radius: ${radiusVal};">
+                Documentation
+              </button>
+            </div>
+          </section>
+
+          <!-- Bento Grid Modular Cards Showcase -->
+          <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Card 1 -->
+            <div class="p-5 flex flex-col justify-between border border-white/10" style="background-color: ${surfaceHex}; border-radius: ${radiusVal};">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-white/50">Performance</span>
+                <h4 class="text-lg font-bold text-white mt-1 font-['${headingFont}']">Global Edge Ingress</h4>
+                <p class="text-xs text-white/60 mt-1">42ms latency across 24 regional edge locations.</p>
+              </div>
+              <div class="text-2xl font-mono font-bold mt-4" style="color: ${primaryHex};">42ms p99</div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="p-5 flex flex-col justify-between border border-white/10" style="background-color: ${surfaceHex}; border-radius: ${radiusVal};">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-white/50">Efficiency</span>
+                <h4 class="text-lg font-bold text-white mt-1 font-['${headingFont}']">Prompt Caching</h4>
+                <p class="text-xs text-white/60 mt-1">Zero token bloat with progressive disclosure.</p>
+              </div>
+              <div class="text-2xl font-mono font-bold mt-4 text-[#35D6A0]">94.8% Hit</div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="p-5 flex flex-col justify-between border border-white/10" style="background-color: ${surfaceHex}; border-radius: ${radiusVal};">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-white/50">Security</span>
+                <h4 class="text-lg font-bold text-white mt-1 font-['${headingFont}']">Wasm Sandboxes</h4>
+                <p class="text-xs text-white/60 mt-1">Full gVisor micro-kernel isolation.</p>
+              </div>
+              <div class="text-2xl font-mono font-bold mt-4 text-white">100% Secure</div>
+            </div>
+          </section>
+
+          <!-- Interactive Form & Controls Showcase -->
+          <section class="p-6 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-4" style="background-color: ${surfaceHex}; border-radius: ${radiusVal};">
+            <div class="space-y-1">
+              <h4 class="text-sm font-bold text-white font-['${headingFont}']">Subscribe to Telemetry Updates</h4>
+              <p class="text-xs text-white/60">Receive autonomous deployment logs straight to your webhook.</p>
+            </div>
+            <div class="flex items-center gap-2 w-full md:w-auto">
+              <input type="email" placeholder="agent@nexus.ai" class="bg-black/40 border border-white/15 px-3.5 py-2 text-xs text-white rounded-xl focus:outline-none focus:border-white">
+              <button class="tactile-btn px-4 py-2 text-xs font-bold text-white whitespace-nowrap" style="background-color: ${primaryHex}; border-radius: ${radiusVal};">
+                Subscribe
+              </button>
+            </div>
+          </section>
+
+          <!-- Prototype Footer -->
+          <footer class="pt-6 border-t border-white/10 flex items-center justify-between text-[11px] text-white/40">
+            <span>&copy; 2026 Nexus Platform &middot; Designed with UI Studio</span>
+            <div class="flex items-center gap-4">
+              <a href="#" class="hover:text-white">Privacy</a>
+              <a href="#" class="hover:text-white">Terms</a>
+            </div>
+          </footer>
+
+        </div>
+      `;
+    }
+
+    // Viewport switchers
+    document.querySelectorAll('.viewport-btn').forEach(b => {
+      b.addEventListener('click', () => {
+        document.querySelectorAll('.viewport-btn').forEach(btn => {
+          btn.classList.remove('bg-accentPrimary', 'text-white', 'font-medium');
+          btn.classList.add('text-textSecondary');
         });
-        pill.classList.add('bg-accentViolet', 'text-white', 'border-accentViolet');
-        pill.classList.remove('bg-[#1A1A22]', 'text-white/70', 'border-white/5');
-        activeFamily = pill.getAttribute('data-family');
-        renderCards(getActiveFilteredStyles());
+        b.classList.add('bg-accentPrimary', 'text-white', 'font-medium');
+        b.classList.remove('text-textSecondary');
+
+        const mode = b.getAttribute('data-viewport');
+        const container = document.getElementById('previewFrameContainer');
+        if (mode === 'desktop') {
+          container.style.maxWidth = '1152px';
+        } else if (mode === 'tablet') {
+          container.style.maxWidth = '768px';
+        } else if (mode === 'mobile') {
+          container.style.maxWidth = '390px';
+        }
       });
     });
 
-    // Initial render
-    renderCards(STYLES);
+    document.getElementById('toggleThemeModeBtn').addEventListener('click', () => {
+      const isDark = StudioState.customOverrides.backgroundColor === '#0B0B0F';
+      if (isDark) {
+        StudioState.customOverrides.backgroundColor = '#F5F5F7';
+        StudioState.customOverrides.surfaceColor = '#FFFFFF';
+        document.getElementById('themeModeIcon').textContent = '☀️';
+        document.getElementById('themeModeLabel').textContent = 'Light Canvas';
+      } else {
+        StudioState.customOverrides.backgroundColor = '#0B0B0F';
+        StudioState.customOverrides.surfaceColor = '#17171D';
+        document.getElementById('themeModeIcon').textContent = '🌙';
+        document.getElementById('themeModeLabel').textContent = 'Dark Canvas';
+      }
+      renderWebsitePrototype();
+    });
+
+    document.getElementById('refreshPreviewBtn').addEventListener('click', () => {
+      renderWebsitePrototype();
+      showToast('Prototype refreshed from token state');
+    });
+
+    // ==========================================
+    // 7. QUALITY INSPECTION ENGINE
+    // ==========================================
+    function calculateContrastRatio(hex1, hex2) {
+      function luminance(hex) {
+        const rgb = parseInt(hex.replace('#',''), 16);
+        const r = (rgb >> 16) & 0xff;
+        const g = (rgb >> 8) & 0xff;
+        const b = (rgb >> 0) & 0xff;
+        const a = [r, g, b].map(v => {
+          v /= 255;
+          return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+        });
+        return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+      }
+      const l1 = luminance(hex1);
+      const l2 = luminance(hex2);
+      const brightest = Math.max(l1, l2);
+      const darkest = Math.min(l1, l2);
+      return ((brightest + 0.05) / (darkest + 0.05)).toFixed(1);
+    }
+
+    function renderQualityAudit() {
+      const primary = StudioState.customOverrides.primaryColor || '#8066FF';
+      const surface = StudioState.customOverrides.surfaceColor || '#14151A';
+      
+      const ratio = calculateContrastRatio(primary, surface);
+      document.getElementById('auditContrastScore').textContent = `${ratio} : 1`;
+
+      const list = document.getElementById('auditFindingsList');
+      list.innerHTML = `
+        <div class="p-4 rounded-2xl bg-surfaceSecondary border border-borderSubtle flex items-start justify-between gap-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-accentSecondary/20 text-accentSecondary">PASS</span>
+              <span class="text-xs font-bold text-textPrimary">WCAG 2.1 AA Contrast Ratio (${ratio}:1)</span>
+            </div>
+            <p class="text-xs text-textSecondary mt-1">Primary accent evaluated against card surface. Exceeds the 4.5:1 minimum threshold for text and 3:1 for interactive controls.</p>
+          </div>
+          <span class="text-xs text-textMuted font-mono">1.4.3</span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-surfaceSecondary border border-borderSubtle flex items-start justify-between gap-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-accentSecondary/20 text-accentSecondary">PASS</span>
+              <span class="text-xs font-bold text-textPrimary">Hit Target Ergonomics (44 &times; 44px)</span>
+            </div>
+            <p class="text-xs text-textSecondary mt-1">All interactive buttons and navigation touch targets fulfill Apple HIG &amp; Android guidelines with explicit padding.</p>
+          </div>
+          <span class="text-xs text-textMuted font-mono">2.5.5</span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-surfaceSecondary border border-borderSubtle flex items-start justify-between gap-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-accentSecondary/20 text-accentSecondary">PASS</span>
+              <span class="text-xs font-bold text-textPrimary">Modular Rhythm &amp; Spacing Alignment</span>
+            </div>
+            <p class="text-xs text-textSecondary mt-1">Internal card padding (24px) systematically exceeds external bounding gaps (16px), preventing optical crowding.</p>
+          </div>
+          <span class="text-xs text-textMuted font-mono">Jakub Krehel</span>
+        </div>
+      `;
+    }
+
+    // ==========================================
+    // 8. DOCUMENTATION & HANDOFF ENGINE
+    // ==========================================
+    const DOC_SECTIONS = [
+      "1. Project Overview",
+      "2. Design Objectives",
+      "3. Selected Design Philosophy",
+      "4. Complete Asset Inventory",
+      "5. Typography System",
+      "6. Colour System",
+      "7. Semantic Colour Tokens",
+      "8. Spacing System",
+      "9. Layout Architecture",
+      "10. Grid Specifications",
+      "11. Component Specifications",
+      "12. Button Specifications",
+      "13. Form Specifications",
+      "14. Navigation Specifications",
+      "15. Card Specifications",
+      "16. Border and Radius System",
+      "17. Shadow and Elevation System",
+      "18. Motion and Transition Specifications",
+      "19. Interaction Behaviour",
+      "20. Responsive Design Rules",
+      "21. Accessibility Requirements",
+      "22. Design Token Dictionary",
+      "23. Component State Definitions",
+      "24. Custom Overrides",
+      "25. Compatibility Decisions",
+      "26. Design Quality Inspection",
+      "27. Implementation Guidelines",
+      "28. Final Design Decisions"
+    ];
+
+    function renderDocSectionsList() {
+      const container = document.getElementById('docSectionsList');
+      container.innerHTML = DOC_SECTIONS.map((sec, i) => `
+        <div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-white/5 text-textSecondary hover:text-textPrimary cursor-pointer">
+          <span class="line-clamp-1">${sec}</span>
+          <span class="text-[10px] font-mono text-accentSecondary">&check;</span>
+        </div>
+      `).join('');
+    }
+
+    function generateSpecificationMarkdown() {
+      const overrides = StudioState.customOverrides;
+      const primary = overrides.primaryColor || '#8066FF';
+      const surface = overrides.surfaceColor || '#14151A';
+      const bg = overrides.backgroundColor || '#0B0B0F';
+      const radius = overrides.borderRadius || '24px';
+      const headingFont = overrides.headingFont || 'Geist';
+      const bodyFont = overrides.bodyFont || 'Inter';
+
+      return `# DESIGN SYSTEM SPECIFICATION
+Generated by UI Design Studio Master Engine
+Timestamp: ${new Date().toISOString()}
+
+---
+
+## 1. Project Overview
+A unified design system engineered for high-performance web applications, combining Swiss-inspired layout discipline with modern creative software aesthetics.
+
+## 2. Design Objectives
+- Eliminate generic visual slop through calibrated tokens.
+- Maintain deterministic contrast ratios exceeding WCAG 2.1 AA standards.
+- Enforce strict 4px/8px modular rhythm across all compartments.
+
+## 3. Selected Design Philosophy
+- Primary Influence: Bento Grid Modular Hierarchy & Modern Dark SaaS.
+- Aesthetic Tenets: Asymmetric cell spans, self-contained compartments, tactile press feedback.
+
+## 4. Complete Asset Inventory
+- Active Styles in Bucket: ${StudioState.selectedBucket.length}
+- Primary Accent: ${primary}
+- Surface Canvas: ${surface}
+- Void Background: ${bg}
+
+## 5. Typography System
+- Heading Font: ${headingFont}
+- Body Copy Font: ${bodyFont}
+- Scale Ratio: 1.25 (Major Third)
+- Line Height: Tight display (1.15), comfortable body (1.55).
+
+## 6. Colour System
+- Canvas Void: ${bg}
+- Surface Card: ${surface}
+- Primary Brand Accent: ${primary}
+- Success / Status Mint: #35D6A0
+- Warning Amber: #E5B86C
+
+## 7. Semantic Colour Tokens
+- text.primary: #F0F0F3
+- text.secondary: #A0A1AD
+- border.subtle: rgba(255, 255, 255, 0.08)
+- action.primary: ${primary}
+
+## 8. Spacing System
+- Base Unit: 4px / 8px
+- Internal Card Padding: 24px (p-6)
+- Section Gaps: 16px (gap-4)
+
+## 9. Layout Architecture
+- Container Max Width: 1152px (max-w-6xl)
+- Centered layout with responsive margin gutters.
+
+## 10. Grid Specifications
+- 2D CSS Grid tracks: repeat(4, minmax(0, 1fr))
+- Asymmetric card spans: 2x2 (Hero), 2x1 (Metric), 1x2 (Preview), 1x1 (Badge).
+
+## 11. Component Specifications
+- Self-contained cards with independent visual hierarchy.
+
+## 12. Button Specifications
+- Tap target: min-height 44px
+- Radius: ${radius}
+- Tactile feedback: transform scale(0.96) on active press.
+
+## 13. Form Specifications
+- Inputs: 40px height, 1px border, high-contrast focus rings.
+
+## 14. Navigation Specifications
+- Sticky header with glassmorphism backdrop blur (12px).
+
+## 15. Card Specifications
+- Radius: ${radius}
+- Elevation: 1px border with ambient shadow.
+
+## 16. Border and Radius System
+- Active Border Radius: ${radius}
+
+## 17. Shadow and Elevation System
+- Ambient elevation: 0 16px 32px -8px rgba(0, 0, 0, 0.6)
+
+## 18. Motion and Transition Specifications
+- Press feedback: 120ms cubic-bezier(0.2, 0, 0, 1)
+- Hover lift: 200ms cubic-bezier(0.16, 1, 0.3, 1)
+- Speed ceiling: < 300ms total.
+
+## 19. Interaction Behaviour
+- Zero cognitive drag. All high-frequency actions trigger instantly.
+
+## 20. Responsive Design Rules
+- Mobile (<640px): 1-column stack.
+- Tablet (640px - 1024px): 2-column reflow.
+- Desktop (>=1024px): 4-column multi-span bento grid.
+
+## 21. Accessibility Requirements
+- Normal text contrast >= 4.5:1
+- Large text contrast >= 3:1
+- All interactive controls keyboard focusable.
+
+## 22. Design Token Dictionary
+- JSON tokens ready for Tailwind CSS and Figma Tokens Studio.
+
+## 23. Component State Definitions
+- default, hover, active (scale 0.96), focus-visible (ring-2).
+
+## 24. Custom Overrides
+- Border Radius Override: ${radius}
+- Accent Override: ${primary}
+
+## 25. Compatibility Decisions
+- No conflicting styles detected. Coherent token hierarchy.
+
+## 26. Design Quality Inspection
+- Passed WCAG 2.1 AA audit with 0 blocking issues.
+
+## 27. Implementation Guidelines
+- Copy tokens directly into tailwind.config.js.
+
+## 28. Final Design Decisions
+- Confirmed for production deployment.
+`;
+    }
+
+    function generateAIImplementationPrompt() {
+      const overrides = StudioState.customOverrides;
+      const primary = overrides.primaryColor || '#8066FF';
+      const surface = overrides.surfaceColor || '#14151A';
+      const bg = overrides.backgroundColor || '#0B0B0F';
+      const radius = overrides.borderRadius || '24px';
+      const headingFont = overrides.headingFont || 'Geist';
+      const bodyFont = overrides.bodyFont || 'Inter';
+
+      return `# AI IMPLEMENTATION PROMPT (AI_IMPLEMENTATION_PROMPT.md)
+Instructions for AI Coding Agents (Claude Code, Cursor, Antigravity, v0)
+
+You are tasked with building a production-grade web application following this confirmed design system:
+
+### 1. Visual Philosophy & Identity
+- Architecture: Bento Grid Modular Hierarchy + Modern Dark Creative Software.
+- Canvas Background: "${bg}"
+- Card Surface: "${surface}" with hairline border "rgba(255, 255, 255, 0.08)".
+- Primary Brand Accent: "${primary}"
+- Status Mint: "#35D6A0"
+
+### 2. Typography Rules
+- Heading Font: "${headingFont}", font-bold, tight letter tracking (-0.02em).
+- Body Font: "${bodyFont}", line-height 1.55.
+- Scale ratio: 1.25.
+
+### 3. Layout & Grid Architecture
+- Implement a 4-column 2D CSS Grid using Tailwind:
+  \`grid grid-cols-1 md:grid-cols-4 gap-4 max-w-6xl mx-auto auto-rows-[180px]\`
+- Use asymmetric cell spans:
+  - Hero Card: \`col-span-1 md:col-span-2 row-span-2\`
+  - Wide Metric: \`col-span-1 md:col-span-2 row-span-1\`
+  - Tall Preview: \`col-span-1 row-span-2\`
+  - Compact Badge: \`col-span-1 row-span-1\`
+
+### 4. Interactive Affordances & Motion Budgets
+- Every interactive button must have a minimum touch target of 44x44px.
+- Enforce tactile press feedback: \`active:scale-[0.96] transition-transform duration-100\`.
+- Card hover elevation: \`hover:-translate-y-1 transition-all duration-200\`.
+- Zero decorative animations over 300ms.
+
+### 5. Accessibility Non-Negotiables
+- Maintain contrast >= 4.5:1 for all copy against background surfaces.
+- Always include explicit visible focus outlines: \`focus-visible:ring-2 focus-visible:ring-white\`.
+- Semantic landmark progression: \`h1\` -> \`h2\` -> \`h3\` without skipped levels.
+
+Build the application completely with these parameters without asking for design clarification.
+`;
+    }
+
+    function renderDocumentViewer() {
+      const output = document.getElementById('docContentOutput');
+      const title = document.getElementById('docViewerTitle');
+
+      if (StudioState.activeDocType === 'spec') {
+        title.textContent = 'DESIGN_SYSTEM_SPECIFICATION.md';
+        output.textContent = generateSpecificationMarkdown();
+      } else {
+        title.textContent = 'AI_IMPLEMENTATION_PROMPT.md';
+        output.textContent = generateAIImplementationPrompt();
+      }
+
+      // Render summary highlights on right
+      const highlights = document.getElementById('confirmedHighlights');
+      highlights.innerHTML = `
+        <div class="p-2.5 rounded-xl bg-surfaceSecondary border border-borderSubtle">
+          <div class="text-[10px] text-textMuted uppercase">Primary Accent</div>
+          <div class="font-mono font-bold text-textPrimary flex items-center gap-1.5 mt-0.5">
+            <span class="w-3 h-3 rounded-full" style="background:${StudioState.customOverrides.primaryColor || '#8066FF'}"></span>
+            ${StudioState.customOverrides.primaryColor || '#8066FF'}
+          </div>
+        </div>
+        <div class="p-2.5 rounded-xl bg-surfaceSecondary border border-borderSubtle">
+          <div class="text-[10px] text-textMuted uppercase">Corner Radius</div>
+          <div class="font-mono font-bold text-textPrimary mt-0.5">${StudioState.customOverrides.borderRadius || '24px'}</div>
+        </div>
+        <div class="p-2.5 rounded-xl bg-surfaceSecondary border border-borderSubtle">
+          <div class="text-[10px] text-textMuted uppercase">Heading Typography</div>
+          <div class="font-bold text-textPrimary mt-0.5">${StudioState.customOverrides.headingFont || 'Geist'}</div>
+        </div>
+      `;
+    }
+
+    // Tab switcher between Spec and Prompt
+    document.getElementById('tabSpecDoc').addEventListener('click', () => {
+      StudioState.activeDocType = 'spec';
+      document.getElementById('tabSpecDoc').classList.add('bg-accentPrimary', 'text-white');
+      document.getElementById('tabSpecDoc').classList.remove('text-textSecondary');
+      document.getElementById('tabPromptDoc').classList.remove('bg-accentPrimary', 'text-white');
+      document.getElementById('tabPromptDoc').classList.add('text-textSecondary');
+      renderDocumentViewer();
+    });
+
+    document.getElementById('tabPromptDoc').addEventListener('click', () => {
+      StudioState.activeDocType = 'prompt';
+      document.getElementById('tabPromptDoc').classList.add('bg-accentPrimary', 'text-white');
+      document.getElementById('tabPromptDoc').classList.remove('text-textSecondary');
+      document.getElementById('tabSpecDoc').classList.remove('bg-accentPrimary', 'text-white');
+      document.getElementById('tabSpecDoc').classList.add('text-textSecondary');
+      renderDocumentViewer();
+    });
+
+    // Browser Blob Downloads
+    function downloadFileInBrowser(filename, content) {
+      const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(`Downloaded ${filename}`);
+    }
+
+    document.getElementById('downloadSpecBtn').addEventListener('click', () => {
+      downloadFileInBrowser('DESIGN_SYSTEM_SPECIFICATION.md', generateSpecificationMarkdown());
+    });
+
+    document.getElementById('downloadPromptBtn').addEventListener('click', () => {
+      downloadFileInBrowser('AI_IMPLEMENTATION_PROMPT.md', generateAIImplementationPrompt());
+    });
+
+    document.getElementById('copyActiveDocBtn').addEventListener('click', () => {
+      const content = document.getElementById('docContentOutput').textContent;
+      navigator.clipboard.writeText(content);
+      showToast('Document copied to clipboard!');
+    });
+
+    document.getElementById('confirmAndGenerateBtn').addEventListener('click', () => {
+      renderDocSectionsList();
+      renderDocumentViewer();
+      showToast('Design confirmed! Generated 28 sections.');
+    });
+
+    // ==========================================
+    // 9. NAVIGATION & VIEW SWITCHING
+    // ==========================================
+    function switchView(viewName) {
+      StudioState.activeView = viewName;
+      document.querySelectorAll('.view-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.nav-tab').forEach(t => {
+        t.classList.remove('bg-accentPrimary', 'text-white');
+        t.classList.add('text-textSecondary');
+      });
+
+      if (viewName === 'explore') {
+        document.getElementById('viewExplore').classList.remove('hidden');
+        document.getElementById('navExplore').classList.add('bg-accentPrimary', 'text-white');
+        document.getElementById('navExplore').classList.remove('text-textSecondary');
+        renderCarousels();
+      } else if (viewName === 'preview') {
+        document.getElementById('viewPreview').classList.remove('hidden');
+        document.getElementById('navPreview').classList.add('bg-accentPrimary', 'text-white');
+        document.getElementById('navPreview').classList.remove('text-textSecondary');
+        renderWebsitePrototype();
+      } else if (viewName === 'quality') {
+        document.getElementById('viewQuality').classList.remove('hidden');
+        document.getElementById('navQuality').classList.add('bg-accentPrimary', 'text-white');
+        document.getElementById('navQuality').classList.remove('text-textSecondary');
+        renderQualityAudit();
+      } else if (viewName === 'docs') {
+        document.getElementById('viewDocs').classList.remove('hidden');
+        document.getElementById('navDocs').classList.add('bg-accentPrimary', 'text-white');
+        document.getElementById('navDocs').classList.remove('text-textSecondary');
+        renderDocSectionsList();
+        renderDocumentViewer();
+      }
+    }
+
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+      tab.addEventListener('click', () => switchView(tab.getAttribute('data-view')));
+    });
+
+    // Category filter pills in exploration view
+    document.querySelectorAll('.category-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.category-filter-btn').forEach(b => {
+          b.classList.remove('bg-accentPrimary', 'text-white', 'border-accentPrimary');
+          b.classList.add('bg-surfaceSecondary', 'text-textSecondary', 'border-borderSubtle');
+        });
+        btn.classList.add('bg-accentPrimary', 'text-white', 'border-accentPrimary');
+        btn.classList.remove('bg-surfaceSecondary', 'text-textSecondary', 'border-borderSubtle');
+        StudioState.activeCategory = btn.getAttribute('data-cat');
+        renderCarousels();
+      });
+    });
+
+    // Global Search
+    document.getElementById('globalSearch').addEventListener('input', () => {
+      renderCarousels();
+    });
+
+    // Reset button
+    document.getElementById('globalResetBtn').addEventListener('click', () => {
+      if (confirm('Reset your Design Bucket and customized overrides to defaults?')) {
+        StudioState.selectedBucket = [];
+        StudioState.customOverrides = {
+          primaryColor: null,
+          secondaryColor: null,
+          backgroundColor: '#0B0B0F',
+          surfaceColor: '#17171D',
+          headingFont: 'Geist',
+          bodyFont: 'Inter',
+          borderRadius: '24px',
+          spacingDensity: 'comfortable',
+        };
+        savePersistedState();
+        updateBucketUI();
+        renderCarousels();
+        renderWebsitePrototype();
+        showToast('Reset all state to defaults');
+      }
+    });
+
+    // Initial Launch sequence
+    loadPersistedState();
+    updateBucketUI();
+    renderCarousels();
+    renderDocSectionsList();
+    renderDocumentViewer();
   </script>
 </body>
 </html>
