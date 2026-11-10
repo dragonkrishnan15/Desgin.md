@@ -1,0 +1,29 @@
+﻿{
+    "id":  "16",
+    "slug":  "scrapbook",
+    "name":  "Scrapbook",
+    "family":  "Bold \u0026 Expressive",
+    "tagline":  "Cut, tape, stick, scribble.",
+    "what_it_means":  "Scrapbook design recreates a handmade journal: polaroid photos, torn paper, washi tape, stamps, doodles and handwritten notes on textured paper. It feels personal, nostalgic and human, perfect for storytelling and community-driven brands.",
+    "signature_moves":  [
+                            "Paper textures: kraft, notebook, torn edges",
+                            "Polaroids and photos held with tape",
+                            "Handwritten fonts, doodles, arrows",
+                            "Stickers, stamps, tickets, sticky notes",
+                            "Slight rotations; nothing perfectly aligned"
+                        ],
+    "palette":  [
+                    "#E9DCC4",
+                    "#FFFDF6",
+                    "#F2A7A0",
+                    "#9CC9B5",
+                    "#2E2A26"
+                ],
+    "typefaces":  [
+                      "Caveat",
+                      "Permanent Marker",
+                      "Special Elite"
+                  ],
+    "best_for":  "Travel blogs, personal portfolios, community \u0026 lifestyle brands",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a travel-journal homepage for [BRAND / PERSON] in a Scrapbook style. Kraft-paper background (#E9DCC4) with subtle paper texture. Place 3 polaroid photos (white frames, 6px padding, slightly rotated -6° to 8°) held by semi-transparent washi-tape strips in pink #F2A7A0 and mint #9CC9B5. Add a yellow sticky note, a torn-paper text block, a postage stamp and hand-drawn doodle arrows. Headline in Permanent Marker, notes in Caveat, body in a typewriter font. Nothing perfectly aligned; elements wiggle slightly on hover."
+}

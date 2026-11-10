@@ -1,0 +1,38 @@
+﻿{
+    "id":  "14",
+    "slug":  "maximalism",
+    "name":  "Maximalism",
+    "family":  "Bold \u0026 Expressive",
+    "tagline":  "More is more.",
+    "what_it_means":  "Maximalism rejects restraint. It layers bold patterns, clashing colours, multiple typefaces, stickers, collage and texture into rich, dense compositions. Done well, it feels curated chaos: joyful, energetic and impossible to ignore.",
+    "signature_moves":  [
+                            "Layered patterns: stripes, dots, checks",
+                            "Many colours and several typefaces at once",
+                            "Collage, stickers, overlapping elements",
+                            "Oversized, rotated and outlined type",
+                            "Dense composition with a clear focal point"
+                        ],
+    "palette":  [
+                    "#FF3D7F",
+                    "#FFD400",
+                    "#2B59FF",
+                    "#00B37E",
+                    "#FF7A00"
+                ],
+    "typefaces":  [
+                      "stickers",
+                      "collage and texture into rich",
+                      "dense compositions. Done well",
+                      "it feels curated chaos: joyful",
+                      "energetic and impossible to ignore. **`S I G N A T U R E M O V E S`** → Layered patterns: stripes",
+                      "dots",
+                      "checks → Many colours and several typefaces at once → Collage",
+                      "stickers",
+                      "overlapping elements → Oversized",
+                      "rotated and outlined type → Dense composition with a clear focal point **`P A L E T T E`** `#FF3D7F #FFD400 #2B59FF #00B37E #FF7A00 T Y P E F A C E S` Abril Fatface",
+                      "Monoton",
+                      "Space Grotesk (mix\\!)"
+                  ],
+    "best_for":  "Fashion drops, festivals, music, creative agencies, youth brands",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [FESTIVAL / FASHION DROP] in a Maximalist style. Layer multiple bold patterns (checkerboard, polka dots, stripes) in clashing colours: hot pink #FF3D7F, yellow #FFD400, cobalt #2B59FF, green #00B37E, orange #FF7A00. Mix 3 typefaces (a fat serif like Abril Fatface, a display font like Monoton, a grotesk for body). Overlap rotated photo cut-outs, stickers, starbursts and a scrolling marquee. Keep one huge headline as the focal point so it reads despite the chaos. Add playful hover wiggles. Embrace density, but keep the CTA obvious."
+}

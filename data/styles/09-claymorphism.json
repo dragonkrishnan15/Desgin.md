@@ -1,0 +1,29 @@
+﻿{
+    "id":  "09",
+    "slug":  "claymorphism",
+    "name":  "Claymorphism",
+    "family":  "Soft \u0026 Tactile",
+    "tagline":  "Puffy, squishy, friendly 3D.",
+    "what_it_means":  "Claymorphism makes UI elements look like soft inflated clay: big rounded shapes, pastel colours, and a combination of outer drop shadows with inner highlights and inner shadows. It feels playful and approachable, often paired with 3D clay illustrations.",
+    "signature_moves":  [
+                            "Very round corners (30px+) and pill buttons",
+                            "Outer shadow + inner light + inner dark shadow",
+                            "Pastel, candy-like colours",
+                            "3D clay-style illustrations and blobs",
+                            "Chunky rounded fonts"
+                        ],
+    "palette":  [
+                    "#EFE7FF",
+                    "#FF8FB1",
+                    "#7CC6FE",
+                    "#FFD36E",
+                    "#3B2A63"
+                ],
+    "typefaces":  [
+                      "Fredoka",
+                      "Baloo 2",
+                      "Nunito"
+                  ],
+    "best_for":  "Kids \u0026 education, habit trackers, playful fintech, onboarding",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a mobile habit-tracker landing page in Claymorphism style. Pastel lavender background (#EFE7FF). All cards and buttons look like puffy clay: border-radius 32px+, an outer drop shadow (12px 12px 24px rgba(120,80,180,.3)) PLUS inner highlights (inset 6px 6px 12px rgba(255,255,255,.7)) and inner shade (inset -6px -6px 12px rgba(0,0,0,.12)). Candy colours: pink #FF8FB1, sky #7CC6FE, butter #FFD36E. Add 3D clay-style blobs and a smiling mascot. Rounded chunky font (Fredoka / Baloo 2), deep purple text (#3B2A63). Buttons squish (scale 0.95) on press."
+}

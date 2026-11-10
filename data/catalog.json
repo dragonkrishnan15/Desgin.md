@@ -1,0 +1,603 @@
+﻿[
+    {
+        "id":  "01",
+        "slug":  "minimalism",
+        "name":  "Minimalism",
+        "family":  "Clean \u0026 Structured",
+        "tagline":  "Say more with less.",
+        "palette":  [
+                        "#FAFAF8",
+                        "#111111",
+                        "#8A8A85",
+                        "#E6E4DF",
+                        "#C9A27E"
+                    ],
+        "typefaces":  [
+                          "Inter",
+                          "Helvetica Now",
+                          "Neue Montreal"
+                      ],
+        "best_for":  "Premium products, portfolios, studios, single-product launches",
+        "file":  "styles/01-minimalism.json"
+    },
+    {
+        "id":  "02",
+        "slug":  "swiss-design",
+        "name":  "Swiss Design",
+        "family":  "Clean \u0026 Structured",
+        "tagline":  "The grid is the hero.",
+        "palette":  [
+                        "#FFFFFF",
+                        "#111111",
+                        "#E30613",
+                        "#F2F2F2",
+                        "#9B9B9B"
+                    ],
+        "typefaces":  [
+                          "Helvetica Neue",
+                          "Inter",
+                          "Neue Haas Grotesk"
+                      ],
+        "best_for":  "Agencies, conferences, architecture, data-heavy sites",
+        "file":  "styles/02-swiss-design.json"
+    },
+    {
+        "id":  "03",
+        "slug":  "bento-grid",
+        "name":  "Bento Grid",
+        "family":  "Clean \u0026 Structured",
+        "tagline":  "Everything in its box.",
+        "palette":  [
+                        "#0B0B0F",
+                        "#17171D",
+                        "#7C5CFF",
+                        "#3DDC97",
+                        "#F5F5F7"
+                    ],
+        "typefaces":  [
+                          "SF Pro",
+                          "Inter",
+                          "Geist"
+                      ],
+        "best_for":  "SaaS feature sections, product launches, portfolios, dashboards",
+        "file":  "styles/03-bento-grid.json"
+    },
+    {
+        "id":  "04",
+        "slug":  "editorial-design",
+        "name":  "Editorial Design",
+        "family":  "Clean \u0026 Structured",
+        "tagline":  "Read it like a magazine.",
+        "palette":  [
+                        "#F4EFE6",
+                        "#1A1A1A",
+                        "#B23A2B",
+                        "#D9D0C1",
+                        "#6B6358"
+                    ],
+        "typefaces":  [
+                          "Playfair Display",
+                          "GT Super",
+                          "Canela",
+                          "Inter"
+                      ],
+        "best_for":  "Blogs, publications, long-form stories, brand journals",
+        "file":  "styles/04-editorial-design.json"
+    },
+    {
+        "id":  "05",
+        "slug":  "luxury-typography",
+        "name":  "Luxury Typography",
+        "family":  "Clean \u0026 Structured",
+        "tagline":  "Type that whispers money.",
+        "palette":  [
+                        "#0E0D0B",
+                        "#F3EDE2",
+                        "#C6A15B",
+                        "#2A2723",
+                        "#8C8475"
+                    ],
+        "typefaces":  [
+                          "Cormorant Garamond",
+                          "Didot",
+                          "Bodoni Moda",
+                          "a fine sans"
+                      ],
+        "best_for":  "Fashion, jewellery, hotels, perfume, fine dining",
+        "file":  "styles/05-luxury-typography.json"
+    },
+    {
+        "id":  "06",
+        "slug":  "bauhaus",
+        "name":  "Bauhaus",
+        "family":  "Clean \u0026 Structured",
+        "tagline":  "Circle, square, triangle.",
+        "palette":  [
+                        "#F2EBDD",
+                        "#D7263D",
+                        "#F4B400",
+                        "#1E4CA1",
+                        "#111111"
+                    ],
+        "typefaces":  [
+                          "Futura",
+                          "Josefin Sans",
+                          "Archivo Black"
+                      ],
+        "best_for":  "Creative studios, museums, education, posters \u0026 events",
+        "file":  "styles/06-bauhaus.json"
+    },
+    {
+        "id":  "07",
+        "slug":  "neumorphism",
+        "name":  "Neumorphism",
+        "family":  "Soft \u0026 Tactile",
+        "tagline":  "Soft plastic, pressed into the page.",
+        "palette":  [
+                        "#E0E5EC",
+                        "#A3B1C6",
+                        "#FFFFFF",
+                        "#4D5B7C",
+                        "#6C63FF"
+                    ],
+        "typefaces":  [
+                          "Nunito",
+                          "Poppins",
+                          "Manrope"
+                      ],
+        "best_for":  "Smart-home controls, music players, calculators, widgets",
+        "file":  "styles/07-neumorphism.json"
+    },
+    {
+        "id":  "08",
+        "slug":  "glassmorphism",
+        "name":  "Glassmorphism",
+        "family":  "Soft \u0026 Tactile",
+        "tagline":  "Frosted glass over colour.",
+        "palette":  [
+                        "#1B1640",
+                        "#FF5ACD",
+                        "#5B8CFF",
+                        "#FFFFFF",
+                        "#FFFFFF"
+                    ],
+        "typefaces":  [
+                          "SF Pro",
+                          "Inter",
+                          "Plus Jakarta Sans"
+                      ],
+        "best_for":  "Fintech cards, music \u0026 weather apps, dashboards, OS-style UIs",
+        "file":  "styles/08-glassmorphism.json"
+    },
+    {
+        "id":  "09",
+        "slug":  "claymorphism",
+        "name":  "Claymorphism",
+        "family":  "Soft \u0026 Tactile",
+        "tagline":  "Puffy, squishy, friendly 3D.",
+        "palette":  [
+                        "#EFE7FF",
+                        "#FF8FB1",
+                        "#7CC6FE",
+                        "#FFD36E",
+                        "#3B2A63"
+                    ],
+        "typefaces":  [
+                          "Fredoka",
+                          "Baloo 2",
+                          "Nunito"
+                      ],
+        "best_for":  "Kids \u0026 education, habit trackers, playful fintech, onboarding",
+        "file":  "styles/09-claymorphism.json"
+    },
+    {
+        "id":  "10",
+        "slug":  "skeuomorphism",
+        "name":  "Skeuomorphism",
+        "family":  "Soft \u0026 Tactile",
+        "tagline":  "Make it look real.",
+        "palette":  [
+                        "#2B2B2E",
+                        "#C9CCD1",
+                        "#6E4B2A",
+                        "#F2D16B",
+                        "#E04A3A"
+                    ],
+        "typefaces":  [
+                          "SF Pro",
+                          "Helvetica Neue",
+                          "Lucida Grande"
+                      ],
+        "best_for":  "Audio/music tools, camera apps, retro-tech products, games",
+        "file":  "styles/10-skeuomorphism.json"
+    },
+    {
+        "id":  "11",
+        "slug":  "ethereal",
+        "name":  "Ethereal",
+        "family":  "Soft \u0026 Tactile",
+        "tagline":  "Light, mist and quiet glow.",
+        "palette":  [
+                        "#F7F3FF",
+                        "#D9C8FF",
+                        "#FFD9E8",
+                        "#CDEBFF",
+                        "#5E5873"
+                    ],
+        "typefaces":  [
+                          "Cormorant",
+                          "Fraunces Light",
+                          "Inter Light"
+                      ],
+        "best_for":  "Wellness, meditation, skincare, spiritual \u0026 beauty brands",
+        "file":  "styles/11-ethereal.json"
+    },
+    {
+        "id":  "12",
+        "slug":  "aurora-gradient",
+        "name":  "Aurora Gradient",
+        "family":  "Soft \u0026 Tactile",
+        "tagline":  "Living colour mesh.",
+        "palette":  [
+                        "#07070C",
+                        "#6A5BFF",
+                        "#00D1B2",
+                        "#FF4FD8",
+                        "#F2F2F7"
+                    ],
+        "typefaces":  [
+                          "Geist",
+                          "Inter",
+                          "Satoshi"
+                      ],
+        "best_for":  "AI products, SaaS launches, crypto, developer tools",
+        "file":  "styles/12-aurora-gradient.json"
+    },
+    {
+        "id":  "13",
+        "slug":  "neo-brutalism",
+        "name":  "Neo-Brutalism",
+        "family":  "Bold \u0026 Expressive",
+        "tagline":  "Loud, raw, unapologetic.",
+        "palette":  [
+                        "#FFE94A",
+                        "#FF6B9E",
+                        "#4D7CFE",
+                        "#00C48C",
+                        "#111111"
+                    ],
+        "typefaces":  [
+                          "Archivo Black",
+                          "Space Grotesk",
+                          "Lexend Mega"
+                      ],
+        "best_for":  "Startups, indie tools, creator brands, Gen-Z products",
+        "file":  "styles/13-neo-brutalism.json"
+    },
+    {
+        "id":  "14",
+        "slug":  "maximalism",
+        "name":  "Maximalism",
+        "family":  "Bold \u0026 Expressive",
+        "tagline":  "More is more.",
+        "palette":  [
+                        "#FF3D7F",
+                        "#FFD400",
+                        "#2B59FF",
+                        "#00B37E",
+                        "#FF7A00"
+                    ],
+        "typefaces":  [
+                          "stickers",
+                          "collage and texture into rich",
+                          "dense compositions. Done well",
+                          "it feels curated chaos: joyful",
+                          "energetic and impossible to ignore. **`S I G N A T U R E M O V E S`** → Layered patterns: stripes",
+                          "dots",
+                          "checks → Many colours and several typefaces at once → Collage",
+                          "stickers",
+                          "overlapping elements → Oversized",
+                          "rotated and outlined type → Dense composition with a clear focal point **`P A L E T T E`** `#FF3D7F #FFD400 #2B59FF #00B37E #FF7A00 T Y P E F A C E S` Abril Fatface",
+                          "Monoton",
+                          "Space Grotesk (mix\\!)"
+                      ],
+        "best_for":  "Fashion drops, festivals, music, creative agencies, youth brands",
+        "file":  "styles/14-maximalism.json"
+    },
+    {
+        "id":  "15",
+        "slug":  "memphis",
+        "name":  "Memphis",
+        "family":  "Bold \u0026 Expressive",
+        "tagline":  "80s confetti geometry.",
+        "palette":  [
+                        "#FFF4E0",
+                        "#FF6F91",
+                        "#3EC1D3",
+                        "#FFC93C",
+                        "#7A5CFA"
+                    ],
+        "typefaces":  [
+                          "Fredoka",
+                          "Righteous",
+                          "Poppins Black"
+                      ],
+        "best_for":  "Kids brands, snacks \u0026 drinks, creative events, social apps",
+        "file":  "styles/15-memphis.json"
+    },
+    {
+        "id":  "16",
+        "slug":  "scrapbook",
+        "name":  "Scrapbook",
+        "family":  "Bold \u0026 Expressive",
+        "tagline":  "Cut, tape, stick, scribble.",
+        "palette":  [
+                        "#E9DCC4",
+                        "#FFFDF6",
+                        "#F2A7A0",
+                        "#9CC9B5",
+                        "#2E2A26"
+                    ],
+        "typefaces":  [
+                          "Caveat",
+                          "Permanent Marker",
+                          "Special Elite"
+                      ],
+        "best_for":  "Travel blogs, personal portfolios, community \u0026 lifestyle brands",
+        "file":  "styles/16-scrapbook.json"
+    },
+    {
+        "id":  "17",
+        "slug":  "conceptual-sketch",
+        "name":  "Conceptual Sketch",
+        "family":  "Bold \u0026 Expressive",
+        "tagline":  "Ideas, still in pencil.",
+        "palette":  [
+                        "#FBFAF5",
+                        "#2B4C7E",
+                        "#1F1F1F",
+                        "#FFE45E",
+                        "#E85D4A"
+                    ],
+        "typefaces":  [
+                          "Caveat",
+                          "Kalam",
+                          "Architects Daughter"
+                      ],
+        "best_for":  "Design tools, whiteboard apps, agencies, tutorials, pitch pages",
+        "file":  "styles/17-conceptual-sketch.json"
+    },
+    {
+        "id":  "18",
+        "slug":  "pixel-art",
+        "name":  "Pixel Art",
+        "family":  "Retro \u0026 Digital",
+        "tagline":  "8-bit charm, modern layout.",
+        "palette":  [
+                        "#F1F1F4",
+                        "#2A1FE0",
+                        "#111111",
+                        "#FF4FB8",
+                        "#E23B3B"
+                    ],
+        "typefaces":  [
+                          "Press Start 2P",
+                          "VT323",
+                          "Silkscreen",
+                          "PP NeueBit"
+                      ],
+        "best_for":  "Gaming, creative agencies, indie products, playful portfolios",
+        "file":  "styles/18-pixel-art.json"
+    },
+    {
+        "id":  "19",
+        "slug":  "y2k-aesthetic",
+        "name":  "Y2K Aesthetic",
+        "family":  "Retro \u0026 Digital",
+        "tagline":  "Chrome, bubbles and futuristic optimism.",
+        "palette":  [
+                        "#E8E4FF",
+                        "#FF9DE2",
+                        "#8FD3FF",
+                        "#C9B6FF",
+                        "#B8C0CC"
+                    ],
+        "typefaces":  [
+                          "Monoton",
+                          "Syne",
+                          "Michroma",
+                          "chrome effects"
+                      ],
+        "best_for":  "Fashion, beauty, music, Gen-Z apps, merch drops",
+        "file":  "styles/19-y2k-aesthetic.json"
+    },
+    {
+        "id":  "20",
+        "slug":  "vaporwave",
+        "name":  "Vaporwave",
+        "family":  "Retro \u0026 Digital",
+        "tagline":  "Statues, sunsets and old Windows.",
+        "palette":  [
+                        "#FF71CE",
+                        "#01CDFE",
+                        "#05FFA1",
+                        "#B967FF",
+                        "#FFFB96"
+                    ],
+        "typefaces":  [
+                          "VT323",
+                          "MS Sans Serif-style",
+                          "wide-spaced serif"
+                      ],
+        "best_for":  "Music \u0026 playlists, art projects, streetwear, meme savvy brands",
+        "file":  "styles/20-vaporwave.json"
+    },
+    {
+        "id":  "21",
+        "slug":  "synthwave",
+        "name":  "Synthwave",
+        "family":  "Retro \u0026 Digital",
+        "tagline":  "Neon sunsets on an endless grid.",
+        "palette":  [
+                        "#0D0221",
+                        "#FF2A6D",
+                        "#05D9E8",
+                        "#F9C80E",
+                        "#7B2CBF"
+                    ],
+        "typefaces":  [
+                          "Monoton",
+                          "Orbitron",
+                          "Audiowide"
+                      ],
+        "best_for":  "Music, gaming, events, nightlife, retro-themed launches",
+        "file":  "styles/21-synthwave.json"
+    },
+    {
+        "id":  "22",
+        "slug":  "cybercore",
+        "name":  "Cybercore",
+        "family":  "Retro \u0026 Digital",
+        "tagline":  "The early internet, overclocked.",
+        "palette":  [
+                        "#050505",
+                        "#39FF14",
+                        "#00F0FF",
+                        "#FF00E5",
+                        "#C0C0C0"
+                    ],
+        "typefaces":  [
+                          "JetBrains Mono",
+                          "VT323",
+                          "Orbitron"
+                      ],
+        "best_for":  "Developer tools, hackathons, security, music \u0026 digital art",
+        "file":  "styles/22-cybercore.json"
+    },
+    {
+        "id":  "23",
+        "slug":  "cyberpunk",
+        "name":  "Cyberpunk",
+        "family":  "Retro \u0026 Digital",
+        "tagline":  "High tech, low life, neon rain.",
+        "palette":  [
+                        "#0A0A12",
+                        "#FCEE0A",
+                        "#FF003C",
+                        "#00F0FF",
+                        "#1E1E2E"
+                    ],
+        "typefaces":  [
+                          "Orbitron",
+                          "Rajdhani",
+                          "Chakra Petch"
+                      ],
+        "best_for":  "Games, esports, tech launches, streetwear, sci-fi content",
+        "file":  "styles/23-cyberpunk.json"
+    },
+    {
+        "id":  "24",
+        "slug":  "surrealism",
+        "name":  "Surrealism",
+        "family":  "Artful \u0026 Heritage",
+        "tagline":  "Dream logic as interface.",
+        "palette":  [
+                        "#9EC9F0",
+                        "#F4D9B8",
+                        "#E86A4A",
+                        "#2D3A6B",
+                        "#FFF8EC"
+                    ],
+        "typefaces":  [
+                          "DM Serif Display",
+                          "Syne",
+                          "Fraunces"
+                      ],
+        "best_for":  "Art \u0026 culture, creative agencies, fragrances, music, storytelling",
+        "file":  "styles/24-surrealism.json"
+    },
+    {
+        "id":  "25",
+        "slug":  "art-deco",
+        "name":  "Art Deco",
+        "family":  "Artful \u0026 Heritage",
+        "tagline":  "Gatsby-era glamour.",
+        "palette":  [
+                        "#0B1A17",
+                        "#D4AF37",
+                        "#0F4C3A",
+                        "#F3E9D2",
+                        "#1C1C1C"
+                    ],
+        "typefaces":  [
+                          "Poiret One",
+                          "Limelight",
+                          "Josefin Sans"
+                      ],
+        "best_for":  "Hotels \u0026 bars, weddings, events \u0026 galas, premium spirits",
+        "file":  "styles/25-art-deco.json"
+    },
+    {
+        "id":  "26",
+        "slug":  "victorian",
+        "name":  "Victorian",
+        "family":  "Artful \u0026 Heritage",
+        "tagline":  "Ornate, gilded, storied.",
+        "palette":  [
+                        "#2B0F14",
+                        "#5B1A24",
+                        "#1F3B2D",
+                        "#C9A54C",
+                        "#F2E6CC"
+                    ],
+        "typefaces":  [
+                          "UnifrakturMaguntia",
+                          "Playfair Display",
+                          "IM Fell"
+                      ],
+        "best_for":  "Tea, whisky, perfumers, bookshops, heritage \u0026 antique brands",
+        "file":  "styles/26-victorian.json"
+    },
+    {
+        "id":  "27",
+        "slug":  "bohemian",
+        "name":  "Bohemian",
+        "family":  "Artful \u0026 Heritage",
+        "tagline":  "Sun-baked, handmade, free.",
+        "palette":  [
+                        "#F3E5D0",
+                        "#C8633F",
+                        "#8A9A5B",
+                        "#E0A84E",
+                        "#5A3A2E"
+                    ],
+        "typefaces":  [
+                          "DM Serif Display",
+                          "Fraunces",
+                          "Caveat"
+                      ],
+        "best_for":  "Home décor, ceramics, yoga retreats, travel, handmade goods",
+        "file":  "styles/27-bohemian.json"
+    },
+    {
+        "id":  "28",
+        "slug":  "wabi-sabi",
+        "name":  "Wabi-Sabi",
+        "family":  "Artful \u0026 Heritage",
+        "tagline":  "Beauty in imperfection.",
+        "palette":  [
+                        "#EEE9E0",
+                        "#C8BFB0",
+                        "#8B7E6A",
+                        "#4A4238",
+                        "#A65E3A"
+                    ],
+        "typefaces":  [
+                          "Shippori Mincho",
+                          "Cormorant",
+                          "Noto Serif JP"
+                      ],
+        "best_for":  "Ceramics, tea houses, architecture, skincare, mindful products",
+        "file":  "styles/28-wabi-sabi.json"
+    }
+]

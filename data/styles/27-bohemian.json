@@ -1,0 +1,29 @@
+﻿{
+    "id":  "27",
+    "slug":  "bohemian",
+    "name":  "Bohemian",
+    "family":  "Artful \u0026 Heritage",
+    "tagline":  "Sun-baked, handmade, free.",
+    "what_it_means":  "Bohemian (boho) design feels warm, earthy and handcrafted: terracotta, sand, olive and mustard tones, arches, sun and moon motifs, woven and rug-like patterns, botanical illustrations and relaxed serif type. It evokes travel, freedom and slow artisanal living.",
+    "signature_moves":  [
+                            "Earthy palette: terracotta, sand, olive, mustard",
+                            "Arches, suns, moons, wavy organic shapes",
+                            "Woven / rug / macramé patterns",
+                            "Botanical line drawings and dried flowers",
+                            "Soft serif + handwritten accents"
+                        ],
+    "palette":  [
+                    "#F3E5D0",
+                    "#C8633F",
+                    "#8A9A5B",
+                    "#E0A84E",
+                    "#5A3A2E"
+                ],
+    "typefaces":  [
+                      "DM Serif Display",
+                      "Fraunces",
+                      "Caveat"
+                  ],
+    "best_for":  "Home décor, ceramics, yoga retreats, travel, handmade goods",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design an online store homepage for [HANDMADE / DECOR BRAND] in a Bohemian (boho) style. Warm sand background (#F3E5D0). Use arch-shaped image frames, a half-sun with rays, a crescent moon and wavy organic shapes in terracotta (#C8633F), olive (#8A9A5B) and mustard (#E0A84E). Add a woven rug-style pattern strip and a few botanical line drawings (pampas grass, leaves). Headline in a soft, warm serif (Fraunces / DM Serif Display) in brown (#5A3A2E) with a handwritten accent word. Rounded, earthy buttons. Relaxed, slightly asymmetric layout."
+}

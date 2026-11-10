@@ -1,0 +1,30 @@
+﻿{
+    "id":  "19",
+    "slug":  "y2k-aesthetic",
+    "name":  "Y2K Aesthetic",
+    "family":  "Retro \u0026 Digital",
+    "tagline":  "Chrome, bubbles and futuristic optimism.",
+    "what_it_means":  "Y2K design channels the late-90s/early-2000s vision of the future: liquid chrome type, iridescent holographic gradients, glossy bubble buttons, sparkles, blobby shapes and translucent tech. It is shiny, optimistic and nostalgic for Gen-Z audiences.",
+    "signature_moves":  [
+                            "Liquid chrome / metallic text",
+                            "Holographic iridescent gradients (pink, blue, lilac)",
+                            "Glossy pill buttons with highlights",
+                            "Sparkles ✦, stars, butterflies, blobby 3D shapes",
+                            "Translucent windows and early-web UI nods"
+                        ],
+    "palette":  [
+                    "#E8E4FF",
+                    "#FF9DE2",
+                    "#8FD3FF",
+                    "#C9B6FF",
+                    "#B8C0CC"
+                ],
+    "typefaces":  [
+                      "Monoton",
+                      "Syne",
+                      "Michroma",
+                      "chrome effects"
+                  ],
+    "best_for":  "Fashion, beauty, music, Gen-Z apps, merch drops",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a merch-drop landing page for [BRAND] in a Y2K aesthetic. Background: soft holographic iridescent gradient (pink #FF9DE2, baby blue #8FD3FF, lilac #C9B6FF). Headline in liquid chrome lettering (silver gradient fill, white highlights, dark outline, slight bevel). Glossy pill buttons with a white top highlight and inner glow. Decorate with 4-point sparkles ✦ , chrome blob shapes, a butterfly and a translucent early 2000s window panel with a title bar. Fonts: a wide futuristic display face (Michroma / Syne) plus a clean sans. Add gentle shimmer animations."
+}

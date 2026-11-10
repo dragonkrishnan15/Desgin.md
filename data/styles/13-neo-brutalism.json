@@ -1,0 +1,29 @@
+﻿{
+    "id":  "13",
+    "slug":  "neo-brutalism",
+    "name":  "Neo-Brutalism",
+    "family":  "Bold \u0026 Expressive",
+    "tagline":  "Loud, raw, unapologetic.",
+    "what_it_means":  "Neo-Brutalism takes the raw honesty of brutalist web design and adds colour. Thick black outlines, hard offset shadows with zero blur, clashing flat colours and chunky type make interfaces look deliberately unpolished, confident and fun.",
+    "signature_moves":  [
+                            "Thick black borders (2-4px) on everything",
+                            "Hard offset shadows: 6px 6px 0 \\#000",
+                            "Flat, saturated, clashing colours",
+                            "Chunky grotesk type, stickers, tilted badges",
+                            "Visible structure, no gradients, no blur"
+                        ],
+    "palette":  [
+                    "#FFE94A",
+                    "#FF6B9E",
+                    "#4D7CFE",
+                    "#00C48C",
+                    "#111111"
+                ],
+    "typefaces":  [
+                      "Archivo Black",
+                      "Space Grotesk",
+                      "Lexend Mega"
+                  ],
+    "best_for":  "Startups, indie tools, creator brands, Gen-Z products",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a landing page for [STARTUP] in Neo-Brutalism style. Bright yellow background (#FFE94A). Every card, button and image gets a 3px solid black border and a hard offset shadow (6px 6px 0 #000, no blur). Use flat clashing colours: pink #FF6B9E, blue #4D7CFE, green #00C48C. Typography: Archivo Black for huge headlines, Space Grotesk for body. Add tilted sticker badges, a marquee ticker strip, and chunky buttons that move 3px down-right and lose their shadow on press. Squared or lightly rounded (8px) corners. No gradients, no blur, no subtle greys."
+}

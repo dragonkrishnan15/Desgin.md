@@ -1,0 +1,34 @@
+﻿{
+    "id":  "better-interface",
+    "name":  "Better Interface Auditor",
+    "author":  "Jakub Krehel",
+    "role":  "General-purpose interface auditor \u0026 polish orchestrator",
+    "description":  "Review an interface screen or component across UI polish, accessibility, layout, typography, and writing. Evaluates evidence and deterministic numbers over subjective taste.",
+    "evaluation_dimensions":  {
+                                  "layout_and_edges":  [
+                                                           "Align elements strictly to shared edges and grid lines; eliminate stray 1px/2px misalignments",
+                                                           "Group related items with intentional proximity; separate unrelated elements with structural whitespace",
+                                                           "Breakpoints must come from content constraints, not device presets. Hold structure until it breaks"
+                                                       ],
+                                  "typography_and_hierarchy":  [
+                                                                   "Limit type scale to 5–7 distinct steps with a scale ratio \u003e= 1.2",
+                                                                   "Line-height: Tight for display/headings (1.1–1.2), comfortable for body copy (1.4–1.6)",
+                                                                   "Body copy measure must stay within 45–75 characters per line",
+                                                                   "Never use more than 2 distinct typefaces; pair for contrast, not subtle near-identical likeness"
+                                                               ],
+                                  "controls_and_affordances":  [
+                                                                   "Controls must look distinct from content (background surface, border, or reserved interactive zones)",
+                                                                   "Interactive tap/click targets: minimum 44x44px (touch) or 40x40px (desktop density)",
+                                                                   "Scale on press: Subtle tactile feedback (0.96 scale) on active state; never drop below 0.95"
+                                                               ],
+                                  "spacing_and_system_tokens":  [
+                                                                    "Enforce strict 4px/8px modular rhythm. Flag arbitrary gaps (e.g., 13px, 27px)",
+                                                                    "Internal padding must always be smaller than or equal to external bounding gaps"
+                                                                ]
+                              },
+    "severity_ladder":  {
+                            "blocking":  "Inaccessible contrast, overlapping hit targets, broken keyboard flow, unreadable text",
+                            "important":  "Inconsistent spacing tokens, weak visual hierarchy, awkward line wraps, unclear interactive states",
+                            "polish":  "Fine letter-spacing tweaks, micro-alignment adjustments, subtle tactile feedback additions"
+                        }
+}

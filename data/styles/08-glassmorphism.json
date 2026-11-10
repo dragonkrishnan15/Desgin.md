@@ -1,0 +1,29 @@
+﻿{
+    "id":  "08",
+    "slug":  "glassmorphism",
+    "name":  "Glassmorphism",
+    "family":  "Soft \u0026 Tactile",
+    "tagline":  "Frosted glass over colour.",
+    "what_it_means":  "Glassmorphism layers translucent, frosted panels over vivid, blurred backgrounds. Background blur, a thin bright border and subtle transparency create depth and a sense of hierarchy, as if the interface were made of sheets of frosted glass floating above colour.",
+    "signature_moves":  [
+                            "Background blur (backdrop-filter) on panels",
+                            "Semi-transparent white fills (10-25%)",
+                            "1px light border to catch the \u0027edge\u0027",
+                            "Vivid gradient blobs behind the glass",
+                            "Layered depth with soft shadows"
+                        ],
+    "palette":  [
+                    "#1B1640",
+                    "#FF5ACD",
+                    "#5B8CFF",
+                    "#FFFFFF",
+                    "#FFFFFF"
+                ],
+    "typefaces":  [
+                      "SF Pro",
+                      "Inter",
+                      "Plus Jakarta Sans"
+                  ],
+    "best_for":  "Fintech cards, music \u0026 weather apps, dashboards, OS-style UIs",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a finance dashboard for [APP] in Glassmorphism style. Background: deep indigo (#1B1640) with 3 large blurred gradient blobs (pink #FF5ACD, blue #5B8CFF, orange). Panels are frosted glass: background rgba(255,255,255,0.12), backdrop-filter: blur(20px), 1px border rgba(255,255,255,0.3), 24px radius, soft shadow. Include a glass credit card, a balance card with a line chart, and a recent transactions list. White text with 70% opacity for secondary text. Font: Inter / Plus Jakarta Sans. Make sure text contrast stays readable over the blur."
+}

@@ -1,0 +1,29 @@
+﻿{
+    "id":  "10",
+    "slug":  "skeuomorphism",
+    "name":  "Skeuomorphism",
+    "family":  "Soft \u0026 Tactile",
+    "tagline":  "Make it look real.",
+    "what_it_means":  "Skeuomorphism imitates real-world materials and objects: leather, brushed metal, wood, paper, glossy buttons and realistic lighting. It was the signature of early iPhone apps and is making a comeback as \u0027tactile\u0027 design, giving users instantly familiar, satisfying controls.",
+    "signature_moves":  [
+                            "Realistic textures: metal, leather, wood, paper",
+                            "Detailed lighting, gradients and highlights",
+                            "Physical metaphors: knobs, switches, notebooks",
+                            "Embossed/debossed text and stitching",
+                            "Rich depth and drop shadows"
+                        ],
+    "palette":  [
+                    "#2B2B2E",
+                    "#C9CCD1",
+                    "#6E4B2A",
+                    "#F2D16B",
+                    "#E04A3A"
+                ],
+    "typefaces":  [
+                      "SF Pro",
+                      "Helvetica Neue",
+                      "Lucida Grande"
+                  ],
+    "best_for":  "Audio/music tools, camera apps, retro-tech products, games",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a vintage synthesizer/audio plugin interface for [APP] in full Skeuomorphism. A brushed aluminium faceplate (layered linear gradients with fine noise) set inside walnut wood side panels. Include realistic rotary knobs with metallic radial highlights and tick marks, a glowing amber VU meter with a needle, chunky toggle switches, and embossed engraved labels (text-shadow 0 1px 0 rgba(255,255,255,.5)). Use realistic top down lighting, screws in the corners, and soft drop shadows so every control looks touchable. Font: Helvetica Neue, small caps labels."
+}

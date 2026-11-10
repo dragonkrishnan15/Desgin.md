@@ -1,0 +1,29 @@
+﻿{
+    "id":  "25",
+    "slug":  "art-deco",
+    "name":  "Art Deco",
+    "family":  "Artful \u0026 Heritage",
+    "tagline":  "Gatsby-era glamour.",
+    "what_it_means":  "Art Deco (1920s-30s) is symmetrical, geometric and glamorous: gold line work, sunbursts, fan shapes, stepped forms and tall condensed type on deep black, emerald or navy. It signals luxury, celebration and timeless craftsmanship.",
+    "signature_moves":  [
+                            "Strict symmetry and stepped geometry",
+                            "Gold line ornaments, sunbursts, fans, chevrons",
+                            "Tall, condensed, high-waisted display type",
+                            "Deep jewel tones (black, emerald, navy) + gold",
+                            "Framed panels with double gold borders"
+                        ],
+    "palette":  [
+                    "#0B1A17",
+                    "#D4AF37",
+                    "#0F4C3A",
+                    "#F3E9D2",
+                    "#1C1C1C"
+                ],
+    "typefaces":  [
+                      "Poiret One",
+                      "Limelight",
+                      "Josefin Sans"
+                  ],
+    "best_for":  "Hotels \u0026 bars, weddings, events \u0026 galas, premium spirits",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design an invitation-style landing page for [BAR / HOTEL / GALA] in Art Deco style. Deep emerald-black background (#0B1A17) with gold (#D4AF37) geometric line ornaments: a central sunburst fan, stepped ziggurat corners, chevrons and double-line frames. Strict symmetry. Headline in a tall, condensed geometric display font (Poiret One / Limelight) with wide letter-spacing; ivory body text (#F3E9D2). Gold outline buttons with stepped corners. Subtle shimmer on gold elements. No rounded UI, no drop shadows."
+}

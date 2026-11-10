@@ -1,0 +1,29 @@
+﻿{
+    "id":  "03",
+    "slug":  "bento-grid",
+    "name":  "Bento Grid",
+    "family":  "Clean \u0026 Structured",
+    "tagline":  "Everything in its box.",
+    "what_it_means":  "Named after the Japanese lunch box, Bento layouts arrange features into a tidy grid of rounded tiles of different sizes. Each tile tells one small story (a stat, a feature, a visual), so a whole product can be scanned at a glance. Popularised by Apple keynotes and modern SaaS sites.",
+    "signature_moves":  [
+                            "Rounded tiles of mixed sizes on one grid",
+                            "One idea per tile: stat, icon, screenshot",
+                            "Consistent gaps (12-20px) and corner radius",
+                            "Often dark mode with one accent per tile",
+                            "Great for feature overviews and dashboards"
+                        ],
+    "palette":  [
+                    "#0B0B0F",
+                    "#17171D",
+                    "#7C5CFF",
+                    "#3DDC97",
+                    "#F5F5F7"
+                ],
+    "typefaces":  [
+                      "SF Pro",
+                      "Inter",
+                      "Geist"
+                  ],
+    "best_for":  "SaaS feature sections, product launches, portfolios, dashboards",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Create a features section for [PRODUCT] using a Bento Grid layout. Dark background (#0B0B0F), tiles in #17171D with 24px radius, 16px gaps, on a 4-column grid with mixed spans (one 2x2 hero tile, two 2x1 tiles, three 1x1 tiles). Each tile holds exactly one idea: a big stat, a feature with an icon, a mini chart, or a UI screenshot. Use Inter/Geist, white headings, grey (#9A9AA5) body. Give each tile a subtle accent glow (violet #7C5CFF or mint #3DDC97). Hover: tile lifts 4px and the border brightens. Make it responsive: tiles stack to 1 column on mobile."
+}

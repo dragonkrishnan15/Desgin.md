@@ -1,0 +1,29 @@
+﻿{
+    "id":  "02",
+    "slug":  "swiss-design",
+    "name":  "Swiss Design",
+    "family":  "Clean \u0026 Structured",
+    "tagline":  "The grid is the hero.",
+    "what_it_means":  "Also called the International Typographic Style (1950s Switzerland). It is built on a rigid modular grid, flush-left sans-serif type, asymmetric layouts and objective clarity. Big numbers, bold rules and red/black/white palettes make information feel engineered.",
+    "signature_moves":  [
+                            "Visible modular grid and strong alignment",
+                            "Flush-left, ragged-right Helvetica-style type",
+                            "Asymmetric composition, huge type scale jumps",
+                            "Red, black and white with geometric shapes",
+                            "Numbers and labels used as graphic elements"
+                        ],
+    "palette":  [
+                    "#FFFFFF",
+                    "#111111",
+                    "#E30613",
+                    "#F2F2F2",
+                    "#9B9B9B"
+                ],
+    "typefaces":  [
+                      "Helvetica Neue",
+                      "Inter",
+                      "Neue Haas Grotesk"
+                  ],
+    "best_for":  "Agencies, conferences, architecture, data-heavy sites",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [EVENT / STUDIO] in classic Swiss (International Typographic) style. Build on a visible 12-column grid with thin hairline rules. Use one grotesk typeface (Helvetica Neue or Inter) only, flush-left and ragged-right, with dramatic size contrast: a 140px bold headline next to 11px captions. Palette: white, black and signal red (#E30613) only. Add one large geometric shape (a red circle) placed asymmetrically. Use numbered sections (01, 02, 03) as graphic elements. No shadows, no rounded corners, no images except optional black-and-white photography."
+}

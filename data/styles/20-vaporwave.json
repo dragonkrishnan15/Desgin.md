@@ -1,0 +1,28 @@
+﻿{
+    "id":  "20",
+    "slug":  "vaporwave",
+    "name":  "Vaporwave",
+    "family":  "Retro \u0026 Digital",
+    "tagline":  "Statues, sunsets and old Windows.",
+    "what_it_means":  "Vaporwave is an ironic, dreamy internet aesthetic built from 80s-90s consumer tech: Greek statues, pastel pink and teal, checkerboard floors, palm trees, Windows 95 windows, Japanese text and glitchy VHS effects. It feels nostalgic, surreal and slightly melancholic.",
+    "signature_moves":  [
+                            "Pink + teal + purple pastel gradients",
+                            "Retro OS windows, cursors, low-res graphics",
+                            "Classical statues, palms, checkerboard floors",
+                            "Wide-spaced text (\u0027Ａ Ｅ Ｓ Ｔ Ｈ Ｅ Ｔ Ｉ Ｃ\u0027) \u0026 Japanese → VHS noise, scanlines, glitch"
+                        ],
+    "palette":  [
+                    "#FF71CE",
+                    "#01CDFE",
+                    "#05FFA1",
+                    "#B967FF",
+                    "#FFFB96"
+                ],
+    "typefaces":  [
+                      "VT323",
+                      "MS Sans Serif-style",
+                      "wide-spaced serif"
+                  ],
+    "best_for":  "Music \u0026 playlists, art projects, streetwear, meme savvy brands",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a music/playlist page for [ARTIST] in a Vaporwave aesthetic. Pastel sunset gradient sky (pink #FF71CE to purple #B967FF), a perspective checkerboard floor, palm-tree silhouettes and a classical marble bust. Overlay a Windows-95-style window (grey bevelled title bar in #01CDFE) containing the track list and a retro media player. Headline in full-width spaced letters (\u0027 Ｖ Ａ Ｐ Ｏ Ｒ \u0027) with Japanese katakana underneath. Use VT323 for UI text, add VHS scanlines, slight chromatic aberration and a pixel cursor."
+}

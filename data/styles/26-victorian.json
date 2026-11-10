@@ -1,0 +1,29 @@
+﻿{
+    "id":  "26",
+    "slug":  "victorian",
+    "name":  "Victorian",
+    "family":  "Artful \u0026 Heritage",
+    "tagline":  "Ornate, gilded, storied.",
+    "what_it_means":  "Victorian design draws on 19th-century print and interiors: ornate frames, flourishes, damask patterns, engraved illustrations, blackletter and decorative serifs, rich burgundy, forest green and gold. It conveys heritage, craftsmanship and old-world romance.",
+    "signature_moves":  [
+                            "Ornate frames, flourishes and dividers",
+                            "Blackletter + decorative serif type mixes",
+                            "Damask / wallpaper patterns",
+                            "Rich dark palette: burgundy, green, gold, cream",
+                            "Engraved illustrations, labels and seals"
+                        ],
+    "palette":  [
+                    "#2B0F14",
+                    "#5B1A24",
+                    "#1F3B2D",
+                    "#C9A54C",
+                    "#F2E6CC"
+                ],
+    "typefaces":  [
+                      "UnifrakturMaguntia",
+                      "Playfair Display",
+                      "IM Fell"
+                  ],
+    "best_for":  "Tea, whisky, perfumers, bookshops, heritage \u0026 antique brands",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [HERITAGE BRAND, e.g. tea merchant] in a Victorian style. Dark burgundy background (#2B0F14) with a subtle damask wallpaper pattern. Centre a cream (#F2E6CC) label panel inside an ornate gold (#C9A54C) double frame with corner flourishes. Headline in blackletter (UnifrakturMaguntia), subheads in a decorative serif (Playfair / IM Fell) with small caps, \u0027Est. 1887\u0027 seal, engraved-style illustration and ornamental dividers ( ❦ ). Buttons look like printed tickets with scalloped edges. Muted forest green (#1F3B2D) for secondary blocks."
+}

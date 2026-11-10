@@ -1,0 +1,29 @@
+﻿{
+    "id":  "17",
+    "slug":  "conceptual-sketch",
+    "name":  "Conceptual Sketch",
+    "family":  "Bold \u0026 Expressive",
+    "tagline":  "Ideas, still in pencil.",
+    "what_it_means":  "Conceptual Sketch design looks like a designer\u0027s notebook or whiteboard: hand-drawn wobbly boxes, wireframe placeholders, pencil annotations, arrows and grid paper. It signals thinking-in progress and creativity, and is popular for tools, agencies and educational content.",
+    "signature_moves":  [
+                            "Hand-drawn wobbly borders and arrows",
+                            "Graph or dot-grid paper backgrounds",
+                            "Wireframe placeholders (crossed image boxes)",
+                            "Handwritten annotations and highlights",
+                            "Blue-pencil / marker colour palette"
+                        ],
+    "palette":  [
+                    "#FBFAF5",
+                    "#2B4C7E",
+                    "#1F1F1F",
+                    "#FFE45E",
+                    "#E85D4A"
+                ],
+    "typefaces":  [
+                      "Caveat",
+                      "Kalam",
+                      "Architects Daughter"
+                  ],
+    "best_for":  "Design tools, whiteboard apps, agencies, tutorials, pitch pages",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a landing page for [CREATIVE TOOL] in a Conceptual Sketch style, as if drawn in a designer\u0027s notebook. Off-white dot-grid paper background (#FBFAF5). All boxes, buttons and cards use hand-drawn wobbly borders (irregular border-radius like 255px 15px 225px 15px / 15px 225px 15px 255px) in ink black. Image placeholders are wireframe boxes with an X. Add handwritten annotations in blue pencil (#2B4C7E) with curved arrows pointing at features, yellow highlighter marks (#FFE45E) behind key words, and a red circled callout (#E85D4A). Fonts: Caveat / Architects Daughter."
+}

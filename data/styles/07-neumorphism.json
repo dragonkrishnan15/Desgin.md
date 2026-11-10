@@ -1,0 +1,29 @@
+﻿{
+    "id":  "07",
+    "slug":  "neumorphism",
+    "name":  "Neumorphism",
+    "family":  "Soft \u0026 Tactile",
+    "tagline":  "Soft plastic, pressed into the page.",
+    "what_it_means":  "Neumorphism (new skeuomorphism) makes elements look extruded from, or pressed into, the background itself. The element shares the background colour and is shaped only by a light shadow on one side and a dark shadow on the other. It feels calm and tactile, but needs care for contrast and accessibility.",
+    "signature_moves":  [
+                            "Element colour = background colour",
+                            "Dual shadows: light top-left, dark bottom-right",
+                            "Inset shadows for pressed/active states",
+                            "Soft rounded controls: dials, toggles, sliders",
+                            "Low contrast; add one accent for accessibility"
+                        ],
+    "palette":  [
+                    "#E0E5EC",
+                    "#A3B1C6",
+                    "#FFFFFF",
+                    "#4D5B7C",
+                    "#6C63FF"
+                ],
+    "typefaces":  [
+                      "Nunito",
+                      "Poppins",
+                      "Manrope"
+                  ],
+    "best_for":  "Smart-home controls, music players, calculators, widgets",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a smart-home control app screen in Neumorphism style. Background and all elements use the same soft grey (#E0E5EC). Shape everything with dual shadows: -8px -8px 16px #FFFFFF and 8px 8px 16px #A3B1C6. Include: a large circular thermostat dial with an inset track, 4 room toggle cards, a pressed (inset-shadow) active state, a pill slider for lights. Rounded corners 24-32px. Text in dark slate (#4D5B7C), one accent (#6C63FF) for active values to keep contrast accessible. Font: Nunito or Manrope. No borders, no gradients except subtle ones on knobs."
+}

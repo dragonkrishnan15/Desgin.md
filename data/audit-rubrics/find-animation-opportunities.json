@@ -1,0 +1,40 @@
+﻿{
+    "id":  "find-animation-opportunities",
+    "name":  "Find Animation Opportunities",
+    "author":  "Emil Kowalski",
+    "role":  "Interaction \u0026 motion filter",
+    "description":  "A disciplined motion audit and filter based on Emil Kowalski\u0027s animation philosophy. Acts as a filter, not a wishlist. Proposes high-conviction micro-interactions with exact durations and easings.",
+    "hard_rules":  [
+                       "Filter First: Reject most candidates. A short list of high-impact animations beats an over-animated, sluggish interface",
+                       "No Decoration on Dense Functional UI: Data tables, charts, and information displays must stay static and legible"
+                   ],
+    "four_question_gate":  {
+                               "gate_1_frequency":  {
+                                                        "100_plus_times_a_day":  "Reject. Instant execution only (keyboard shortcuts, command palettes, primary nav)",
+                                                        "tens_of_times_a_day":  "Suggest only near-imperceptible motion (\u003c150ms) (toggle switches, list row clicks)",
+                                                        "occasional":  "Eligible for standard animation (modals, dialogs, sheets, toast notices)",
+                                                        "rare_or_first_time":  "Eligible for delight budget (onboarding steps, milestone celebration)"
+                                                    },
+                               "gate_2_purpose":  [
+                                                      "Feedback: Confirming user intent (button press scale)",
+                                                      "Spatial Consistency: Showing origin/destination (sheet expands from trigger, toast slides from bottom)",
+                                                      "State Indication: Making change legible (chevron rotation on expand)",
+                                                      "Preventing Jarring Change: Bridging visual pop-in or layout jumps"
+                                                  ],
+                               "gate_3_speed_budgets":  {
+                                                            "press_feedback":  "100–160ms",
+                                                            "tooltips_small_popovers":  "125–200ms",
+                                                            "dropdowns_selects":  "150–250ms",
+                                                            "modals_drawers":  "200–350ms",
+                                                            "hard_ceiling":  "UI motion must stay under 300ms total. Anything requiring slow, showy timing is rejected."
+                                                        },
+                               "gate_4_function":  "Does motion clarify or distract? If it adds cognitive drag, reject."
+                           },
+    "deliverables":  [
+                         "Target component",
+                         "Purpose (Feedback | Spatial | State | Bridge)",
+                         "Recipe (exact duration, CSS cubic-bezier / Framer Motion spring)",
+                         "Reduced Motion Alternative",
+                         "Rejected Candidates with rationale"
+                     ]
+}

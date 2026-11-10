@@ -1,0 +1,29 @@
+﻿{
+    "id":  "15",
+    "slug":  "memphis",
+    "name":  "Memphis",
+    "family":  "Bold \u0026 Expressive",
+    "tagline":  "80s confetti geometry.",
+    "what_it_means":  "Inspired by the Memphis Group (Milan, 1981), this style is a playful explosion of squiggles, zig-zags, confetti shapes, terrazzo, bright pastels and bold black outlines. It is cheeky, retro and anti-serious, great for brands that want personality.",
+    "signature_moves":  [
+                            "Squiggles, zig-zags, dots, triangles as decoration",
+                            "Bright pastels + black outlines",
+                            "Terrazzo and grid patterns",
+                            "Playful, slightly off-kilter layouts",
+                            "Rounded geometric type"
+                        ],
+    "palette":  [
+                    "#FFF4E0",
+                    "#FF6F91",
+                    "#3EC1D3",
+                    "#FFC93C",
+                    "#7A5CFA"
+                ],
+    "typefaces":  [
+                      "Fredoka",
+                      "Righteous",
+                      "Poppins Black"
+                  ],
+    "best_for":  "Kids brands, snacks \u0026 drinks, creative events, social apps",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a landing page for [FUN BRAND] in a 1980s Memphis style. Cream background (#FFF4E0) scattered with confetti decorations: black squiggles, zig-zag lines, polka-dot triangles, half circles and terrazzo specks in pink #FF6F91, teal #3EC1D3, yellow #FFC93C and purple #7A5CFA. Shapes have thick black outlines. Headline in a chunky rounded geometric font (Fredoka / Righteous) with a coloured offset shadow. Product image sits on a geometric plinth. Buttons are pill-shaped with black borders. Decorations gently bob on hover."
+}

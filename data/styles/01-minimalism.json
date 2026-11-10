@@ -1,0 +1,29 @@
+﻿{
+    "id":  "01",
+    "slug":  "minimalism",
+    "name":  "Minimalism",
+    "family":  "Clean \u0026 Structured",
+    "tagline":  "Say more with less.",
+    "what_it_means":  "Minimalism strips an interface down to what matters: one idea per screen, generous whitespace, a restrained palette and quiet typography. Every element must earn its place, so hierarchy comes from spacing and scale rather than decoration.",
+    "signature_moves":  [
+                            "Huge whitespace, few elements per view",
+                            "One accent colour (or none)",
+                            "Thin type, small caps nav, quiet borders",
+                            "A single hero object or line of copy",
+                            "Motion is slow and subtle"
+                        ],
+    "palette":  [
+                    "#FAFAF8",
+                    "#111111",
+                    "#8A8A85",
+                    "#E6E4DF",
+                    "#C9A27E"
+                ],
+    "typefaces":  [
+                      "Inter",
+                      "Helvetica Now",
+                      "Neue Montreal"
+                  ],
+    "best_for":  "Premium products, portfolios, studios, single-product launches",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a landing page for [PRODUCT] in a strict Minimalist style. Off-white background (#FAFAF8), near-black text (#111). One centered hero: a single product image on a soft shadow, a 2-line headline in a light 56px sans-serif with tight tracking, one quiet text link as the CTA. Navigation: 3 small links, 12px, letter spaced. At least 120px vertical padding between sections, max 3 elements per section, no cards, no gradients, no icons. Use one warm accent (#C9A27E) only for hover states. Hierarchy comes from size and spacing only."
+}

@@ -1,0 +1,30 @@
+﻿{
+    "id":  "04",
+    "slug":  "editorial-design",
+    "name":  "Editorial Design",
+    "family":  "Clean \u0026 Structured",
+    "tagline":  "Read it like a magazine.",
+    "what_it_means":  "Editorial design borrows from print magazines and newspapers: expressive serif headlines, multi-column text, drop caps, pull quotes, captions and rules. It treats the web page as a crafted spread, prioritising reading rhythm and storytelling over app-like components.",
+    "signature_moves":  [
+                            "Large contrasting serif headlines",
+                            "Multi-column body, drop caps, pull quotes",
+                            "Thin rules, issue numbers, bylines, captions",
+                            "Full-bleed photography with art direction",
+                            "Mix of serif display + clean sans for meta"
+                        ],
+    "palette":  [
+                    "#F4EFE6",
+                    "#1A1A1A",
+                    "#B23A2B",
+                    "#D9D0C1",
+                    "#6B6358"
+                ],
+    "typefaces":  [
+                      "Playfair Display",
+                      "GT Super",
+                      "Canela",
+                      "Inter"
+                  ],
+    "best_for":  "Blogs, publications, long-form stories, brand journals",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a long-form article page for [PUBLICATION] in a print-magazine Editorial style. Warm paper background (#F4EFE6), ink text (#1A1A1A), one red accent (#B23A2B). Masthead with issue number and date separated by thin rules. Headline in a high-contrast serif (Playfair Display, 80px, tight leading) with an italic deck below. Body text in 3 columns with a large drop cap, a pull quote breaking across columns, and a full-bleed photo with a small caption. Bylines and section labels in a small letter-spaced sans-serif. No cards, no rounded corners, no shadows."
+}

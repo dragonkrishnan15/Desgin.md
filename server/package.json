@@ -1,0 +1,28 @@
+{
+  "name": "ui-design-engine-mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) server for 28 UI design styles, AI prompts, and Figma audit rubrics with zero-bloat progressive disclosure",
+  "type": "module",
+  "main": "index.mjs",
+  "bin": {
+    "ui-design-engine": "./index.mjs"
+  },
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ui-design",
+    "design-tokens",
+    "bento-grid",
+    "accessibility",
+    "figma",
+    "tailwind"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.1"
+  }
+}

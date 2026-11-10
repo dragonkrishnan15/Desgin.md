@@ -1,0 +1,30 @@
+﻿{
+    "id":  "18",
+    "slug":  "pixel-art",
+    "name":  "Pixel Art",
+    "family":  "Retro \u0026 Digital",
+    "tagline":  "8-bit charm, modern layout.",
+    "what_it_means":  "Pixel Art design brings back the blocky graphics of 8- and 16-bit games: bitmap fonts, chunky pixel icons, stepped edges and limited palettes. On modern clean layouts (like the reference post) it feels nostalgic, playful and handcrafted while staying readable.",
+    "signature_moves":  [
+                            "Bitmap / pixel fonts for headlines and nav",
+                            "Icons and illustrations built on a visible pixel grid",
+                            "Stepped (non-anti-aliased) shapes, hard edges",
+                            "Limited palette, often on a clean light background",
+                            "Retro game UI: health bars, score counters"
+                        ],
+    "palette":  [
+                    "#F1F1F4",
+                    "#2A1FE0",
+                    "#111111",
+                    "#FF4FB8",
+                    "#E23B3B"
+                ],
+    "typefaces":  [
+                      "Press Start 2P",
+                      "VT323",
+                      "Silkscreen",
+                      "PP NeueBit"
+                  ],
+    "best_for":  "Gaming, creative agencies, indie products, playful portfolios",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design an agency homepage for [STUDIO] in a Pixel Art style on a modern, clean layout. Light grey background (#F1F1F4). A giant headline in a blocky pixel font (Press Start 2P / PP NeueBit) in electric blue (#2A1FE0), with a black pixel subheading underneath. Navigation and labels in a monospaced bitmap font (VT323). Decorate with pixel-art icons drawn on a visible grid: a red 3D-ish pixel heart, pixel clouds, sparkles. Hot-pink (#FF4FB8) pixel button with a hard 1-step shadow. Stats row with big pixel numbers (20+, 85+, 42+). Use image-rendering: pixelated; no anti-aliased curves."
+}

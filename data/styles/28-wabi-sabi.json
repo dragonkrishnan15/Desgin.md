@@ -1,0 +1,29 @@
+﻿{
+    "id":  "28",
+    "slug":  "wabi-sabi",
+    "name":  "Wabi-Sabi",
+    "family":  "Artful \u0026 Heritage",
+    "tagline":  "Beauty in imperfection.",
+    "what_it_means":  "Wabi-Sabi is a Japanese philosophy that finds beauty in the imperfect, impermanent and incomplete. In UI it means earthy neutrals, natural textures (paper, clay, stone), asymmetric layouts, irregular organic shapes, generous emptiness and a calm, contemplative pace.",
+    "signature_moves":  [
+                            "Muted earthy neutrals, paper and clay textures",
+                            "Asymmetry and irregular organic shapes",
+                            "Lots of empty space (ma)",
+                            "Quiet serif or mincho type, vertical text",
+                            "Slow, gentle transitions; nothing flashy"
+                        ],
+    "palette":  [
+                    "#EEE9E0",
+                    "#C8BFB0",
+                    "#8B7E6A",
+                    "#4A4238",
+                    "#A65E3A"
+                ],
+    "typefaces":  [
+                      "Shippori Mincho",
+                      "Cormorant",
+                      "Noto Serif JP"
+                  ],
+    "best_for":  "Ceramics, tea houses, architecture, skincare, mindful products",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [CERAMICS / TEA / MINDFUL BRAND] in a Wabi-Sabi style. Warm rice-paper background (#EEE9E0) with subtle paper fibre texture. Asymmetric layout with lots of empty space. A single photo of a hand-made, imperfect ceramic bowl inside an irregular organic shape (uneven border-radius). Earthy neutrals (#C8BFB0, #8B7E6A, #4A4238) and one muted rust accent (#A65E3A) like a hanko seal stamp. Typography: a quiet serif / mincho (Shippori Mincho), small sizes, a short vertical Japanese line. Thin hand-drawn brush stroke divider. Slow fade transitions only."
+}

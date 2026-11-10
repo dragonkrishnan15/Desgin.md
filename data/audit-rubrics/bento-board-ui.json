@@ -1,0 +1,32 @@
+﻿{
+    "id":  "bento-board-ui",
+    "name":  "Bento Board UI Grid Engine",
+    "role":  "Layout \u0026 spatial composer",
+    "description":  "Composes complex interfaces into Apple- and Linear-style modular Bento Boards. Emphasizes visual rhythm, asymmetric card proportions, and self-contained content units.",
+    "core_rules":  {
+                       "grid_foundation":  [
+                                               "Use 2D CSS Grid tracks (repeat(3, 1fr) or repeat(4, 1fr))",
+                                               "Use uniform gutters across the entire board (typically 16px or 24px)"
+                                           ],
+                       "asymmetry_and_hierarchy":  {
+                                                       "1x1":  "Compact metric / indicator / icon badge",
+                                                       "2x1":  "Wide feature card with short horizontal graph or copy",
+                                                       "1x2":  "Tall vertical preview or contextual feed",
+                                                       "2x2":  "Hero showcase card (primary focal point)"
+                                                   },
+                       "self_contained_compartments":  [
+                                                           "Every cell must function as an independent, readable compartment with internal hierarchy (Title -\u003e Metric/Graphic -\u003e Caption)",
+                                                           "Internal padding must be uniform across all cards (p-5 or p-6 / 20–24px)",
+                                                           "Use generous rounded borders (rounded-2xl or rounded-3xl / 16–24px radius)"
+                                                       ],
+                       "surface_contrast":  {
+                                                "dark_mode":  "True black or dark slate canvas (#0A0A0C) with elevated card surfaces (#141418 or #1A1A22) and subtle borders (border-white/10)",
+                                                "light_mode":  "Soft off-white canvas (#F5F5F7) with pure white card surfaces (#FFFFFF) and hairline borders (border-black/5)"
+                                            }
+                   },
+    "deliverables":  [
+                         "Layout Blueprint: Text-based grid schematic showing cell row/column spans",
+                         "Component Implementation: Semantic HTML/JSX using Tailwind CSS grid classes",
+                         "Responsive Breakpoints: 1-col on mobile (\u003c640px), 2-col on tablet, full multi-span on desktop (\u003e=1024px)"
+                     ]
+}

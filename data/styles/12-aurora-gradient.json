@@ -1,0 +1,29 @@
+﻿{
+    "id":  "12",
+    "slug":  "aurora-gradient",
+    "name":  "Aurora Gradient",
+    "family":  "Soft \u0026 Tactile",
+    "tagline":  "Living colour mesh.",
+    "what_it_means":  "Aurora (or mesh-gradient) design uses large, blurred, flowing gradients that resemble the northern lights, usually on dark backgrounds. The gradient is the brand: it moves slowly, glows behind content and gives modern AI and tech products an energetic, premium feel.",
+    "signature_moves":  [
+                            "Large blurred mesh gradients, often animated",
+                            "Dark base so colours glow",
+                            "Clean sans type and minimal UI on top",
+                            "Subtle grain to avoid banding",
+                            "Glowing borders and light beams"
+                        ],
+    "palette":  [
+                    "#07070C",
+                    "#6A5BFF",
+                    "#00D1B2",
+                    "#FF4FD8",
+                    "#F2F2F7"
+                ],
+    "typefaces":  [
+                      "Geist",
+                      "Inter",
+                      "Satoshi"
+                  ],
+    "best_for":  "AI products, SaaS launches, crypto, developer tools",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a hero section for [AI PRODUCT] in an Aurora Gradient style. Near-black background (#07070C) with a large, softly blurred aurora mesh gradient (violet #6A5BFF, teal #00D1B2, magenta #FF4FD8) flowing behind the headline and slowly animating (20s loop). Add fine noise to prevent banding. Headline in Geist/Inter semibold 72px, white, tight tracking, with a small pill announcement badge above it. A glowing primary button with a gradient border, and a product screenshot below with a light-beam glow on its top edge. Keep UI minimal so the light is the hero."
+}

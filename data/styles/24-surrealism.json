@@ -1,0 +1,28 @@
+﻿{
+    "id":  "24",
+    "slug":  "surrealism",
+    "name":  "Surrealism",
+    "family":  "Artful \u0026 Heritage",
+    "tagline":  "Dream logic as interface.",
+    "what_it_means":  "Surrealist design borrows from Magritte and Dalí: impossible scenes, floating objects, doors in the sky, giant eyes, melting forms and dramatic shadows. It makes a brand feel imaginative and memorable by bending reality while keeping the UI itself simple.",
+    "signature_moves":  [
+                            "Impossible compositions: floating, oversized objects → Arches, doors, stairs leading nowhere",
+                            "Dreamy skies and long cast shadows",
+                            "Clean serif/sans type placed calmly on top",
+                            "Unexpected scale and scroll-driven reveals"
+                        ],
+    "palette":  [
+                    "#9EC9F0",
+                    "#F4D9B8",
+                    "#E86A4A",
+                    "#2D3A6B",
+                    "#FFF8EC"
+                ],
+    "typefaces":  [
+                      "DM Serif Display",
+                      "Syne",
+                      "Fraunces"
+                  ],
+    "best_for":  "Art \u0026 culture, creative agencies, fragrances, music, storytelling",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [CREATIVE BRAND] in a Surrealist style inspired by Magritte. A calm sky-blue gradient (#9EC9F0) above a sandy plane (#F4D9B8) with a perspective checkerboard floor fading into the distance. Place impossible objects: a free-standing doorway opening onto a night sky, a giant floating sphere with a long cast shadow, a staircase that ends in the air, and a cloud passing through an arch. Headline in an elegant serif (DM Serif Display, 64px) in deep navy (#2D3A6B). Keep UI minimal; objects drift slowly on scroll (parallax)."
+}

@@ -1,0 +1,29 @@
+﻿{
+    "id":  "11",
+    "slug":  "ethereal",
+    "name":  "Ethereal",
+    "family":  "Soft \u0026 Tactile",
+    "tagline":  "Light, mist and quiet glow.",
+    "what_it_means":  "Ethereal design feels weightless and dreamlike: soft pastel gradients that fade into mist, glowing orbs, grain, delicate thin serifs and lots of air. It evokes calm, spirituality and wellness, using light itself as the main visual element.",
+    "signature_moves":  [
+                            "Soft pastel gradients that dissolve to white",
+                            "Glowing orbs, halos and light leaks",
+                            "Thin, airy serif or light sans type",
+                            "Film grain / noise for softness",
+                            "Slow floating motion"
+                        ],
+    "palette":  [
+                    "#F7F3FF",
+                    "#D9C8FF",
+                    "#FFD9E8",
+                    "#CDEBFF",
+                    "#5E5873"
+                ],
+    "typefaces":  [
+                      "Cormorant",
+                      "Fraunces Light",
+                      "Inter Light"
+                  ],
+    "best_for":  "Wellness, meditation, skincare, spiritual \u0026 beauty brands",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a landing page for [WELLNESS / MEDITATION APP] in an Ethereal style. Background: a soft misty gradient of lavender (#D9C8FF), blush (#FFD9E8) and sky (#CDEBFF) dissolving into near-white (#F7F3FF), with a large glowing white orb and gentle light-leak halos. Add subtle film grain. Headline in a thin, airy serif (Cormorant / Fraunces Light, 72px) in muted plum (#5E5873); body in Inter Light. Translucent pill buttons with soft glow. Elements slowly float (6-10s ease-in-out loops). No hard edges, no strong contrast, plenty of breathing room."
+}

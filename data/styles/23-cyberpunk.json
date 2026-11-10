@@ -1,0 +1,29 @@
+﻿{
+    "id":  "23",
+    "slug":  "cyberpunk",
+    "name":  "Cyberpunk",
+    "family":  "Retro \u0026 Digital",
+    "tagline":  "High tech, low life, neon rain.",
+    "what_it_means":  "Cyberpunk design depicts a dystopian neon future: dark rainy cityscapes, aggressive yellow/magenta/cyan neon, angular clipped corner panels, HUD overlays, Japanese signage and glitch. It feels edgy, futuristic and immersive, like the UI of a sci-fi game.",
+    "signature_moves":  [
+                            "Dark city backdrops with neon glow",
+                            "Angular panels with clipped corners (clip-path)",
+                            "HUD details: brackets, coordinates, scanners",
+                            "Acid yellow + hot magenta + cyan accents",
+                            "Katakana / kanji, glitch and warning stripes"
+                        ],
+    "palette":  [
+                    "#0A0A12",
+                    "#FCEE0A",
+                    "#FF003C",
+                    "#00F0FF",
+                    "#1E1E2E"
+                ],
+    "typefaces":  [
+                      "Orbitron",
+                      "Rajdhani",
+                      "Chakra Petch"
+                  ],
+    "best_for":  "Games, esports, tech launches, streetwear, sci-fi content",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a game landing page for [GAME] in a Cyberpunk style. Dark rainy neon city backdrop (#0A0A12) with silhouetted skyscrapers and glowing signs in katakana. UI panels have sharp clipped corners (clip-path polygons), thin cyan (#00F0FF) borders and HUD brackets, coordinates and small data readouts. Primary accent is acid yellow (#FCEE0A) with hot red-magenta (#FF003C) for warnings. Headline in Orbitron / Chakra Petch, uppercase, with a slight glitch offset. Angular yellow CTA button with a notched corner, yellow-black warning stripes, rain streaks and flicker animations."
+}

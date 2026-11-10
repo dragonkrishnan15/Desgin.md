@@ -1,0 +1,29 @@
+﻿{
+    "id":  "21",
+    "slug":  "synthwave",
+    "name":  "Synthwave",
+    "family":  "Retro \u0026 Digital",
+    "tagline":  "Neon sunsets on an endless grid.",
+    "what_it_means":  "Synthwave (outrun / retrowave) is a love letter to 1980s sci-fi and arcade culture: a striped neon sunset over a glowing perspective grid, chrome type, magenta and cyan glows and dark purple skies. It feels cinematic, nostalgic and energetic.",
+    "signature_moves":  [
+                            "Striped gradient sun on the horizon",
+                            "Glowing magenta perspective grid floor",
+                            "Neon glow text (text-shadow blooms)",
+                            "Chrome / gradient italic display type",
+                            "Dark purple-to-black night sky, stars"
+                        ],
+    "palette":  [
+                    "#0D0221",
+                    "#FF2A6D",
+                    "#05D9E8",
+                    "#F9C80E",
+                    "#7B2CBF"
+                ],
+    "typefaces":  [
+                      "Monoton",
+                      "Orbitron",
+                      "Audiowide"
+                  ],
+    "best_for":  "Music, gaming, events, nightlife, retro-themed launches",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a hero for [GAME / MUSIC EVENT] in Synthwave (outrun) style. Night sky gradient from deep purple (#0D0221) to magenta at the horizon with tiny stars. A big sunset sun with a yellow-to-pink gradient (#F9C80E to #FF2A6D) cut by horizontal stripes on its lower half. Below the horizon, a glowing magenta perspective grid floor (CSS transform: perspective + rotateX) that scrolls toward the viewer. Headline in Monoton / Orbitron with neon cyan (#05D9E8) glow and a chrome italic subtitle. Neon-outline buttons. Add subtle scanlines."
+}

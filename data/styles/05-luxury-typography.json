@@ -1,0 +1,30 @@
+﻿{
+    "id":  "05",
+    "slug":  "luxury-typography",
+    "name":  "Luxury Typography",
+    "family":  "Clean \u0026 Structured",
+    "tagline":  "Type that whispers money.",
+    "what_it_means":  "Luxury typographic design lets elegant letterforms carry the brand. Think oversized high-contrast serifs, refined italics, wide letter spaced capitals and a near-monochrome palette with a touch of gold. Restraint, slow pacing and impeccable spacing signal exclusivity.",
+    "signature_moves":  [
+                            "Oversized, high-contrast serif display type",
+                            "Wide-tracked uppercase labels",
+                            "Black / ivory palette with metallic accent",
+                            "Lots of negative space, centered symmetry",
+                            "Slow fades and refined micro-interactions"
+                        ],
+    "palette":  [
+                    "#0E0D0B",
+                    "#F3EDE2",
+                    "#C6A15B",
+                    "#2A2723",
+                    "#8C8475"
+                ],
+    "typefaces":  [
+                      "Cormorant Garamond",
+                      "Didot",
+                      "Bodoni Moda",
+                      "a fine sans"
+                  ],
+    "best_for":  "Fashion, jewellery, hotels, perfume, fine dining",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a homepage for [LUXURY BRAND] using Luxury Typography as the main visual. Deep black background (#0E0D0B), ivory text (#F3EDE2) and a muted gold accent (#C6A15B) for thin 1px rules and small details. Hero: the brand name in an oversized high-contrast serif (Cormorant Garamond / Didot, 160px+), with one word in italic. Navigation and labels in tiny uppercase with 0.4em letter-spacing. Centered, symmetric composition with huge margins. A single thin-outline CTA button. Very slow fade-in animations. No icons, no bright colours, no rounded shapes."
+}

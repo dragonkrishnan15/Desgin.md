@@ -1,0 +1,29 @@
+﻿{
+    "id":  "06",
+    "slug":  "bauhaus",
+    "name":  "Bauhaus",
+    "family":  "Clean \u0026 Structured",
+    "tagline":  "Circle, square, triangle.",
+    "what_it_means":  "Rooted in the 1919 German art school, Bauhaus design reduces everything to primary colours and primary shapes. Bold geometric blocks, sans-serif type and functional composition create posters turned-interfaces that feel playful yet disciplined.",
+    "signature_moves":  [
+                            "Primary colours: red, yellow, blue + black",
+                            "Circles, squares, triangles as layout blocks",
+                            "Geometric sans-serif, often rotated type",
+                            "Flat colour, no gradients or shadows",
+                            "Function-first, asymmetric balance"
+                        ],
+    "palette":  [
+                    "#F2EBDD",
+                    "#D7263D",
+                    "#F4B400",
+                    "#1E4CA1",
+                    "#111111"
+                ],
+    "typefaces":  [
+                      "Futura",
+                      "Josefin Sans",
+                      "Archivo Black"
+                  ],
+    "best_for":  "Creative studios, museums, education, posters \u0026 events",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a hero section for [STUDIO / EVENT] in a Bauhaus style. Cream background (#F2EBDD). Compose the layout from large flat geometric shapes: a red (#D7263D) circle, a yellow (#F4B400) quarter-circle, a blue (#1E4CA1) square and a black triangle, overlapping on a hidden grid. Typography: a heavy geometric sans-serif (Futura / Archivo Black) in uppercase, with one word rotated 90°. Use thick black bars as dividers. No gradients, no shadows, no rounded cards. Buttons are flat rectangles in primary colours. Hover states swap colours between shapes."
+}

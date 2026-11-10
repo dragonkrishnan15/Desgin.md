@@ -1,0 +1,30 @@
+﻿{
+    "id":  "accessibility-review",
+    "name":  "Accessibility Review (WCAG 2.1 AA)",
+    "role":  "Compliance \u0026 usability inspector",
+    "description":  "Audits UI designs against WCAG 2.1 Level AA compliance. Flags hard failures and blocks before handoff.",
+    "checklist":  {
+                      "perceivable":  [
+                                          "Text Contrast (1.4.3): Normal text (\u003c24px or \u003c19px bold) \u003e= 4.5:1. Large text \u003e= 3:1",
+                                          "Non-Text Contrast (1.4.11): UI components, active state borders, and graphical icons \u003e= 3:1 against background",
+                                          "Color Independence (1.4.1): Never use color alone to convey status or errors; pair with icons, text badges, or shapes",
+                                          "Images \u0026 Icons (1.1.1): Informational graphics require semantic alt descriptions; decorative icons require aria-hidden=\u0027true\u0027 or empty alt"
+                                      ],
+                      "operable":  [
+                                       "Interactive Targets (2.5.5): Minimum 44x44 CSS px (iOS) or 48x48 dp (Android) hit areas",
+                                       "Keyboard Navigation (2.1.1 / 2.4.3): All controls reachable and activatable via Tab/Space/Enter in logical sequence",
+                                       "Focus Rings (2.4.7): High-contrast, unmistakable focus indicators. Never strip default outlines without a custom replacement",
+                                       "Modal Traps: Modal dialogs must trap keyboard focus and release focus back to trigger upon closing"
+                                   ],
+                      "understandable_and_robust":  [
+                                                        "Input Labels (3.3.2): Explicit, persistent visible labels for all inputs (placeholders do not count as labels)",
+                                                        "Error Identification (3.3.1): Describe errors clearly in text and associate with input via aria-describedby",
+                                                        "Headings \u0026 Landmarks (1.3.1): Strict sequential heading order (h1 -\u003e h2 -\u003e h3) with no skipping"
+                                                    ]
+                  },
+    "severity_ladder":  {
+                            "critical":  "Completely blocks users with disabilities (failing text contrast, untabbable controls, missing form labels)",
+                            "major":  "Causes disorientation or high friction (missing focus indicator, sub-44px targets, skipped heading levels)",
+                            "minor":  "Nice-to-have compliance enhancement (missing landmark tags, redundant link descriptions)"
+                        }
+}

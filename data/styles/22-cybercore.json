@@ -1,0 +1,28 @@
+﻿{
+    "id":  "22",
+    "slug":  "cybercore",
+    "name":  "Cybercore",
+    "family":  "Retro \u0026 Digital",
+    "tagline":  "The early internet, overclocked.",
+    "what_it_means":  "Cybercore is a nostalgic, hacker-flavoured internet aesthetic: terminal windows, ASCII art, glitchy RGB-split text, wireframe globes, binary rain, pop-ups and acid-green on black. It celebrates raw digital culture and the feeling of being \u0027jacked in\u0027 to the web.",
+    "signature_moves":  [
+                            "Terminal / command-line windows and monospace → Acid green, cyan and magenta on black",
+                            "Glitch, RGB split, scanlines, noise",
+                            "ASCII art, wireframes, binary/hex data",
+                            "OS pop-ups, loading bars, cursor blinks"
+                        ],
+    "palette":  [
+                    "#050505",
+                    "#39FF14",
+                    "#00F0FF",
+                    "#FF00E5",
+                    "#C0C0C0"
+                ],
+    "typefaces":  [
+                      "JetBrains Mono",
+                      "VT323",
+                      "Orbitron"
+                  ],
+    "best_for":  "Developer tools, hackathons, security, music \u0026 digital art",
+    "prompt_template":  "B U I L D Y O U R U I R E P L A C E T H E [ B R A C K E T S ] ** Design a hackathon landing page for [EVENT] in Cybercore style. Pure black background (#050505) with faint scanlines and a dim green grid. Main content inside terminal windows with title bars (\u0027root@cyber:~$\u0027), monospaced text (JetBrains Mono / VT323) in acid green #39FF14, blinking cursor. Headline uses RGB-split glitch (text-shadow 3px 0 #FF00E5, -3px 0 #00F0FF). Add an ASCII-art logo, a rotating wireframe globe, a fake loading bar, binary rain columns and a warning pop-up. Hover = glitch jitter animation."
+}
