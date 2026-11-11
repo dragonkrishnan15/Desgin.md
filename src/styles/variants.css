@@ -1,0 +1,231 @@
+/* Style Variants Structural Personality CSS */
+
+/* Base transitions on themed elements (Section 7.4) */
+[data-motion="expressive"] .card,
+[data-motion="expressive"] .btn-primary,
+[data-motion="expressive"] .btn-secondary,
+[data-motion="expressive"] .input-themed,
+[data-motion="expressive"] .badge-themed,
+[data-motion="subtle"] .card,
+[data-motion="subtle"] .btn-primary,
+[data-motion="subtle"] .btn-secondary,
+[data-motion="subtle"] .input-themed,
+[data-motion="subtle"] .badge-themed {
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease, border-radius .3s ease, box-shadow .3s ease;
+}
+
+[data-motion="none"] * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+/* ========================================================
+   1. Neo-Brutalism & Brutalism
+   ======================================================== */
+[data-style="neo-brutalism"] .card,
+[data-style="brutalism"] .card {
+  border: var(--border-w) solid var(--border) !important;
+  box-shadow: 5px 5px 0px var(--border) !important;
+}
+
+[data-style="neo-brutalism"] .btn-primary,
+[data-style="brutalism"] .btn-primary {
+  border: var(--border-w) solid var(--border) !important;
+  box-shadow: 4px 4px 0px var(--border) !important;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+[data-style="neo-brutalism"] .btn-primary:hover,
+[data-style="brutalism"] .btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--border) !important;
+}
+
+[data-style="neo-brutalism"] .btn-primary:active,
+[data-style="brutalism"] .btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--border) !important;
+}
+
+[data-style="neo-brutalism"] .badge-themed {
+  border: var(--border-w) solid var(--border) !important;
+  font-weight: 700;
+}
+
+/* ========================================================
+   2. Glassmorphism
+   ======================================================== */
+[data-style="glassmorphism"] .card {
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  background: color-mix(in srgb, var(--surface) 60%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--text) 18%, transparent) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-style="glassmorphism"] .navbar-themed {
+  backdrop-filter: blur(calc(var(--blur) * 1.2));
+  background: color-mix(in srgb, var(--bg) 70%, transparent) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent) !important;
+}
+
+[data-style="glassmorphism"] .btn-primary {
+  backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--accent) 85%, transparent) !important;
+  border: 1px solid color-mix(in srgb, white 25%, transparent) !important;
+}
+
+/* ========================================================
+   3. Bento Grid
+   ======================================================== */
+[data-style="bento-grid"] .card {
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-style="bento-grid"] .card:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border)) !important;
+}
+
+/* ========================================================
+   4. Neumorphism
+   ======================================================== */
+[data-style="neumorphism"] .card {
+  border: none !important;
+  background: var(--surface) !important;
+  box-shadow: 6px 6px 14px color-mix(in srgb, var(--bg) 60%, black),
+              -6px -6px 14px color-mix(in srgb, var(--bg) 85%, white) !important;
+}
+
+[data-style="neumorphism"] .btn-primary {
+  border: none !important;
+  box-shadow: 4px 4px 10px color-mix(in srgb, var(--bg) 60%, black),
+              -4px -4px 10px color-mix(in srgb, var(--bg) 85%, white) !important;
+}
+
+[data-style="neumorphism"] .input-themed {
+  border: none !important;
+  box-shadow: inset 3px 3px 6px color-mix(in srgb, var(--bg) 60%, black),
+              inset -3px -3px 6px color-mix(in srgb, var(--bg) 85%, white) !important;
+}
+
+/* ========================================================
+   5. Claymorphism
+   ======================================================== */
+[data-style="claymorphism"] .card {
+  border: none !important;
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.1),
+              inset -6px -6px 12px rgba(0, 0, 0, 0.08),
+              inset 6px 6px 12px rgba(255, 255, 255, 0.5) !important;
+}
+
+[data-style="claymorphism"] .btn-primary {
+  border: none !important;
+  box-shadow: 4px 6px 15px color-mix(in srgb, var(--accent) 40%, transparent),
+              inset -3px -3px 6px rgba(0, 0, 0, 0.2),
+              inset 3px 3px 6px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* ========================================================
+   6. Cyberpunk & Cybercore
+   ======================================================== */
+[data-style="cyberpunk"] .card,
+[data-style="cybercore"] .card {
+  border: var(--border-w) solid var(--accent) !important;
+  box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 30%, transparent),
+              inset 0 0 10px color-mix(in srgb, var(--accent) 10%, transparent) !important;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+[data-style="cyberpunk"] .btn-primary,
+[data-style="cybercore"] .btn-primary {
+  border: 1px solid var(--accent) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 50%, transparent) !important;
+}
+
+/* ========================================================
+   7. Swiss Design & Minimalism
+   ======================================================== */
+[data-style="swiss-design"] .card,
+[data-style="minimalism"] .card {
+  box-shadow: none !important;
+  border: 1px solid var(--border) !important;
+}
+
+[data-style="swiss-design"] h1,
+[data-style="swiss-design"] h2,
+[data-style="swiss-design"] h3 {
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+/* ========================================================
+   8. Luxury Typography & Art Deco
+   ======================================================== */
+[data-style="luxury-typography"] h1,
+[data-style="luxury-typography"] h2,
+[data-style="art-deco"] h1,
+[data-style="art-deco"] h2 {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+[data-style="luxury-typography"] .card,
+[data-style="art-deco"] .card {
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ========================================================
+   9. Pixel Art
+   ======================================================== */
+[data-style="pixel-art"] {
+  image-rendering: pixelated;
+}
+
+[data-style="pixel-art"] .card {
+  border: 3px solid var(--border) !important;
+  box-shadow: 4px 4px 0px 0px var(--accent) !important;
+}
+
+[data-style="pixel-art"] .btn-primary {
+  border: 3px solid var(--text) !important;
+  box-shadow: 3px 3px 0px 0px var(--border) !important;
+  text-transform: uppercase;
+}
+
+/* ========================================================
+   10. Aurora Gradient & Ethereal
+   ======================================================== */
+[data-style="aurora-gradient"] .card,
+[data-style="ethereal"] .card {
+  backdrop-filter: blur(var(--blur));
+  background: radial-gradient(circle at top right, color-mix(in srgb, var(--accent2) 20%, transparent), transparent 60%),
+              color-mix(in srgb, var(--surface) 80%, transparent) !important;
+  box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--accent) 30%, transparent) !important;
+}
+
+/* ========================================================
+   11. Y2K Aesthetic & Vaporwave
+   ======================================================== */
+[data-style="y2k-aesthetic"] .card,
+[data-style="vaporwave"] .card {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--surface) 90%, transparent), color-mix(in srgb, var(--surface2) 80%, transparent)) !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent) !important;
+  box-shadow: 0 0 20px -5px color-mix(in srgb, var(--accent2) 40%, transparent) !important;
+}
+
+/* ========================================================
+   12. Bauhaus
+   ======================================================== */
+[data-style="bauhaus"] .card {
+  border: 2px solid var(--border) !important;
+  box-shadow: 6px 6px 0px var(--accent2) !important;
+}
+

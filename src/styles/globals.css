@@ -1,0 +1,142 @@
+@import './variants.css';
+@import './grain.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@property --radius {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 8px;
+}
+
+@layer base {
+  :root {
+    --bg: #0b0c10;
+    --surface: #151724;
+    --surface2: #1f2235;
+    --text: #f1f3f9;
+    --muted: #9ba3b8;
+    --accent: #6366f1;
+    --accent2: #a855f7;
+    --success: #10b981;
+    --danger: #f43f5e;
+    --border: #2a2f47;
+
+    --font-heading: 'Inter Variable', -apple-system, sans-serif;
+    --font-body: 'Inter Variable', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --heading-weight: 700;
+    --body-weight: 400;
+    --tracking: -0.025em;
+
+    --radius: 12px;
+    --gap: 16px;
+    --border-w: 1px;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+    --blur: 8px;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: var(--body-weight);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--heading-weight);
+    letter-spacing: var(--tracking);
+  }
+}
+
+/* Common Themed Utilities (drive strictly via CSS variables) */
+.card {
+  background-color: var(--surface);
+  color: var(--text);
+  border-radius: var(--radius);
+  border-width: var(--border-w);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.card-subtle {
+  background-color: var(--surface2);
+  color: var(--text);
+  border-radius: var(--radius);
+  border-width: var(--border-w);
+  border-color: var(--border);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+  border-radius: var(--radius);
+  font-family: var(--font-heading);
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--tracking);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  background-color: var(--surface2);
+  color: var(--text);
+  border-radius: var(--radius);
+  border-width: var(--border-w);
+  border-color: var(--border);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary:hover {
+  background-color: color-mix(in srgb, var(--surface2) 80%, var(--accent));
+}
+
+.input-themed {
+  background-color: var(--surface2);
+  color: var(--text);
+  border-radius: var(--radius);
+  border-width: var(--border-w);
+  border-color: var(--border);
+  font-family: var(--font-body);
+}
+
+.badge-themed {
+  background-color: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--accent);
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
